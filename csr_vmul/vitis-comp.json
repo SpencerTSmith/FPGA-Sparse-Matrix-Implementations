@@ -1,0 +1,12 @@
+{
+  "name": "csr_vmul",
+  "type": "HLS",
+  "configuration": {
+    "componentType": "HLS",
+    "configFiles": [
+      "hls_config.cfg"
+    ],
+    "work_dir": "csr_vmul"
+  },
+  "template": "empty_hls_component"
+}

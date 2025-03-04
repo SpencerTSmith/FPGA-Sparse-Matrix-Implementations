@@ -1,0 +1,39 @@
+  **** HLS Build v2024.2 5238294
+INFO: [HLS 200-2005] Using work_dir /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul 
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying ini 'syn.file=/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(7)
+INFO: [HLS 200-10] Adding design file '/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp' to the project
+INFO: [HLS 200-1465] Applying ini 'syn.file=/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.h' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file '/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.h' to the project
+INFO: [HLS 200-1465] Applying ini 'tb.file=/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul_tb.cpp' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(9)
+INFO: [HLS 200-10] Adding test bench file '/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul_tb.cpp' to the project
+INFO: [HLS 200-1465] Applying ini 'syn.top=csr_vmul' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(11)
+INFO: [HLS 200-1465] Applying ini 'flow_target=vivado' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying ini 'part=xc7z020clg400-1' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1465] Applying ini 'csim.code_analyzer=1' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(10)
+INFO: [HLS 200-1465] Applying ini 'package.output.format=ip_catalog' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(5)
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 1.84 seconds. CPU system time: 0.16 seconds. Elapsed time: 1.89 seconds; current allocated memory: 659.621 MB.
+INFO: [HLS 200-10] Analyzing design file 'csr_vmul.cpp' ... 
+ERROR: [HLS 207-3728] member reference type 'const CSR_Matrix *' is a pointer; did you mean to use '->'? (csr_vmul.cpp:18:46)
+ERROR: [HLS 207-3728] member reference type 'const CSR_Matrix *' is a pointer; did you mean to use '->'? (csr_vmul.cpp:19:46)
+ERROR: [HLS 207-3728] member reference type 'const CSR_Matrix *' is a pointer; did you mean to use '->'? (csr_vmul.cpp:20:46)
+ERROR: [HLS 207-3728] member reference type 'const CSR_Matrix *' is a pointer; did you mean to use '->'? (csr_vmul.cpp:21:42)
+ERROR: [HLS 207-3728] member reference type 'const CSR_Matrix *' is a pointer; did you mean to use '->'? (csr_vmul.cpp:22:42)
+ERROR: [HLS 207-3728] member reference type 'const CSR_Matrix *' is a pointer; did you mean to use '->'? (csr_vmul.cpp:23:42)
+ERROR: [HLS 207-3728] member reference type 'const Vector *' is a pointer; did you mean to use '->'? (csr_vmul.cpp:27:42)
+ERROR: [HLS 207-3728] member reference type 'const Vector *' is a pointer; did you mean to use '->'? (csr_vmul.cpp:28:46)
+ERROR: [HLS 207-3728] member reference type 'Vector *' is a pointer; did you mean to use '->'? (csr_vmul.cpp:31:39)
+ERROR: [HLS 207-3728] member reference type 'Vector *' is a pointer; did you mean to use '->'? (csr_vmul.cpp:32:43)
+ERROR: [HLS 207-3728] member reference type 'const CSR_Matrix *' is a pointer; did you mean to use '->'? (csr_vmul.cpp:39:32)
+ERROR: [HLS 207-3728] member reference type 'const CSR_Matrix *' is a pointer; did you mean to use '->'? (csr_vmul.cpp:43:24)
+ERROR: [HLS 207-3728] member reference type 'const CSR_Matrix *' is a pointer; did you mean to use '->'? (csr_vmul.cpp:43:54)
+ERROR: [HLS 207-3728] member reference type 'const CSR_Matrix *' is a pointer; did you mean to use '->'? (csr_vmul.cpp:45:20)
+ERROR: [HLS 207-3728] member reference type 'const Vector *' is a pointer; did you mean to use '->'? (csr_vmul.cpp:45:39)
+ERROR: [HLS 207-3728] member reference type 'const CSR_Matrix *' is a pointer; did you mean to use '->'? (csr_vmul.cpp:45:53)
+ERROR: [HLS 207-3728] member reference type 'Vector *' is a pointer; did you mean to use '->'? (csr_vmul.cpp:48:8)
+ERROR:  
+INFO: [HLS 200-112] Total CPU user time: 1.9 seconds. Total CPU system time: 0.23 seconds. Total elapsed time: 2.03 seconds; peak allocated memory: 661.359 MB.

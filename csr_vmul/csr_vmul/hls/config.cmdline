@@ -1,0 +1,3 @@
+relativeroot=/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul
+original_argv=-c --mode hls --config /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg --work_dir csr_vmul 
+

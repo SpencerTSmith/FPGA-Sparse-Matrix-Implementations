@@ -1,0 +1,157 @@
+<ENTRY>
+{
+ "thisFile": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/csr_vmul.hlsrun_csim_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Tue Mar  4 00:51:35 2025",
+ "timestampMillis": "1741071095196",
+ "buildStep": {
+  "cmdId": "644b5ad3-4c73-4713-8def-c74897fb8036",
+  "name": "vitis-run",
+  "logFile": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/logs/csr_vmul.steps.log",
+  "commandLine": "/home/spence/Documents/misery/Vivado/Vitis/2024.2/bin/unwrapped/lnx64.o/vitis-run  --mode hls --csim --config /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg --work_dir csr_vmul ",
+  "args": [
+   "--mode",
+   "hls",
+   "--csim",
+   "--config",
+   "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg",
+   "--work_dir",
+   "csr_vmul"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Mar  4 00:51:35 2025",
+ "timestampMillis": "1741071095197",
+ "status": {
+  "cmdId": "644b5ad3-4c73-4713-8def-c74897fb8036",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Tue Mar  4 00:51:37 2025",
+ "timestampMillis": "1741071097818",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_RUN",
+  "target": "TT_HLS_C_SIM",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "csr_vmul",
+     "file": "",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+     "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.h"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2024.2"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Tue Mar  4 00:51:37 2025",
+ "timestampMillis": "1741071097818",
+ "buildStep": {
+  "cmdId": "3da70ced-98b6-4fe0-b28c-d1703fcb9fe3",
+  "name": "",
+  "logFile": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/hls.log",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Mar  4 00:51:37 2025",
+ "timestampMillis": "1741071097818",
+ "status": {
+  "cmdId": "3da70ced-98b6-4fe0-b28c-d1703fcb9fe3",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Mar  4 00:51:39 2025",
+ "timestampMillis": "1741071099317",
+ "status": {
+  "cmdId": "3da70ced-98b6-4fe0-b28c-d1703fcb9fe3",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Mar  4 00:51:39 2025",
+ "timestampMillis": "1741071099411",
+ "status": {
+  "cmdId": "644b5ad3-4c73-4713-8def-c74897fb8036",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Tue Mar  4 00:51:39 2025",
+ "timestampMillis": "1741071099411",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Tue Mar  4 00:51:39 2025",
+ "timestampMillis": "1741071099411",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

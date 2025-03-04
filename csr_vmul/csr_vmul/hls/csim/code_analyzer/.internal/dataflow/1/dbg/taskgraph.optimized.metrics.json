@@ -1,0 +1,633 @@
+[
+    {
+        "name": "_Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_",
+        "df_function": "%F203",
+        "df_type": "Function",
+        "project": "SLX",
+        "processes": {
+            "1": {
+                "id": "1",
+                "name": "Artificial<Start>",
+                "src_range": {
+                    "start_loc": {
+                        "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                        "line": 3,
+                        "column": 1
+                    },
+                    "end_loc": {
+                        "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                        "line": 50,
+                        "column": 1
+                    }
+                },
+                "display_name": "<START>",
+                "kind": "start"
+            },
+            "2": {
+                "id": "2",
+                "name": "Artificial<End>",
+                "src_range": {
+                    "start_loc": {
+                        "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                        "line": 3,
+                        "column": 1
+                    },
+                    "end_loc": {
+                        "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                        "line": 50,
+                        "column": 1
+                    }
+                },
+                "display_name": "<END>",
+                "kind": "end"
+            },
+            "3": {
+                "id": "3",
+                "name": "Region<OutlineCall(R2 csr_vmul) BB 'codeRepl' [Switch,Atomic] 'Outline_T3_F203_R2_Loop'>",
+                "src_range": {
+                    "start_loc": {
+                        "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                        "line": 39,
+                        "column": 3
+                    },
+                    "end_loc": {
+                        "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                        "line": 49,
+                        "column": 3
+                    }
+                },
+                "display_name": "Process 1",
+                "io_signatures": {
+                    "has_unresolved_accesses": false,
+                    "accesses": [
+                        {
+                            "variable": {
+                                "location": {
+                                    "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                    "line": 3,
+                                    "column": 0
+                                },
+                                "id": "VId_12_*0(0,12384)arg.A0(0,32)",
+                                "name": "matrix->row_count",
+                                "display_name": "int CSR_Matrix::row_count"
+                            },
+                            "reads": [
+                                {
+                                    "access_kind": "Ptr",
+                                    "range": {
+                                        "ranges": [
+                                            {
+                                                "start": 0,
+                                                "end": 4,
+                                                "is_exact": true
+                                            }
+                                        ]
+                                    },
+                                    "instr": "load",
+                                    "access_type": "i32",
+                                    "access_bit_width": 32,
+                                    "exec_count": 1
+                                }
+                            ],
+                            "writes": [],
+                            "kind": "Ptr",
+                            "has_alias": false,
+                            "arg_idx": 0
+                        },
+                        {
+                            "variable": {
+                                "location": {
+                                    "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                    "line": 3,
+                                    "column": 0
+                                },
+                                "id": "VId_12_*0(0,12384)arg.A3(96,4096)[?(?,32)]",
+                                "name": "matrix->row_pointers[*]",
+                                "display_name": "int CSR_Matrix::row_pointers[128]"
+                            },
+                            "reads": [
+                                {
+                                    "access_kind": "Ptr",
+                                    "range": {
+                                        "is_exact": false,
+                                        "is_empty": false
+                                    },
+                                    "instr": "load",
+                                    "src_loc": {
+                                        "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                        "line": 43,
+                                        "column": 18
+                                    },
+                                    "access_type": "i32",
+                                    "access_bit_width": 32,
+                                    "exec_count": 3
+                                },
+                                {
+                                    "access_kind": "Ptr",
+                                    "range": {
+                                        "is_exact": false,
+                                        "is_empty": false
+                                    },
+                                    "instr": "load",
+                                    "access_type": "i32",
+                                    "access_bit_width": 32,
+                                    "exec_count": 3
+                                }
+                            ],
+                            "writes": [],
+                            "kind": "Ptr",
+                            "has_alias": false,
+                            "arg_idx": 0
+                        },
+                        {
+                            "variable": {
+                                "location": {
+                                    "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                    "line": 3,
+                                    "column": 0
+                                },
+                                "id": "VId_12_*0(0,12384)arg.A5(8288,4096)[?(?,32)]",
+                                "name": "matrix->values[*]",
+                                "display_name": "float CSR_Matrix::values[128]"
+                            },
+                            "reads": [
+                                {
+                                    "access_kind": "Ptr",
+                                    "range": {
+                                        "is_exact": false,
+                                        "is_empty": false
+                                    },
+                                    "instr": "load",
+                                    "src_loc": {
+                                        "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                        "line": 45,
+                                        "column": 14
+                                    },
+                                    "access_type": "float",
+                                    "access_bit_width": 32,
+                                    "exec_count": 3
+                                }
+                            ],
+                            "writes": [],
+                            "kind": "Ptr",
+                            "has_alias": false,
+                            "arg_idx": 0
+                        },
+                        {
+                            "variable": {
+                                "location": {
+                                    "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                    "line": 3,
+                                    "column": 0
+                                },
+                                "id": "VId_12_*0(0,12384)arg.A4(4192,4096)[?(?,32)]",
+                                "name": "matrix->col_indices[*]",
+                                "display_name": "int CSR_Matrix::col_indices[128]"
+                            },
+                            "reads": [
+                                {
+                                    "access_kind": "Ptr",
+                                    "range": {
+                                        "is_exact": false,
+                                        "is_empty": false
+                                    },
+                                    "instr": "load",
+                                    "src_loc": {
+                                        "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                        "line": 45,
+                                        "column": 49
+                                    },
+                                    "access_type": "i32",
+                                    "access_bit_width": 32,
+                                    "exec_count": 3
+                                }
+                            ],
+                            "writes": [],
+                            "kind": "Ptr",
+                            "has_alias": false,
+                            "arg_idx": 0
+                        },
+                        {
+                            "variable": {
+                                "location": {
+                                    "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                    "line": 3,
+                                    "column": 0
+                                },
+                                "id": "VId_14_*0(0,4128)arg.A0(0,4096)[?(?,32)]",
+                                "name": "out->values[*]",
+                                "display_name": "float Vector::values[128]"
+                            },
+                            "reads": [],
+                            "writes": [
+                                {
+                                    "access_kind": "Ptr",
+                                    "range": {
+                                        "is_exact": false,
+                                        "is_empty": false
+                                    },
+                                    "instr": "store",
+                                    "src_loc": {
+                                        "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                        "line": 48,
+                                        "column": 22
+                                    },
+                                    "access_type": "float",
+                                    "access_bit_width": 32,
+                                    "exec_count": 3
+                                }
+                            ],
+                            "kind": "Ptr",
+                            "has_alias": false,
+                            "arg_idx": 2
+                        },
+                        {
+                            "variable": {
+                                "location": {
+                                    "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                    "line": 3,
+                                    "column": 0
+                                },
+                                "id": "VId_13_*0(0,4128)arg.A0(0,4096)[?(?,32)]",
+                                "name": "vector->values[*]",
+                                "display_name": "float Vector::values[128]"
+                            },
+                            "reads": [
+                                {
+                                    "access_kind": "Ptr",
+                                    "range": {
+                                        "is_exact": false,
+                                        "is_empty": false
+                                    },
+                                    "instr": "load",
+                                    "src_loc": {
+                                        "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                        "line": 45,
+                                        "column": 34
+                                    },
+                                    "access_type": "float",
+                                    "access_bit_width": 32,
+                                    "exec_count": 3
+                                }
+                            ],
+                            "writes": [],
+                            "kind": "Ptr",
+                            "has_alias": false,
+                            "arg_idx": 1
+                        }
+                    ]
+                },
+                "metrics": {
+                    "initiation_interval": 83
+                },
+                "subregions": [
+                    {
+                        "id": "%F204_R1",
+                        "description": "<switch>",
+                        "src_range": {
+                            "start_loc": {
+                                "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                "line": 39,
+                                "column": 3
+                            },
+                            "end_loc": {
+                                "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                "line": 49,
+                                "column": 3
+                            }
+                        }
+                    },
+                    {
+                        "id": "%F204_R13",
+                        "description": "<function exit>"
+                    }
+                ],
+                "subdataflow": [],
+                "guidance": [
+                    {
+                        "type": "LoopGuidance",
+                        "ti": {
+                            "min": 78,
+                            "max": 78
+                        },
+                        "ii": {
+                            "min": 26,
+                            "max": 26
+                        },
+                        "effective_tc": {
+                            "min": 3,
+                            "max": 3
+                        },
+                        "tc": {
+                            "min": 3,
+                            "max": 3
+                        },
+                        "ureg_id": "%L2",
+                        "src_range": {
+                            "start_loc": {
+                                "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                "line": 39,
+                                "column": 3
+                            },
+                            "end_loc": {
+                                "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                "line": 49,
+                                "column": 3
+                            }
+                        },
+                        "details": [
+                            {
+                                "type": "MemPortContention",
+                                "available_ports": {
+                                    "min": 1,
+                                    "max": 1
+                                },
+                                "required_ports": {
+                                    "min": 2,
+                                    "max": 2
+                                },
+                                "ii_lower_bound": {
+                                    "min": 2,
+                                    "max": 2
+                                },
+                                "variable": {
+                                    "name": "matrix",
+                                    "display_name": "matrix",
+                                    "id": "15",
+                                    "location": {
+                                        "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                        "line": 3,
+                                        "column": 0
+                                    }
+                                }
+                            },
+                            {
+                                "type": "MemPortContention",
+                                "available_ports": {
+                                    "min": 1,
+                                    "max": 1
+                                },
+                                "required_ports": {
+                                    "min": 1,
+                                    "max": 1
+                                },
+                                "ii_lower_bound": {
+                                    "min": 1,
+                                    "max": 1
+                                },
+                                "variable": {
+                                    "name": "out",
+                                    "display_name": "out",
+                                    "id": "16",
+                                    "location": {
+                                        "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                        "line": 3,
+                                        "column": 0
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "LoopGuidance",
+                        "ti": {
+                            "min": 11,
+                            "max": 22
+                        },
+                        "ii": {
+                            "min": 11,
+                            "max": 11
+                        },
+                        "effective_tc": {
+                            "min": 1,
+                            "max": 2
+                        },
+                        "tc": {
+                            "min": 1,
+                            "max": 2
+                        },
+                        "ureg_id": "%L3",
+                        "src_range": {
+                            "start_loc": {
+                                "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                "line": 43,
+                                "column": 5
+                            },
+                            "end_loc": {
+                                "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                "line": 46,
+                                "column": 5
+                            }
+                        },
+                        "details": [
+                            {
+                                "type": "MemPortContention",
+                                "available_ports": {
+                                    "min": 1,
+                                    "max": 1
+                                },
+                                "required_ports": {
+                                    "min": 2,
+                                    "max": 2
+                                },
+                                "ii_lower_bound": {
+                                    "min": 2,
+                                    "max": 2
+                                },
+                                "variable": {
+                                    "name": "matrix",
+                                    "display_name": "matrix",
+                                    "id": "15",
+                                    "location": {
+                                        "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                        "line": 3,
+                                        "column": 0
+                                    }
+                                }
+                            },
+                            {
+                                "type": "MemPortContention",
+                                "available_ports": {
+                                    "min": 1,
+                                    "max": 1
+                                },
+                                "required_ports": {
+                                    "min": 1,
+                                    "max": 1
+                                },
+                                "ii_lower_bound": {
+                                    "min": 1,
+                                    "max": 1
+                                },
+                                "variable": {
+                                    "name": "vector",
+                                    "display_name": "vector",
+                                    "id": "17",
+                                    "location": {
+                                        "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                        "line": 3,
+                                        "column": 0
+                                    }
+                                }
+                            },
+                            {
+                                "type": "CyclicDependence",
+                                "ii_lower_bound": {
+                                    "min": 4,
+                                    "max": 4
+                                },
+                                "variables": [
+                                    {
+                                        "name": "sum [phi]",
+                                        "id": "<unknown>"
+                                    },
+                                    {
+                                        "name": "add21 [fadd]",
+                                        "id": "<unknown>",
+                                        "location": {
+                                            "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                                            "line": 45,
+                                            "column": 11
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "channels": {
+            "matrix->row_count_RAW_1_3_#0": {
+                "name": "matrix->row_count_RAW_1_3_#0",
+                "variable_id": "VId_12_*0(0,12384)arg.A0(0,32)",
+                "variable_name": "matrix->row_count",
+                "declaration": "int CSR_Matrix::row_count",
+                "kind": "Ptr",
+                "dependence": "RAW",
+                "channel_width": 32,
+                "src_loc": {
+                    "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                    "line": 3,
+                    "column": 0
+                },
+                "metrics": {
+                    "volume": 32,
+                    "channel_rate": 3.855421686746988E-1
+                },
+                "source": "1",
+                "sink": "3"
+            },
+            "matrix->row_pointers[*]_RAW_1_3_#1": {
+                "name": "matrix->row_pointers[*]_RAW_1_3_#1",
+                "variable_id": "VId_12_*0(0,12384)arg.A3(96,4096)[?(?,32)]",
+                "variable_name": "matrix->row_pointers[*]",
+                "declaration": "int CSR_Matrix::row_pointers[128]",
+                "kind": "Ptr",
+                "dependence": "RAW",
+                "channel_width": 32,
+                "src_loc": {
+                    "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                    "line": 3,
+                    "column": 0
+                },
+                "metrics": {
+                    "volume": 192,
+                    "channel_rate": 2.3132530120481927E0
+                },
+                "source": "1",
+                "sink": "3"
+            },
+            "matrix->col_indices[*]_RAW_1_3_#2": {
+                "name": "matrix->col_indices[*]_RAW_1_3_#2",
+                "variable_id": "VId_12_*0(0,12384)arg.A4(4192,4096)[?(?,32)]",
+                "variable_name": "matrix->col_indices[*]",
+                "declaration": "int CSR_Matrix::col_indices[128]",
+                "kind": "Ptr",
+                "dependence": "RAW",
+                "channel_width": 32,
+                "src_loc": {
+                    "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                    "line": 3,
+                    "column": 0
+                },
+                "metrics": {
+                    "volume": 96,
+                    "channel_rate": 1.1566265060240963E0
+                },
+                "source": "1",
+                "sink": "3"
+            },
+            "matrix->values[*]_RAW_1_3_#3": {
+                "name": "matrix->values[*]_RAW_1_3_#3",
+                "variable_id": "VId_12_*0(0,12384)arg.A5(8288,4096)[?(?,32)]",
+                "variable_name": "matrix->values[*]",
+                "declaration": "float CSR_Matrix::values[128]",
+                "kind": "Ptr",
+                "dependence": "RAW",
+                "channel_width": 32,
+                "src_loc": {
+                    "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                    "line": 3,
+                    "column": 0
+                },
+                "metrics": {
+                    "volume": 96,
+                    "channel_rate": 1.1566265060240963E0
+                },
+                "source": "1",
+                "sink": "3"
+            },
+            "vector->values[*]_RAW_1_3_#4": {
+                "name": "vector->values[*]_RAW_1_3_#4",
+                "variable_id": "VId_13_*0(0,4128)arg.A0(0,4096)[?(?,32)]",
+                "variable_name": "vector->values[*]",
+                "declaration": "float Vector::values[128]",
+                "kind": "Ptr",
+                "dependence": "RAW",
+                "channel_width": 32,
+                "src_loc": {
+                    "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                    "line": 3,
+                    "column": 0
+                },
+                "metrics": {
+                    "volume": 96,
+                    "channel_rate": 1.1566265060240963E0
+                },
+                "source": "1",
+                "sink": "3"
+            },
+            "out->values[*]_RAW_3_2_#5": {
+                "name": "out->values[*]_RAW_3_2_#5",
+                "variable_id": "VId_14_*0(0,4128)arg.A0(0,4096)[?(?,32)]",
+                "variable_name": "out->values[*]",
+                "declaration": "float Vector::values[128]",
+                "kind": "Ptr",
+                "dependence": "RAW",
+                "channel_width": 32,
+                "src_loc": {
+                    "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp",
+                    "line": 3,
+                    "column": 0
+                },
+                "metrics": {
+                    "volume": 96,
+                    "channel_rate": 1.1566265060240963E0
+                },
+                "source": "3",
+                "sink": "2"
+            }
+        },
+        "control": [
+            {
+                "source": "1",
+                "sink": "3"
+            },
+            {
+                "source": "3",
+                "sink": "2"
+            }
+        ]
+    }
+]

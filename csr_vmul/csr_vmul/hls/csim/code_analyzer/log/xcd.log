@@ -1,0 +1,2 @@
+XILINX_VITIS=/home/spence/Documents/misery/Vivado/Vitis/2024.2
+cmdline: /home/spence/Documents/misery/Vivado/Vitis/2024.2/bin/xcd -p 49365 -t 1ebc02d2-f8c5-11ef-9a1d-047c167c9f15

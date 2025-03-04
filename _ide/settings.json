@@ -1,0 +1,9 @@
+{
+    "clangd.fallbackFlags": [
+        "-I/home/spence/Documents/misery/Vivado/Vitis/2024.2/include",
+        "-I/home/spence/Documents/misery/Vivado/Vitis/2024.2/include/etc",
+        "-I/home/spence/Documents/misery/Vivado/Vitis/2024.2/include/ap_sysc",
+        "-I/home/spence/Documents/misery/Vivado/Vitis/2024.2/lnx64/tools/auto_cc/include",
+        "-I/home/spence/Documents/misery/Vivado/Vitis/2024.2/lnx64/tools/systemc/include"
+    ]
+}

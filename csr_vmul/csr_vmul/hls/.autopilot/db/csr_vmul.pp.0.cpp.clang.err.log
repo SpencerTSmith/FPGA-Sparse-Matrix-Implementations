@@ -1,0 +1,46 @@
+directive:1:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=top_XLX_SEP_ PragmaContext=directive_XLX_SEP_ PragmaFunction=csr_vmul_XLX_SEP_ PragmaOptions=name=csr_vmul_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLSDIRECTIVE TOP name=csr_vmul
+        ^
+csr_vmul.cpp:17:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=disaggregate_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=csr_vmul_XLX_SEP_ PragmaOptions=variable = matrix_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS DISAGGREGATE variable = matrix
+        ^
+csr_vmul.cpp:18:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=csr_vmul_XLX_SEP_ PragmaOptions=s_axilite port = matrix->row_count bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE s_axilite port = matrix->row_count bundle = control
+        ^
+csr_vmul.cpp:19:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=csr_vmul_XLX_SEP_ PragmaOptions=s_axilite port = matrix->col_count bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE s_axilite port = matrix->col_count bundle = control
+        ^
+csr_vmul.cpp:20:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=csr_vmul_XLX_SEP_ PragmaOptions=s_axilite port = matrix->non_zero_count bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE s_axilite port = matrix->non_zero_count bundle = control
+        ^
+csr_vmul.cpp:21:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=csr_vmul_XLX_SEP_ PragmaOptions=m_axi port = matrix->row_pointers offset = slave bundle = gmem_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE m_axi port = matrix->row_pointers offset = slave bundle = gmem
+        ^
+csr_vmul.cpp:22:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=csr_vmul_XLX_SEP_ PragmaOptions=m_axi port = matrix->col_indices offset = slave bundle = gmem_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE m_axi port = matrix->col_indices offset = slave bundle = gmem
+        ^
+csr_vmul.cpp:23:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=csr_vmul_XLX_SEP_ PragmaOptions=m_axi port = matrix->values offset = slave bundle = gmem_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE m_axi port = matrix->values offset = slave bundle = gmem
+        ^
+csr_vmul.cpp:26:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=disaggregate_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=csr_vmul_XLX_SEP_ PragmaOptions=variable = vector_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS DISAGGREGATE variable = vector
+        ^
+csr_vmul.cpp:27:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=csr_vmul_XLX_SEP_ PragmaOptions=m_axi port = vector->values offset = slave bundle = gmem_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE m_axi port = vector->values offset = slave bundle = gmem
+        ^
+csr_vmul.cpp:28:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=csr_vmul_XLX_SEP_ PragmaOptions=s_axilite port = vector->count bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE s_axilite port = vector->count bundle = control
+        ^
+csr_vmul.cpp:30:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=disaggregate_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=csr_vmul_XLX_SEP_ PragmaOptions=variable = out_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS DISAGGREGATE variable = out
+        ^
+csr_vmul.cpp:31:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=csr_vmul_XLX_SEP_ PragmaOptions=m_axi port = out->values offset = slave bundle = gmem_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE m_axi port = out->values offset = slave bundle = gmem
+        ^
+csr_vmul.cpp:32:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=csr_vmul_XLX_SEP_ PragmaOptions=s_axilite port = out->count bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE s_axilite port = out->count bundle = control
+        ^
+csr_vmul.cpp:36:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=csr_vmul_XLX_SEP_ PragmaOptions=s_axilite port = return bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE s_axilite port = return bundle = control
+        ^
+15 warnings generated.

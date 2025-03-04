@@ -1,0 +1,10 @@
+/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/.autopilot/db/csr_vmul.pp.0.cpp:211:2: warning: Added loop label VITIS_LOOP_39_1:   [xilinx-label-all-loops]
+ for (int row = 0; row < matrix->row_count; row++) {
+ ^~~
+ VITIS_LOOP_39_1: 
+/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/.autopilot/db/csr_vmul.pp.0.cpp:211:2: note: FIX-IT applied suggested code changes
+/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/.autopilot/db/csr_vmul.pp.0.cpp:215:5: warning: Added loop label VITIS_LOOP_43_2:   [xilinx-label-all-loops]
+    for (int i = matrix->row_pointers[row]; i < matrix->row_pointers[row + 1]; i++) {
+    ^~~
+    VITIS_LOOP_43_2: 
+/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/.autopilot/db/csr_vmul.pp.0.cpp:215:5: note: FIX-IT applied suggested code changes

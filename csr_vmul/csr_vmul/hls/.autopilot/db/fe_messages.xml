@@ -1,0 +1,63 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="directive:1:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="csr_vmul" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=csr_vmul" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="csr_vmul.cpp:17:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="csr_vmul" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = matrix" ARG_PragmaType="disaggregate" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="csr_vmul.cpp:18:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="csr_vmul" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = matrix-&gt;row_count bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="csr_vmul.cpp:19:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="csr_vmul" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = matrix-&gt;col_count bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="csr_vmul.cpp:20:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="csr_vmul" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = matrix-&gt;non_zero_count bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="csr_vmul.cpp:21:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="csr_vmul" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = matrix-&gt;row_pointers offset = slave bundle = gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="csr_vmul.cpp:22:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="csr_vmul" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = matrix-&gt;col_indices offset = slave bundle = gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="csr_vmul.cpp:23:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="csr_vmul" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = matrix-&gt;values offset = slave bundle = gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="csr_vmul.cpp:26:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="csr_vmul" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = vector" ARG_PragmaType="disaggregate" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="csr_vmul.cpp:27:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="csr_vmul" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = vector-&gt;values offset = slave bundle = gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="csr_vmul.cpp:28:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="csr_vmul" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = vector-&gt;count bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="csr_vmul.cpp:30:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="csr_vmul" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = out" ARG_PragmaType="disaggregate" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="csr_vmul.cpp:31:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="csr_vmul" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = out-&gt;values offset = slave bundle = gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="csr_vmul.cpp:32:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="csr_vmul" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = out-&gt;count bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="csr_vmul.cpp:36:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="csr_vmul" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = return bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="csr_vmul.cpp:3:0" msg_body="Disaggregating variable 'matrix'">
+        <args Name="matrix"/>
+    </msg>
+    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="csr_vmul.cpp:3:0" msg_body="Disaggregating variable 'vector'">
+        <args Name="vector"/>
+    </msg>
+    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="csr_vmul.cpp:3:0" msg_body="Disaggregating variable 'out'">
+        <args Name="out"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-437" msg_severity="INFO" msg_loc="csr_vmul.cpp:39:19" msg_body="Automatically disabling loop flattening for loop 'VITIS_LOOP_39_1'.">
+        <args LoopName="VITIS_LOOP_39_1"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="csr_vmul.cpp:39:19" msg_body="loop_flatten 0 1 csr_vmul csr_vmul.cpp:39:19VITIS_LOOP_39_1 csr_vmul.cpp:39:19">
+        <args LoopLoc="csr_vmul.cpp:39:19" LoopLoc-DebugLoc="File csr_vmul.cpp Line 39 Column 19" LoopName="VITIS_LOOP_39_1" PragmaFunction="csr_vmul" PragmaIsAuto="1" PragmaOptions="0" PragmaSrcLoc="csr_vmul.cpp:39:19" PragmaSrcLoc-DebugLoc="File csr_vmul.cpp Line 39 Column 19" PragmaType="loop_flatten"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

@@ -1,0 +1,33 @@
+  **** HLS Build v2024.2 5238294
+INFO: [HLS 200-2005] Using work_dir /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul 
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying ini 'syn.file=/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(7)
+INFO: [HLS 200-10] Adding design file '/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp' to the project
+INFO: [HLS 200-1465] Applying ini 'syn.file=/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.h' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file '/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.h' to the project
+INFO: [HLS 200-1465] Applying ini 'tb.file=/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul_tb.cpp' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(9)
+INFO: [HLS 200-10] Adding test bench file '/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul_tb.cpp' to the project
+INFO: [HLS 200-1465] Applying ini 'syn.top=csr_vmul' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(11)
+INFO: [HLS 200-1465] Applying ini 'flow_target=vivado' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying ini 'part=xc7z020clg400-1' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1465] Applying ini 'csim.code_analyzer=1' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(10)
+INFO: [HLS 200-1465] Applying ini 'package.output.format=ip_catalog' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(5)
+INFO: [SIM 211-200] Executing Code Analyzer instead of classic HLS C simulation
+INFO: [HLS 211-200] Compiling source code csr_vmul.cpp as hardware code with instrumentation
+INFO: [HLS 211-200] Compiling source code /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul_tb.cpp as test bench code with instrumentation
+INFO: [HLS 211-200] Compiling source code csr_vmul.cpp as test bench code with instrumentation
+/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul_tb.cpp:22:17: error: cannot initialize an array element of type 'float' with an lvalue of type 'float[3]'
+      .values = stack_vector,
+                ^~~~~~~~~~~~
+/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul_tb.cpp:28:17: error: cannot initialize an array element of type 'float' with an lvalue of type 'float[3]'
+      .values = stack_out,
+                ^~~~~~~~~
+2 errors generated.
+slxcmd:0:0: warning: Non-zero exit code: 1 returned by 'INFO: [HLS 211-200] Compiling source code /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul_tb.cpp as test bench code with instrumentation'
+ERROR: [SIM 211-200] Code Analyzer execution failed. Consider running the classic C simulation instead by disabling the hls.csim.code_analyzer option in the config file.
+ERROR: Problem running csim: child process exited abnormally
+INFO: [HLS 200-112] Total CPU user time: 2.59 seconds. Total CPU system time: 0.28 seconds. Total elapsed time: 2.78 seconds; peak allocated memory: 659.613 MB.

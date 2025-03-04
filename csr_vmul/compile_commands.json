@@ -1,0 +1,27 @@
+[
+  {
+    "directory": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul",
+    "arguments": [
+      "/home/spence/Documents/misery/Vivado/Vitis/2024.2/vcxx/libexec/clang++",
+      "--gcc-toolchain=/home/spence/Documents/misery/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0",
+      "-fhls",
+      "-hls-syn-headers-dir=/home/spence/Documents/misery/Vivado/Vitis/2024.2/common/technology/autopilot",
+      "-fhlstoplevel=csr_vmul",
+      "-c",
+      "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp"
+    ],
+    "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp"
+  },
+  {
+    "directory": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul",
+    "arguments": [
+      "/home/spence/Documents/misery/Vivado/Vitis/2024.2/vcxx/libexec/clang++",
+      "--gcc-toolchain=/home/spence/Documents/misery/Vivado/Vitis/2024.2/tps/lnx64/gcc-8.3.0",
+      "-fhls-tb",
+      "-hls-sim-headers-dir=/home/spence/Documents/misery/Vivado/Vitis/2024.2/include",
+      "-c",
+      "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul_tb.cpp"
+    ],
+    "file": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul_tb.cpp"
+  }
+]

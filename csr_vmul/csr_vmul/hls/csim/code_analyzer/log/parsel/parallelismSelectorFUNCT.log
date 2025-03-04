@@ -1,0 +1,2 @@
+parallelismSelector::WARNG: WARNING: [SIM 211-200] /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp:39:3: the dynamic loop had a trip count of min=3 max=3 during C simulation. (#pragma HLS loop_tripcount min=3 max=3)
+parallelismSelector::WARNG: WARNING: [SIM 211-200] /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp:43:5: the dynamic loop had a trip count of min=1 max=2 during C simulation. (#pragma HLS loop_tripcount min=1 max=2)

@@ -1,0 +1,215 @@
+
+
+================================================================
+== Synthesis Summary Report of 'csr_vmul'
+================================================================
++ General Information: 
+    * Date:           Tue Mar  4 00:51:55 2025
+    * Version:        2024.2 (Build 5238294 on Nov  8 2024)
+    * Project:        csr_vmul
+    * Solution:       hls (Vivado IP Flow Target)
+    * Product family: zynq
+    * Target device:  xc7z020-clg400-1
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +---------------------------------------+------+------+---------+--------+----------+---------+------+----------+--------+--------+-----------+-----------+-----+
+    |                Modules                | Issue|      | Latency | Latency| Iteration|         | Trip |          |        |        |           |           |     |
+    |                & Loops                | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined|  BRAM  |   DSP  |     FF    |    LUT    | URAM|
+    +---------------------------------------+------+------+---------+--------+----------+---------+------+----------+--------+--------+-----------+-----------+-----+
+    |+ csr_vmul                             |     -|  0.00|        -|       -|         -|        -|     -|        no|  4 (1%)|  5 (2%)|  3355 (3%)|  3705 (6%)|    -|
+    | o VITIS_LOOP_39_1                     |     -|  7.30|        -|       -|         -|        -|     -|        no|       -|       -|          -|          -|    -|
+    |  + csr_vmul_Pipeline_VITIS_LOOP_43_2  |     -|  0.00|        -|       -|         -|        -|     -|        no|       -|  5 (2%)|  1237 (1%)|  1359 (2%)|    -|
+    |   o VITIS_LOOP_43_2                   |    II|  7.30|        -|       -|        31|        6|     -|       yes|       -|       -|          -|          -|    -|
+    +---------------------------------------+------+------+---------+--------+----------+---------+------+----------+--------+--------+-----------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| Interface  | Read/Write | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
+|            |            | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| m_axi_gmem | READ_WRITE | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          | BRAM=4            |
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+
+* S_AXILITE Interfaces
++-----------------+------------+---------------+--------+----------+
+| Interface       | Data Width | Address Width | Offset | Register |
++-----------------+------------+---------------+--------+----------+
+| s_axi_control   | 32         | 6             | 16     | 0        |
+| s_axi_control_r | 32         | 7             | 16     | 0        |
++-----------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++-----------------+-----------------------+--------+-------+--------+--------------------------------------+----------------------------------------------------------------------+
+| Interface       | Register              | Offset | Width | Access | Description                          | Bit Fields                                                           |
++-----------------+-----------------------+--------+-------+--------+--------------------------------------+----------------------------------------------------------------------+
+| s_axi_control   | CTRL                  | 0x00   | 32    | RW     | Control signals                      | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control   | GIER                  | 0x04   | 32    | RW     | Global Interrupt Enable Register     | 0=Enable                                                             |
+| s_axi_control   | IP_IER                | 0x08   | 32    | RW     | IP Interrupt Enable Register         | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_control   | IP_ISR                | 0x0c   | 32    | RW     | IP Interrupt Status Register         | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_control   | matrix_row_count      | 0x10   | 32    | W      | Data signal of matrix_row_count      |                                                                      |
+| s_axi_control   | matrix_col_count      | 0x18   | 32    | W      | Data signal of matrix_col_count      |                                                                      |
+| s_axi_control   | matrix_non_zero_count | 0x20   | 32    | W      | Data signal of matrix_non_zero_count |                                                                      |
+| s_axi_control   | vector_count          | 0x28   | 32    | W      | Data signal of vector_count          |                                                                      |
+| s_axi_control   | out_count             | 0x30   | 32    | W      | Data signal of out_count             |                                                                      |
+| s_axi_control_r | matrix_row_pointers_1 | 0x10   | 32    | W      | Data signal of matrix_row_pointers   |                                                                      |
+| s_axi_control_r | matrix_row_pointers_2 | 0x14   | 32    | W      | Data signal of matrix_row_pointers   |                                                                      |
+| s_axi_control_r | matrix_col_indices_1  | 0x1c   | 32    | W      | Data signal of matrix_col_indices    |                                                                      |
+| s_axi_control_r | matrix_col_indices_2  | 0x20   | 32    | W      | Data signal of matrix_col_indices    |                                                                      |
+| s_axi_control_r | matrix_values_1       | 0x28   | 32    | W      | Data signal of matrix_values         |                                                                      |
+| s_axi_control_r | matrix_values_2       | 0x2c   | 32    | W      | Data signal of matrix_values         |                                                                      |
+| s_axi_control_r | vector_values_1       | 0x34   | 32    | W      | Data signal of vector_values         |                                                                      |
+| s_axi_control_r | vector_values_2       | 0x38   | 32    | W      | Data signal of vector_values         |                                                                      |
+| s_axi_control_r | out_values_1          | 0x40   | 32    | W      | Data signal of out_values            |                                                                      |
+| s_axi_control_r | out_values_2          | 0x44   | 32    | W      | Data signal of out_values            |                                                                      |
++-----------------+-----------------------+--------+-------+--------+--------------------------------------+----------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+--------------------+
+| Argument | Direction | Datatype           |
++----------+-----------+--------------------+
+| matrix   | inout     | CSR_Matrix const * |
+| vector   | inout     | Vector const *     |
+| out      | inout     | Vector*            |
++----------+-----------+--------------------+
+
+* SW-to-HW Mapping
++----------+-----------------+-----------+----------+-------------------------------+
+| Argument | HW Interface    | HW Type   | HW Usage | HW Info                       |
++----------+-----------------+-----------+----------+-------------------------------+
+| matrix   | s_axi_control   | interface |          |                               |
+| matrix   | s_axi_control   | interface |          |                               |
+| matrix   | s_axi_control   | interface |          |                               |
+| matrix   | m_axi_gmem      | interface |          | channel=0 channel=0 channel=0 |
+| matrix   | s_axi_control_r | interface | offset   |                               |
+| matrix   | m_axi_gmem      | interface |          | channel=0 channel=0 channel=0 |
+| matrix   | s_axi_control_r | interface | offset   |                               |
+| matrix   | m_axi_gmem      | interface |          | channel=0 channel=0 channel=0 |
+| matrix   | s_axi_control_r | interface | offset   |                               |
+| vector   | s_axi_control   | interface |          |                               |
+| vector   | m_axi_gmem      | interface |          | channel=0                     |
+| vector   | s_axi_control_r | interface | offset   |                               |
+| out      | s_axi_control   | interface |          |                               |
+| out      | m_axi_gmem      | interface |          | channel=0                     |
+| out      | s_axi_control_r | interface | offset   |                               |
++----------+-----------------+-----------+----------+-------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Burst Summary
++--------------+-----------+----------+-------+-----------------+--------------------+
+| HW Interface | Direction | Length   | Width | Loop            | Loop Location      |
++--------------+-----------+----------+-------+-----------------+--------------------+
+| m_axi_gmem   | write     | variable | 32    | VITIS_LOOP_39_1 | csr_vmul.cpp:39:19 |
+| m_axi_gmem   | read      | 2        | 32    |                 |                    |
++--------------+-----------+----------+-------+-----------------+--------------------+
+
+* All M_AXI Variable Accesses
++--------------+---------------------+--------------------+------------------+--------------+----------+-----------------+--------------------+------------+---------------------------------------------------------------------------------------------------------+
+| HW Interface | Variable            | Access Location    | Direction        | Burst Status | Length   | Loop            | Loop Location      | Resolution | Problem                                                                                                 |
++--------------+---------------------+--------------------+------------------+--------------+----------+-----------------+--------------------+------------+---------------------------------------------------------------------------------------------------------+
+| m_axi_gmem   |                     | csr_vmul.cpp:43:22 | read             | Fail         |          |                 |                    | 214-224    | Could not burst due to multiple potential reads to the same bundle in the same region.                  |
+| m_axi_gmem   | matrix_row_pointers | csr_vmul.cpp:43:35 | read             | Widen Fail   |          |                 |                    | 214-353    | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0   |
+| m_axi_gmem   | matrix_row_pointers | csr_vmul.cpp:43:35 | read             | Fail         |          | VITIS_LOOP_39_1 | csr_vmul.cpp:39:19 | 214-230    | Stride is incompatible                                                                                  |
+| m_axi_gmem   | matrix_row_pointers | csr_vmul.cpp:43:35 | islist read read | Inferred     | 2        | VITIS_LOOP_39_1 | csr_vmul.cpp:39:19 |            |                                                                                                         |
+| m_axi_gmem   | matrix_col_indices  | csr_vmul.cpp:45:49 | read             | Widen Fail   |          | VITIS_LOOP_43_2 | csr_vmul.cpp:43:22 | 214-353    | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0   |
+| m_axi_gmem   | matrix_values       | csr_vmul.cpp:45:14 | read             | Widen Fail   |          | VITIS_LOOP_43_2 | csr_vmul.cpp:43:22 | 214-353    | Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | matrix_col_indices  | csr_vmul.cpp:45:49 | read             | Fail         |          | VITIS_LOOP_39_1 | csr_vmul.cpp:39:19 | 214-232    | Access call is in the conditional branch                                                                |
+| m_axi_gmem   | matrix_values       | csr_vmul.cpp:45:14 | read             | Fail         |          | VITIS_LOOP_39_1 | csr_vmul.cpp:39:19 | 214-232    | Access call is in the conditional branch                                                                |
+| m_axi_gmem   | vector_values       | csr_vmul.cpp:45:34 | read             | Fail         |          | VITIS_LOOP_43_2 | csr_vmul.cpp:43:22 | 214-229    | Could not analyze pattern                                                                               |
+| m_axi_gmem   | matrix_col_indices  | csr_vmul.cpp:45:49 | read             | Inferred     | variable | VITIS_LOOP_43_2 | csr_vmul.cpp:43:22 |            |                                                                                                         |
+| m_axi_gmem   | matrix_values       | csr_vmul.cpp:45:14 | read             | Inferred     | variable | VITIS_LOOP_43_2 | csr_vmul.cpp:43:22 |            |                                                                                                         |
+| m_axi_gmem   | out_values          | csr_vmul.cpp:48:22 | write            | Widen Fail   |          | VITIS_LOOP_39_1 | csr_vmul.cpp:39:19 | 214-353    | Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | out_values          | csr_vmul.cpp:48:22 | write            | Inferred     | variable | VITIS_LOOP_39_1 | csr_vmul.cpp:39:19 |            |                                                                                                         |
++--------------+---------------------+--------------------+------------------+--------------+----------+-----------------+--------------------+------------+---------------------------------------------------------------------------------------------------------+
+
+    * Resolution URL: docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.2%20English&url=ug1448-hls-guidance&resourceid=XXX-YYY.html (replace XXX-YYY with column value)
+
+================================================================
+== Bind Op Report
+================================================================
++--------------------------------------+-----+--------+------------------+--------+----------+---------+
+| Name                                 | DSP | Pragma | Variable         | Op     | Impl     | Latency |
++--------------------------------------+-----+--------+------------------+--------+----------+---------+
+| + csr_vmul                           | 5   |        |                  |        |          |         |
+|   icmp_ln39_fu_199_p2                |     |        | icmp_ln39        | setgt  | auto     | 0       |
+|   empty_fu_229_p3                    |     |        | empty            | select | auto_sel | 0       |
+|   icmp_ln39_1_fu_253_p2              |     |        | icmp_ln39_1      | setlt  | auto     | 0       |
+|   indvars_iv_next7_fu_258_p2         |     |        | indvars_iv_next7 | add    | fabric   | 0       |
+|   add_ln43_fu_276_p2                 |     |        | add_ln43         | add    | fabric   | 0       |
+|   add_ln43_1_fu_317_p2               |     |        | add_ln43_1       | add    | fabric   | 0       |
+|   add_ln43_2_fu_332_p2               |     |        | add_ln43_2       | add    | fabric   | 0       |
+|  + csr_vmul_Pipeline_VITIS_LOOP_43_2 | 5   |        |                  |        |          |         |
+|    icmp_ln43_fu_198_p2               |     |        | icmp_ln43        | setlt  | auto     | 0       |
+|    add_ln43_fu_203_p2                |     |        | add_ln43         | add    | fabric   | 0       |
+|    add_ln45_fu_209_p2                |     |        | add_ln45         | add    | fabric   | 0       |
+|    add_ln45_1_fu_220_p2              |     |        | add_ln45_1       | add    | fabric   | 0       |
+|    add_ln45_2_fu_257_p2              |     |        | add_ln45_2       | add    | fabric   | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U2  | 3   |        | mul              | fmul   | maxdsp   | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U1 | 2   |        | sum_1            | fadd   | fulldsp  | 4       |
+|    add_ln43_1_fu_236_p2              |     |        | add_ln43_1       | add    | fabric   | 0       |
++--------------------------------------+-----+--------+------------------+--------+----------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++---------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| Name                | Usage     | Type      | BRAM | URAM | Pragma | Variable | Impl | Latency | Bitwidth, Depth, |
+|                     |           |           |      |      |        |          |      |         | Banks            |
++---------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| + csr_vmul          |           |           | 4    | 0    |        |          |      |         |                  |
+|   control_s_axi_U   | interface | s_axilite |      |      |        |          |      |         |                  |
+|   control_r_s_axi_U | interface | s_axilite |      |      |        |          |      |         |                  |
+|   gmem_m_axi_U      | interface | m_axi     | 4    |      |        |          |      |         |                  |
++---------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++--------------+----------------------------------------------------------------+-----------------------------+
+| Type         | Options                                                        | Location                    |
++--------------+----------------------------------------------------------------+-----------------------------+
+| disaggregate | variable = matrix                                              | csr_vmul.cpp:17 in csr_vmul |
+| interface    | s_axilite port = matrix->row_count bundle = control            | csr_vmul.cpp:18 in csr_vmul |
+| interface    | s_axilite port = matrix->col_count bundle = control            | csr_vmul.cpp:19 in csr_vmul |
+| interface    | s_axilite port = matrix->non_zero_count bundle = control       | csr_vmul.cpp:20 in csr_vmul |
+| interface    | m_axi port = matrix->row_pointers offset = slave bundle = gmem | csr_vmul.cpp:21 in csr_vmul |
+| interface    | m_axi port = matrix->col_indices offset = slave bundle = gmem  | csr_vmul.cpp:22 in csr_vmul |
+| interface    | m_axi port = matrix->values offset = slave bundle = gmem       | csr_vmul.cpp:23 in csr_vmul |
+| disaggregate | variable = vector                                              | csr_vmul.cpp:26 in csr_vmul |
+| interface    | m_axi port = vector->values offset = slave bundle = gmem       | csr_vmul.cpp:27 in csr_vmul |
+| interface    | s_axilite port = vector->count bundle = control                | csr_vmul.cpp:28 in csr_vmul |
+| disaggregate | variable = out                                                 | csr_vmul.cpp:30 in csr_vmul |
+| interface    | m_axi port = out->values offset = slave bundle = gmem          | csr_vmul.cpp:31 in csr_vmul |
+| interface    | s_axilite port = out->count bundle = control                   | csr_vmul.cpp:32 in csr_vmul |
+| interface    | s_axilite port = return bundle = control                       | csr_vmul.cpp:36 in csr_vmul |
++--------------+----------------------------------------------------------------+-----------------------------+
+
+
