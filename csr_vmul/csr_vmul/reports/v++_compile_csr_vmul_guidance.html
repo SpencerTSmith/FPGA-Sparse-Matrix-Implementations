@@ -3407,7 +3407,7 @@ window.onload = function () { addSorting(); }
 <center><h1>Design Guidance Report</h1></center><center><table class="header" border="0">
 <tr><td><b>Copyright</b></td><td>Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.</td></tr>
 <tr><td><b>Tool Version</b></td><td>xcd v.2024.2 (lin64) Build 0 </td></tr>
-<tr><td><b>Date</b></td><td>Tue Mar  4 00:51:55 2025</td></tr>
+<tr><td><b>Date</b></td><td>Mon Mar 10 23:41:45 2025</td></tr>
 <tr><td><b>Host</b></td><td>JOYOUS-MACHINE-EXCELLENCE running 64-bit Arch Linux</td></tr>
 <tr><td><b>Command</b></td><td>/home/spence/Documents/misery/Vivado/Vitis/2024.2/bin/unwrapped/lnx64.o/v++  -c --mode hls --config /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg --work_dir csr_vmul </td></tr>
 </table></center><br>
@@ -3416,9 +3416,9 @@ window.onload = function () { addSorting(); }
 <tr><td><a href="#VIOLATION DETAILS">2 VIOLATION DETAILS</a></tr></td>
 </table>
 <a name="REPORT SUMMARY"></a><h1>1 REPORT SUMMARY</h1>
-<pre>Violations found: 11
+<pre>Violations found: 5
 </pre>
-<pre>Rule Specs Violated: 3
+<pre>Rule Specs Violated: 2
 </pre>
 <a name="VIOLATION DETAILS"></a><h1>2 VIOLATION DETAILS</h1>
 <table border="1">
@@ -3434,51 +3434,29 @@ window.onload = function () { addSorting(); }
 <th align="left" width="380">Resolution</th>
 </tr>
 <tr>
-<td align="left">8</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.csr_vmul.Throughput</td>
-<td align="left">Pipelining result : Target II = NA, Final II = 6, Depth = 32, loop 'VITIS_LOOP_43_2'
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.2%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">7</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.csr_vmul.Throughput</td>
-<td align="left">The II Violation in module 'csr_vmul_Pipeline_VITIS_LOOP_43_2' (loop 'VITIS_LOOP_43_2'): Unable to enforce a carried dependence constraint (II = 5, distance = 1, offset = 1) between 'store' operation 0 bit ('sum_write_ln40', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=40">csr_vmul.cpp</a>) of variable 'sum', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=45">csr_vmul.cpp</a> on local variable 'sum', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=40">csr_vmul.cpp</a> and 'fadd' operation 32 bit ('sum', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=45">csr_vmul.cpp</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.2%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">2</td>
+<td align="left">1</td>
 <td align="left">Interface</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
 <td align="left">HLS Interface Related</td>
 <td align="left">Accelerator.csr_vmul.Interface</td>
-<td align="left">Multiple burst reads of length 2 and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=43">csr_vmul.cpp</a>)
+<td align="left">Multiple burst writes of variable length and bit width 32 in loop 'VITIS_LOOP_41_1'(<a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=41">csr_vmul.cpp</a>) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=41">csr_vmul.cpp</a>)
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.2%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">Kernel</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Kernel Related</td>
+<td align="left">Accelerator.csr_vmul.Kernel</td>
+<td align="left">**** Loop Constraint Status: All loop constraints were satisfied.
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.2%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
 <td align="left">5</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.csr_vmul.Throughput</td>
-<td align="left">The II Violation in module 'csr_vmul_Pipeline_VITIS_LOOP_43_2' (loop 'VITIS_LOOP_43_2'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between 'store' operation 0 bit ('sum_write_ln40', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=40">csr_vmul.cpp</a>) of variable 'sum', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=45">csr_vmul.cpp</a> on local variable 'sum', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=40">csr_vmul.cpp</a> and 'fadd' operation 32 bit ('sum', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=45">csr_vmul.cpp</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.2%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">11</td>
 <td align="left">Kernel</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
@@ -3489,68 +3467,24 @@ window.onload = function () { addSorting(); }
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.2%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">6</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
+<td align="left">2</td>
+<td align="left">Interface</td>
+<td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.csr_vmul.Throughput</td>
-<td align="left">The II Violation in module 'csr_vmul_Pipeline_VITIS_LOOP_43_2' (loop 'VITIS_LOOP_43_2'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1) between 'store' operation 0 bit ('sum_write_ln40', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=40">csr_vmul.cpp</a>) of variable 'sum', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=45">csr_vmul.cpp</a> on local variable 'sum', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=40">csr_vmul.cpp</a> and 'fadd' operation 32 bit ('sum', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=45">csr_vmul.cpp</a>).
+<td align="left">HLS Interface Related</td>
+<td align="left">Accelerator.csr_vmul.Interface</td>
+<td align="left">Multiple burst reads of length 2 and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=47">csr_vmul.cpp</a>)
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.2%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">9</td>
+<td align="left">3</td>
 <td align="left">Interface</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
 <td align="left">HLS Interface Related</td>
 <td align="left">Accelerator.csr_vmul.Interface</td>
 <td align="left">Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.2%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">3</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.csr_vmul.Throughput</td>
-<td align="left">The II Violation in module 'csr_vmul_Pipeline_VITIS_LOOP_43_2' (loop 'VITIS_LOOP_43_2'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation 0 bit ('sum_write_ln40', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=40">csr_vmul.cpp</a>) of variable 'sum', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=45">csr_vmul.cpp</a> on local variable 'sum', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=40">csr_vmul.cpp</a> and 'fadd' operation 32 bit ('sum', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=45">csr_vmul.cpp</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.2%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">4</td>
-<td align="left">Throughput</td>
-<td align="left">WARNING</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.csr_vmul.Throughput</td>
-<td align="left">The II Violation in module 'csr_vmul_Pipeline_VITIS_LOOP_43_2' (loop 'VITIS_LOOP_43_2'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between 'store' operation 0 bit ('sum_write_ln40', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=40">csr_vmul.cpp</a>) of variable 'sum', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=45">csr_vmul.cpp</a> on local variable 'sum', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=40">csr_vmul.cpp</a> and 'fadd' operation 32 bit ('sum', <a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=45">csr_vmul.cpp</a>).
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.2%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">10</td>
-<td align="left">Kernel</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.csr_vmul.Kernel</td>
-<td align="left">**** Loop Constraint Status: All loop constraints were NOT satisfied.
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.2%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">1</td>
-<td align="left">Interface</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Interface Related</td>
-<td align="left">Accelerator.csr_vmul.Interface</td>
-<td align="left">Multiple burst writes of variable length and bit width 32 in loop 'VITIS_LOOP_39_1'(<a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=39">csr_vmul.cpp</a>) has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp#line=39">csr_vmul.cpp</a>)
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2024.2%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>

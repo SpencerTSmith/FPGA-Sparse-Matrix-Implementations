@@ -1,0 +1,36 @@
+  **** HLS Build v2024.2 5238294
+INFO: [HLS 200-2005] Using work_dir /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul 
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying ini 'syn.file=/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(7)
+INFO: [HLS 200-10] Adding design file '/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp' to the project
+INFO: [HLS 200-1465] Applying ini 'syn.file=/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.h' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file '/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.h' to the project
+INFO: [HLS 200-1465] Applying ini 'tb.file=/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul_tb.cpp' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(9)
+INFO: [HLS 200-10] Adding test bench file '/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul_tb.cpp' to the project
+INFO: [HLS 200-1465] Applying ini 'syn.top=csr_vmul' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(11)
+INFO: [HLS 200-1465] Applying ini 'flow_target=vivado' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying ini 'part=xc7z020clg400-1' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1465] Applying ini 'csim.code_analyzer=1' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(10)
+INFO: [HLS 200-1465] Applying ini 'package.output.format=ip_catalog' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(5)
+INFO: [HLS 200-1465] Applying ini 'csim.O=0' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls-debug.cfg(3)
+INFO: [HLS 200-1907] Replacing 'config_csim -O=0' with 'config_sim -O=0' in current solution file
+INFO: [HLS 200-1465] Applying ini 'csim.clean=1' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls-debug.cfg(4)
+INFO: [HLS 200-1907] Replacing 'config_csim -O=0' with 'config_sim -O=0' in current solution file
+INFO: [HLS 200-1465] Applying ini 'csim.setup=1' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls-debug.cfg(2)
+INFO: [HLS 200-1907] Replacing 'config_csim -O=0' with 'config_sim -O=0' in current solution file
+INFO: [SIM 211-200] Skipping execution of Code Analyzer due to 'setup' option, executing classic HLS C simulation
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../csr_vmul_tb.cpp in debug mode
+   Compiling ../../../../csr_vmul.cpp in debug mode
+   Generating csim.exe
+INFO: [HLS 200-2035] Skipping execution of C Simulation due to 'setup' option
+INFO: [SIM 211-1] CSim file generation done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-112] Total CPU user time: 2 seconds. Total CPU system time: 0.28 seconds. Total elapsed time: 2.16 seconds; peak allocated memory: 660.027 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 0m 5s

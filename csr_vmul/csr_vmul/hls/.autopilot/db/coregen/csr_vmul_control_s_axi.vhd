@@ -39,7 +39,8 @@ port (
     matrix_col_count      :out  STD_LOGIC_VECTOR(31 downto 0);
     matrix_non_zero_count :out  STD_LOGIC_VECTOR(31 downto 0);
     vector_count          :out  STD_LOGIC_VECTOR(31 downto 0);
-    out_count             :out  STD_LOGIC_VECTOR(31 downto 0);
+    out_count             :in   STD_LOGIC_VECTOR(31 downto 0);
+    out_count_ap_vld      :in   STD_LOGIC;
     ap_start              :out  STD_LOGIC;
     ap_done               :in   STD_LOGIC;
     ap_ready              :in   STD_LOGIC;
@@ -82,8 +83,10 @@ end entity csr_vmul_control_s_axi;
 --        bit 31~0 - vector_count[31:0] (Read/Write)
 -- 0x2c : reserved
 -- 0x30 : Data signal of out_count
---        bit 31~0 - out_count[31:0] (Read/Write)
--- 0x34 : reserved
+--        bit 31~0 - out_count[31:0] (Read)
+-- 0x34 : Control signal of out_count
+--        bit 0  - out_count_ap_vld (Read/COR)
+--        others - reserved
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of csr_vmul_control_s_axi is
@@ -137,6 +140,7 @@ architecture behave of csr_vmul_control_s_axi is
     signal int_matrix_col_count : UNSIGNED(31 downto 0) := (others => '0');
     signal int_matrix_non_zero_count : UNSIGNED(31 downto 0) := (others => '0');
     signal int_vector_count    : UNSIGNED(31 downto 0) := (others => '0');
+    signal int_out_count_ap_vld : STD_LOGIC;
     signal int_out_count       : UNSIGNED(31 downto 0) := (others => '0');
 
 
@@ -276,6 +280,8 @@ begin
                         rdata_data <= RESIZE(int_vector_count(31 downto 0), 32);
                     when ADDR_OUT_COUNT_DATA_0 =>
                         rdata_data <= RESIZE(int_out_count(31 downto 0), 32);
+                    when ADDR_OUT_COUNT_CTRL =>
+                        rdata_data(0) <= int_out_count_ap_vld;
                     when others =>
                         NULL;
                     end case;
@@ -294,7 +300,6 @@ begin
     matrix_col_count     <= STD_LOGIC_VECTOR(int_matrix_col_count);
     matrix_non_zero_count <= STD_LOGIC_VECTOR(int_matrix_non_zero_count);
     vector_count         <= STD_LOGIC_VECTOR(int_vector_count);
-    out_count            <= STD_LOGIC_VECTOR(int_out_count);
 
     process (ACLK)
     begin
@@ -522,10 +527,25 @@ begin
     begin
         if (ACLK'event and ACLK = '1') then
             if (ARESET = '1') then
-                int_out_count(31 downto 0) <= (others => '0');
+                int_out_count <= (others => '0');
             elsif (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_OUT_COUNT_DATA_0) then
-                    int_out_count(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_out_count(31 downto 0));
+                if (out_count_ap_vld = '1') then
+                    int_out_count <= UNSIGNED(out_count);
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_out_count_ap_vld <= '0';
+            elsif (ACLK_EN = '1') then
+                if (out_count_ap_vld = '1') then
+                    int_out_count_ap_vld <= '1';
+                elsif (ar_hs = '1' and raddr = ADDR_OUT_COUNT_CTRL) then
+                    int_out_count_ap_vld <= '0'; -- clear on read
                 end if;
             end if;
         end if;

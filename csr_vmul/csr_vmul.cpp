@@ -31,16 +31,22 @@ void csr_vmul(const CSR_Matrix *matrix, const Vector *vector, Vector *out) {
 #pragma HLS INTERFACE m_axi port = out->values offset = slave bundle = gmem
 #pragma HLS INTERFACE s_axilite port = out->count bundle = control
 
-// I see this done a lot in examples, not sure why... something to do with c/c++ abi always having
-// return
+// I see this done a lot in examples, not sure why... maybe something to do with c/c++ abi always
+// having return?
 #pragma HLS INTERFACE s_axilite port = return bundle = control
+
+  out->count = matrix->row_count;
 
   // For every row, same as normal naive matrix multiply
   for (int row = 0; row < matrix->row_count; row++) {
+#pragma HLS loop_tripcount max = MAX_ELEMENTS
+#pragma HLS PIPELINE II = 1
     float sum = 0;
 
     // Go through every element we know is in this row
     for (int i = matrix->row_pointers[row]; i < matrix->row_pointers[row + 1]; i++) {
+#pragma HLS loop_tripcount max = MAX_ELEMENTS
+      // #pragma HLS UNROLL factor = 10
       // And multiply it by the correct colum indice in the vector
       sum += matrix->values[i] * vector->values[matrix->col_indices[i]];
     }

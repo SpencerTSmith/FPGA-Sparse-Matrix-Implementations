@@ -38,8 +38,10 @@
 //        bit 31~0 - vector_count[31:0] (Read/Write)
 // 0x2c : reserved
 // 0x30 : Data signal of out_count
-//        bit 31~0 - out_count[31:0] (Read/Write)
-// 0x34 : reserved
+//        bit 31~0 - out_count[31:0] (Read)
+// 0x34 : Control signal of out_count
+//        bit 0  - out_count_ap_vld (Read/COR)
+//        others - reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 #define XCSR_VMUL_CONTROL_ADDR_AP_CTRL                    0x00
@@ -56,6 +58,7 @@
 #define XCSR_VMUL_CONTROL_BITS_VECTOR_COUNT_DATA          32
 #define XCSR_VMUL_CONTROL_ADDR_OUT_COUNT_DATA             0x30
 #define XCSR_VMUL_CONTROL_BITS_OUT_COUNT_DATA             32
+#define XCSR_VMUL_CONTROL_ADDR_OUT_COUNT_CTRL             0x34
 
 // control_r
 // 0x00 : reserved

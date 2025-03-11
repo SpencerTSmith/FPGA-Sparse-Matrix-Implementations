@@ -2,21 +2,21 @@
 MainSourceFile:  /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/.autopilot/db/csr_vmul.pp.0.cpp
 Diagnostics:     
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_39_1:  '
-    FileOffset:      39
+    Message:         'Added loop label VITIS_LOOP_41_1:  '
+    FileOffset:      41
     FilePath:        csr_vmul.cpp
     Replacements:    
       - FilePath:        /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/.autopilot/db/csr_vmul.pp.0.cpp
-        Offset:          11120
+        Offset:          11261
         Length:          0
-        ReplacementText: 'VITIS_LOOP_39_1: '
+        ReplacementText: 'VITIS_LOOP_41_1: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_43_2:  '
-    FileOffset:      43
+    Message:         'Added loop label VITIS_LOOP_47_2:  '
+    FileOffset:      47
     FilePath:        csr_vmul.cpp
     Replacements:    
       - FilePath:        /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/.autopilot/db/csr_vmul.pp.0.cpp
-        Offset:          11197
+        Offset:          11409
         Length:          0
-        ReplacementText: 'VITIS_LOOP_43_2: '
+        ReplacementText: 'VITIS_LOOP_47_2: '
 ...

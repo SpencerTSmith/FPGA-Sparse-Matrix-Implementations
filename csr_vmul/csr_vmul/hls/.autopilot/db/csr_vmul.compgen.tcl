@@ -1,5 +1,17 @@
 # This script segment is generated automatically by AutoPilot
 
+set name csr_vmul_fadd_32ns_32ns_32_5_full_dsp_1
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {fadd} IMPL {fulldsp} LATENCY 4 ALLOW_PRAGMA 1
+}
+
+
+set name csr_vmul_fmul_32ns_32ns_32_4_max_dsp_1
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {fmul} IMPL {maxdsp} LATENCY 3 ALLOW_PRAGMA 1
+}
+
+
 if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler csr_vmul_gmem_m_axi BINDTYPE {interface} TYPE {adapter} IMPL {m_axi}
 }
@@ -47,10 +59,10 @@ vector_count {
 	offset_end 47
 }
 out_count { 
-	dir I
+	dir O
 	width 32
 	depth 1
-	mode ap_none
+	mode ap_vld
 	offset 48
 	offset_end 55
 }
@@ -68,7 +80,7 @@ dict set axilite_register_dict control $port_control
 if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 12 \
+			id 5 \
 			corename csr_vmul_control_axilite \
 			name csr_vmul_control_s_axi \
 			ports {$port_control} \
@@ -137,7 +149,7 @@ dict set axilite_register_dict control_r $port_control_r
 if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 13 \
+			id 6 \
 			corename csr_vmul_control_r_axilite \
 			name csr_vmul_control_r_s_axi \
 			ports {$port_control_r} \

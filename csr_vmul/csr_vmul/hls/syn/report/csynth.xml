@@ -19,36 +19,85 @@
         </SummaryOfTimingAnalysis>
         <SummaryOfOverallLatency>
             <unit>clock cycles</unit>
-            <Best-caseLatency>undef</Best-caseLatency>
-            <Average-caseLatency>undef</Average-caseLatency>
-            <Worst-caseLatency>undef</Worst-caseLatency>
-            <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
-            <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
-            <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
-            <Interval-min>undef</Interval-min>
-            <Interval-max>undef</Interval-max>
+            <Best-caseLatency>7</Best-caseLatency>
+            <Average-caseLatency>7870983</Average-caseLatency>
+            <Worst-caseLatency>31470599</Worst-caseLatency>
+            <Best-caseRealTimeLatency>70.000 ns</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>78.710 ms</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>0.315 sec</Worst-caseRealTimeLatency>
+            <Interval-min>8</Interval-min>
+            <Interval-max>31470600</Interval-max>
         </SummaryOfOverallLatency>
         <SummaryOfLoopLatency>
-            <VITIS_LOOP_39_1>
+            <VITIS_LOOP_41_1>
                 <Slack>7.30</Slack>
-                <TripCount>undef</TripCount>
-                <Latency>undef</Latency>
-                <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
-                <IterationLatency>undef</IterationLatency>
+                <TripCount>
+                    <range>
+                        <min>0</min>
+                        <max>1024</max>
+                    </range>
+                </TripCount>
+                <Latency>
+                    <range>
+                        <min>0</min>
+                        <max>31470592</max>
+                    </range>
+                </Latency>
+                <AbsoluteTimeLatency>
+                    <range>
+                        <min>0</min>
+                        <max>314705920</max>
+                    </range>
+                </AbsoluteTimeLatency>
+                <IterationLatency>
+                    <range>
+                        <min>13</min>
+                        <max>30733</max>
+                    </range>
+                </IterationLatency>
                 <InstanceList/>
-            </VITIS_LOOP_39_1>
+                <VITIS_LOOP_47_2>
+                    <Slack>7.30</Slack>
+                    <TripCount>
+                        <range>
+                            <min>0</min>
+                            <max>1024</max>
+                        </range>
+                    </TripCount>
+                    <Latency>
+                        <range>
+                            <min>0</min>
+                            <max>30720</max>
+                        </range>
+                    </Latency>
+                    <AbsoluteTimeLatency>
+                        <range>
+                            <min>0</min>
+                            <max>307200</max>
+                        </range>
+                    </AbsoluteTimeLatency>
+                    <IterationLatency>30</IterationLatency>
+                    <InstanceList/>
+                </VITIS_LOOP_47_2>
+            </VITIS_LOOP_41_1>
         </SummaryOfLoopLatency>
         <SummaryOfViolations>
             <IssueType>-</IssueType>
             <ViolationType>-</ViolationType>
-            <SourceLocation>csr_vmul.cpp:39</SourceLocation>
+            <SourceLocation>csr_vmul.cpp:41</SourceLocation>
             <SummaryOfLoopViolations>
-                <VITIS_LOOP_39_1>
-                    <Name>VITIS_LOOP_39_1</Name>
+                <VITIS_LOOP_41_1>
+                    <Name>VITIS_LOOP_41_1</Name>
                     <IssueType>-</IssueType>
                     <ViolationType>-</ViolationType>
-                    <SourceLocation>csr_vmul.cpp:39</SourceLocation>
-                </VITIS_LOOP_39_1>
+                    <SourceLocation>csr_vmul.cpp:41</SourceLocation>
+                    <VITIS_LOOP_47_2>
+                        <Name>VITIS_LOOP_47_2</Name>
+                        <IssueType>-</IssueType>
+                        <ViolationType>-</ViolationType>
+                        <SourceLocation>csr_vmul.cpp:47</SourceLocation>
+                    </VITIS_LOOP_47_2>
+                </VITIS_LOOP_41_1>
             </SummaryOfLoopViolations>
         </SummaryOfViolations>
     </PerformanceEstimates>
@@ -56,8 +105,8 @@
         <Resources>
             <BRAM_18K>4</BRAM_18K>
             <DSP>5</DSP>
-            <FF>3355</FF>
-            <LUT>3705</LUT>
+            <FF>3168</FF>
+            <LUT>3597</LUT>
             <URAM>0</URAM>
         </Resources>
         <AvailableResources>
@@ -1018,104 +1067,18 @@
         </RtlPorts>
     </InterfaceSummary>
     <RTLDesignHierarchy>
-        <TopModule MAX_DEPTH="3">
+        <TopModule MAX_DEPTH="2">
             <ModuleName>csr_vmul</ModuleName>
-            <InstancesList>
-                <Instance>
-                    <InstName>grp_csr_vmul_Pipeline_VITIS_LOOP_43_2_fu_187</InstName>
-                    <ModuleName>csr_vmul_Pipeline_VITIS_LOOP_43_2</ModuleName>
-                    <IsCompInst>true</IsCompInst>
-                    <ID>187</ID>
-                    <BindInstances>icmp_ln43_fu_198_p2 add_ln43_fu_203_p2 add_ln45_fu_209_p2 add_ln45_1_fu_220_p2 add_ln45_2_fu_257_p2 fmul_32ns_32ns_32_4_max_dsp_1_U2 fadd_32ns_32ns_32_5_full_dsp_1_U1 add_ln43_1_fu_236_p2</BindInstances>
-                </Instance>
-            </InstancesList>
-            <BindInstances>icmp_ln39_fu_199_p2 empty_fu_229_p3 icmp_ln39_1_fu_253_p2 indvars_iv_next7_fu_258_p2 add_ln43_fu_276_p2 add_ln43_1_fu_317_p2 add_ln43_2_fu_332_p2 control_s_axi_U control_r_s_axi_U gmem_m_axi_U</BindInstances>
+            <BindInstances>icmp_ln41_fu_286_p2 empty_fu_316_p3 icmp_ln41_1_fu_340_p2 indvars_iv_next7_fu_345_p2 add_ln47_fu_363_p2 add_ln47_1_fu_406_p2 add_ln47_2_fu_425_p2 icmp_ln47_fu_444_p2 add_ln47_4_fu_449_p2 add_ln51_fu_455_p2 add_ln51_1_fu_466_p2 add_ln51_2_fu_498_p2 fmul_32ns_32ns_32_4_max_dsp_1_U2 fadd_32ns_32ns_32_5_full_dsp_1_U1 add_ln47_3_fu_477_p2 control_s_axi_U control_r_s_axi_U gmem_m_axi_U</BindInstances>
         </TopModule>
     </RTLDesignHierarchy>
     <ModuleInformation>
         <Module>
-            <Name>csr_vmul_Pipeline_VITIS_LOOP_43_2</Name>
-            <Loops>
-                <VITIS_LOOP_43_2/>
-            </Loops>
-            <PerformanceEstimates>
-                <SummaryOfTimingAnalysis>
-                    <TargetClockPeriod>10.00</TargetClockPeriod>
-                    <ClockUncertainty>2.70</ClockUncertainty>
-                    <EstimatedClockPeriod>7.300</EstimatedClockPeriod>
-                </SummaryOfTimingAnalysis>
-                <SummaryOfOverallLatency>
-                    <Best-caseLatency>undef</Best-caseLatency>
-                    <Average-caseLatency>undef</Average-caseLatency>
-                    <Worst-caseLatency>undef</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>0</PipelineInitiationInterval>
-                    <PipelineType>loop auto-rewind stp (delay=0 clock cycles(s))</PipelineType>
-                </SummaryOfOverallLatency>
-                <SummaryOfLoopLatency>
-                    <VITIS_LOOP_43_2>
-                        <Name>VITIS_LOOP_43_2</Name>
-                        <Slack>7.30</Slack>
-                        <TripCount>undef</TripCount>
-                        <Latency>undef</Latency>
-                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
-                        <PipelineII>6</PipelineII>
-                        <PipelineDepth>31</PipelineDepth>
-                        <PipelineType>yes</PipelineType>
-                        <InstanceList/>
-                    </VITIS_LOOP_43_2>
-                </SummaryOfLoopLatency>
-                <SummaryOfViolations>
-                    <IssueType>-</IssueType>
-                    <ViolationType>-</ViolationType>
-                    <SourceLocation>csr_vmul.cpp:40</SourceLocation>
-                    <SummaryOfLoopViolations>
-                        <VITIS_LOOP_43_2>
-                            <Name>VITIS_LOOP_43_2</Name>
-                            <IssueType>II Violation</IssueType>
-                            <ViolationType>Memory Dependency</ViolationType>
-                            <IterationDistance>1</IterationDistance>
-                            <SourceLocation>csr_vmul.cpp:43</SourceLocation>
-                        </VITIS_LOOP_43_2>
-                    </SummaryOfLoopViolations>
-                </SummaryOfViolations>
-            </PerformanceEstimates>
-            <AreaEstimates>
-                <Resources>
-                    <DSP>5</DSP>
-                    <AVAIL_DSP>220</AVAIL_DSP>
-                    <UTIL_DSP>2</UTIL_DSP>
-                    <FF>1237</FF>
-                    <AVAIL_FF>106400</AVAIL_FF>
-                    <UTIL_FF>1</UTIL_FF>
-                    <LUT>1359</LUT>
-                    <AVAIL_LUT>53200</AVAIL_LUT>
-                    <UTIL_LUT>2</UTIL_LUT>
-                    <BRAM_18K>0</BRAM_18K>
-                    <AVAIL_BRAM>280</AVAIL_BRAM>
-                    <UTIL_BRAM>0</UTIL_BRAM>
-                    <URAM>0</URAM>
-                    <AVAIL_URAM>0</AVAIL_URAM>
-                    <UTIL_URAM>0</UTIL_URAM>
-                </Resources>
-            </AreaEstimates>
-            <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_43_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln43_fu_198_p2" SOURCE="csr_vmul.cpp:43" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln43" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_43_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln43_fu_203_p2" SOURCE="csr_vmul.cpp:43" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln43" VISIBLE="true"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_43_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln45_fu_209_p2" SOURCE="csr_vmul.cpp:45" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln45" VISIBLE="true"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_43_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln45_1_fu_220_p2" SOURCE="csr_vmul.cpp:45" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln45_1" VISIBLE="true"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_43_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln45_2_fu_257_p2" SOURCE="csr_vmul.cpp:45" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln45_2" VISIBLE="true"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fmul" DSP="3" ID="" IMPL="maxdsp" LATENCY="3" LOOP="VITIS_LOOP_43_2" OPTYPE="fmul" PRAGMA="" RTLNAME="fmul_32ns_32ns_32_4_max_dsp_1_U2" SOURCE="csr_vmul.cpp:45" STORAGESUBTYPE="" URAM="0" VARIABLE="mul" VISIBLE="true"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fadd" DSP="2" ID="" IMPL="fulldsp" LATENCY="4" LOOP="VITIS_LOOP_43_2" OPTYPE="fadd" PRAGMA="" RTLNAME="fadd_32ns_32ns_32_5_full_dsp_1_U1" SOURCE="csr_vmul.cpp:45" STORAGESUBTYPE="" URAM="0" VARIABLE="sum_1" VISIBLE="true"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_43_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln43_1_fu_236_p2" SOURCE="csr_vmul.cpp:43" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln43_1" VISIBLE="true"/>
-            </BindNodes>
-        </Module>
-        <Module>
             <Name>csr_vmul</Name>
             <Loops>
-                <VITIS_LOOP_39_1/>
+                <VITIS_LOOP_41_1>
+                    <VITIS_LOOP_47_2/>
+                </VITIS_LOOP_41_1>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -1124,41 +1087,71 @@
                     <EstimatedClockPeriod>7.300</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
-                    <Best-caseLatency>undef</Best-caseLatency>
-                    <Average-caseLatency>undef</Average-caseLatency>
-                    <Worst-caseLatency>undef</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <Best-caseLatency>7</Best-caseLatency>
+                    <Average-caseLatency>7870983</Average-caseLatency>
+                    <Worst-caseLatency>31470599</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>70.000 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>78.710 ms</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.315 sec</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>8 ~ 31470600</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_39_1>
-                        <Name>VITIS_LOOP_39_1</Name>
+                    <VITIS_LOOP_41_1>
+                        <Name>VITIS_LOOP_41_1</Name>
                         <Slack>7.30</Slack>
-                        <TripCount>undef</TripCount>
-                        <Latency>undef</Latency>
-                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
-                        <IterationLatency>undef</IterationLatency>
-                        <PipelineDepth>undef</PipelineDepth>
+                        <TripCount>
+                            <range>
+                                <min>0</min>
+                                <max>1024</max>
+                            </range>
+                        </TripCount>
+                        <Latency>0 ~ 31470592</Latency>
+                        <AbsoluteTimeLatency>0 ns ~ 0.315 sec</AbsoluteTimeLatency>
+                        <IterationLatency>
+                            <range>
+                                <min>13</min>
+                                <max>30733</max>
+                            </range>
+                        </IterationLatency>
+                        <PipelineDepth>13 ~ 30733</PipelineDepth>
                         <PipelineType>no</PipelineType>
-                        <InstanceList>
-                            <Instance>grp_csr_vmul_Pipeline_VITIS_LOOP_43_2_fu_187</Instance>
-                        </InstanceList>
-                    </VITIS_LOOP_39_1>
+                        <InstanceList/>
+                        <VITIS_LOOP_47_2>
+                            <Name>VITIS_LOOP_47_2</Name>
+                            <Slack>7.30</Slack>
+                            <TripCount>
+                                <range>
+                                    <min>0</min>
+                                    <max>1024</max>
+                                </range>
+                            </TripCount>
+                            <Latency>0 ~ 30720</Latency>
+                            <AbsoluteTimeLatency>0 ns ~ 0.307 ms</AbsoluteTimeLatency>
+                            <IterationLatency>30</IterationLatency>
+                            <PipelineDepth>30</PipelineDepth>
+                            <PipelineType>no</PipelineType>
+                            <InstanceList/>
+                        </VITIS_LOOP_47_2>
+                    </VITIS_LOOP_41_1>
                 </SummaryOfLoopLatency>
                 <SummaryOfViolations>
                     <IssueType>-</IssueType>
                     <ViolationType>-</ViolationType>
-                    <SourceLocation>csr_vmul.cpp:39</SourceLocation>
+                    <SourceLocation>csr_vmul.cpp:41</SourceLocation>
                     <SummaryOfLoopViolations>
-                        <VITIS_LOOP_39_1>
-                            <Name>VITIS_LOOP_39_1</Name>
+                        <VITIS_LOOP_41_1>
+                            <Name>VITIS_LOOP_41_1</Name>
                             <IssueType>-</IssueType>
                             <ViolationType>-</ViolationType>
-                            <SourceLocation>csr_vmul.cpp:39</SourceLocation>
-                        </VITIS_LOOP_39_1>
+                            <SourceLocation>csr_vmul.cpp:41</SourceLocation>
+                            <VITIS_LOOP_47_2>
+                                <Name>VITIS_LOOP_47_2</Name>
+                                <IssueType>-</IssueType>
+                                <ViolationType>-</ViolationType>
+                                <SourceLocation>csr_vmul.cpp:47</SourceLocation>
+                            </VITIS_LOOP_47_2>
+                        </VITIS_LOOP_41_1>
                     </SummaryOfLoopViolations>
                 </SummaryOfViolations>
             </PerformanceEstimates>
@@ -1170,10 +1163,10 @@
                     <DSP>5</DSP>
                     <AVAIL_DSP>220</AVAIL_DSP>
                     <UTIL_DSP>2</UTIL_DSP>
-                    <FF>3355</FF>
+                    <FF>3168</FF>
                     <AVAIL_FF>106400</AVAIL_FF>
-                    <UTIL_FF>3</UTIL_FF>
-                    <LUT>3705</LUT>
+                    <UTIL_FF>2</UTIL_FF>
+                    <LUT>3597</LUT>
                     <AVAIL_LUT>53200</AVAIL_LUT>
                     <UTIL_LUT>6</UTIL_LUT>
                     <URAM>0</URAM>
@@ -1182,13 +1175,21 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setgt" PRAGMA="" RTLNAME="icmp_ln39_fu_199_p2" SOURCE="csr_vmul.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln39" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="empty_fu_229_p3" SOURCE="csr_vmul.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="empty" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_39_1" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln39_1_fu_253_p2" SOURCE="csr_vmul.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln39_1" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_39_1" OPTYPE="add" PRAGMA="" RTLNAME="indvars_iv_next7_fu_258_p2" SOURCE="" STORAGESUBTYPE="" URAM="0" VARIABLE="indvars_iv_next7" VISIBLE="true"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_39_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln43_fu_276_p2" SOURCE="csr_vmul.cpp:43" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln43" VISIBLE="true"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_39_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln43_1_fu_317_p2" SOURCE="csr_vmul.cpp:43" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln43_1" VISIBLE="true"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_39_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln43_2_fu_332_p2" SOURCE="csr_vmul.cpp:43" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln43_2" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setgt" PRAGMA="" RTLNAME="icmp_ln41_fu_286_p2" SOURCE="csr_vmul.cpp:41" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln41" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="empty_fu_316_p3" SOURCE="csr_vmul.cpp:41" STORAGESUBTYPE="" URAM="0" VARIABLE="empty" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_41_1" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln41_1_fu_340_p2" SOURCE="csr_vmul.cpp:41" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln41_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_41_1" OPTYPE="add" PRAGMA="" RTLNAME="indvars_iv_next7_fu_345_p2" SOURCE="" STORAGESUBTYPE="" URAM="0" VARIABLE="indvars_iv_next7" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_41_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln47_fu_363_p2" SOURCE="csr_vmul.cpp:47" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln47" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_41_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln47_1_fu_406_p2" SOURCE="csr_vmul.cpp:47" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln47_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_41_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln47_2_fu_425_p2" SOURCE="csr_vmul.cpp:47" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln47_2" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setlt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_47_2" OPTYPE="setlt" PRAGMA="" RTLNAME="icmp_ln47_fu_444_p2" SOURCE="csr_vmul.cpp:47" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln47" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_47_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln47_4_fu_449_p2" SOURCE="csr_vmul.cpp:47" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln47_4" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_47_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln51_fu_455_p2" SOURCE="csr_vmul.cpp:51" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln51" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_47_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln51_1_fu_466_p2" SOURCE="csr_vmul.cpp:51" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln51_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_47_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln51_2_fu_498_p2" SOURCE="csr_vmul.cpp:51" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln51_2" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fmul" DSP="3" ID="" IMPL="maxdsp" LATENCY="3" LOOP="VITIS_LOOP_47_2" OPTYPE="fmul" PRAGMA="" RTLNAME="fmul_32ns_32ns_32_4_max_dsp_1_U2" SOURCE="csr_vmul.cpp:51" STORAGESUBTYPE="" URAM="0" VARIABLE="mul" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fadd" DSP="2" ID="" IMPL="fulldsp" LATENCY="4" LOOP="VITIS_LOOP_47_2" OPTYPE="fadd" PRAGMA="" RTLNAME="fadd_32ns_32ns_32_5_full_dsp_1_U1" SOURCE="csr_vmul.cpp:51" STORAGESUBTYPE="" URAM="0" VARIABLE="sum_1" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_47_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln47_3_fu_477_p2" SOURCE="csr_vmul.cpp:47" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln47_3" VISIBLE="true"/>
                 <BindNode BINDTYPE="adapter" BRAM="0" BUNDLEDNAME="control" DISPNAME="bind_adapter " DSP="0" ID="" IMPL="" LATENCY="" LOOP="" OPTYPE="" PRAGMA="" RTLNAME="control_s_axi_U" SOURCE="" STORAGESIZE="" STORAGESUBTYPE="s_axilite" STORAGEUSAGE="interface" URAM="0" VARIABLE=""/>
                 <BindNode BINDTYPE="adapter" BRAM="0" BUNDLEDNAME="control_r" DISPNAME="bind_adapter " DSP="0" ID="" IMPL="" LATENCY="" LOOP="" OPTYPE="" PRAGMA="" RTLNAME="control_r_s_axi_U" SOURCE="" STORAGESIZE="" STORAGESUBTYPE="s_axilite" STORAGEUSAGE="interface" URAM="0" VARIABLE=""/>
                 <BindNode BINDTYPE="adapter" BRAM="4" BUNDLEDNAME="gmem" DISPNAME="bind_adapter " DSP="0" ID="" IMPL="" LATENCY="" LOOP="" OPTYPE="" PRAGMA="" RTLNAME="gmem_m_axi_U" SOURCE="" STORAGESIZE="" STORAGESUBTYPE="m_axi" STORAGEUSAGE="interface" URAM="0" VARIABLE=""/>
@@ -1200,7 +1201,7 @@
         <config_csim code_analyzer="1"/>
     </UserConfigCommands>
     <Args>
-        <Arg ArgName="matrix" index="0" direction="inout" srcType="CSR_Matrix const *" srcSize="12384">
+        <Arg ArgName="matrix" index="0" direction="inout" srcType="CSR_Matrix const *" srcSize="98400">
             <hwRefs>
                 <hwRef type="interface" interface="s_axi_control" name="" usage="data" direction="inout"/>
                 <hwRef type="interface" interface="s_axi_control" name="" usage="data" direction="inout"/>
@@ -1213,14 +1214,14 @@
                 <hwRef type="interface" interface="s_axi_control_r" name="" usage="address" direction="inout"/>
             </hwRefs>
         </Arg>
-        <Arg ArgName="vector" index="1" direction="inout" srcType="Vector const *" srcSize="4128">
+        <Arg ArgName="vector" index="1" direction="inout" srcType="Vector const *" srcSize="32800">
             <hwRefs>
                 <hwRef type="interface" interface="s_axi_control" name="" usage="data" direction="inout"/>
                 <hwRef type="interface" interface="m_axi_gmem" name="" usage="data" direction="inout"/>
                 <hwRef type="interface" interface="s_axi_control_r" name="" usage="address" direction="inout"/>
             </hwRefs>
         </Arg>
-        <Arg ArgName="out" index="2" direction="inout" srcType="Vector*" srcSize="4128">
+        <Arg ArgName="out" index="2" direction="inout" srcType="Vector*" srcSize="32800">
             <hwRefs>
                 <hwRef type="interface" interface="s_axi_control" name="" usage="data" direction="inout"/>
                 <hwRef type="interface" interface="m_axi_gmem" name="" usage="data" direction="inout"/>
@@ -1303,9 +1304,15 @@
                         <field offset="0" width="32" name="vector_count" access="W" description="Bit 31 to 0 of vector_count"/>
                     </fields>
                 </register>
-                <register offset="0x30" name="out_count" access="W" description="Data signal of out_count" range="32">
+                <register offset="0x30" name="out_count" access="R" description="Data signal of out_count" range="32">
                     <fields>
-                        <field offset="0" width="32" name="out_count" access="W" description="Bit 31 to 0 of out_count"/>
+                        <field offset="0" width="32" name="out_count" access="R" description="Bit 31 to 0 of out_count"/>
+                    </fields>
+                </register>
+                <register offset="0x34" name="out_count_ctrl" access="R" description="Control signal of out_count" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="out_count_ap_vld" access="R" description="Control signal out_count_ap_vld"/>
+                        <field offset="1" width="31" name="RESERVED" access="R" description="Reserved.  0s on read."/>
                     </fields>
                 </register>
             </registers>
@@ -1530,7 +1537,8 @@
                     <column name="s_axi_control">matrix_col_count, 0x18, 32, W, Data signal of matrix_col_count, </column>
                     <column name="s_axi_control">matrix_non_zero_count, 0x20, 32, W, Data signal of matrix_non_zero_count, </column>
                     <column name="s_axi_control">vector_count, 0x28, 32, W, Data signal of vector_count, </column>
-                    <column name="s_axi_control">out_count, 0x30, 32, W, Data signal of out_count, </column>
+                    <column name="s_axi_control">out_count, 0x30, 32, R, Data signal of out_count, </column>
+                    <column name="s_axi_control">out_count_ctrl, 0x34, 32, R, Control signal of out_count, 0=out_count_ap_vld</column>
                     <column name="s_axi_control_r">matrix_row_pointers_1, 0x10, 32, W, Data signal of matrix_row_pointers, </column>
                     <column name="s_axi_control_r">matrix_row_pointers_2, 0x14, 32, W, Data signal of matrix_row_pointers, </column>
                     <column name="s_axi_control_r">matrix_col_indices_1, 0x1c, 32, W, Data signal of matrix_col_indices, </column>
@@ -1592,26 +1600,26 @@
             <item name="Inferred Burst Summary">
                 <table>
                     <keys size="6">HW Interface, Direction, Length, Width, Loop, Loop Location</keys>
-                    <column name="m_axi_gmem">write, variable, 32, VITIS_LOOP_39_1, csr_vmul.cpp:39:19</column>
+                    <column name="m_axi_gmem">write, variable, 32, VITIS_LOOP_41_1, csr_vmul.cpp:41:20</column>
                     <column name="m_axi_gmem">read, 2, 32, , </column>
                 </table>
             </item>
             <item name="All M_AXI Variable Accesses">
                 <table>
                     <keys size="10">HW Interface, Variable, Access Location, Direction, Burst Status, Length, Loop, Loop Location, Resolution, Problem</keys>
-                    <column name="m_axi_gmem">, csr_vmul.cpp:43:22, read, Fail, , , , 214-224, Could not burst due to multiple potential reads to the same bundle in the same region.</column>
-                    <column name="m_axi_gmem">matrix_row_pointers, csr_vmul.cpp:43:35, read, Widen Fail, , , , 214-353, Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0</column>
-                    <column name="m_axi_gmem">matrix_row_pointers, csr_vmul.cpp:43:35, read, Fail, , VITIS_LOOP_39_1, csr_vmul.cpp:39:19, 214-230, Stride is incompatible</column>
-                    <column name="m_axi_gmem">matrix_row_pointers, csr_vmul.cpp:43:35, islist read read, Inferred, 2, VITIS_LOOP_39_1, csr_vmul.cpp:39:19, , </column>
-                    <column name="m_axi_gmem">matrix_col_indices, csr_vmul.cpp:45:49, read, Widen Fail, , VITIS_LOOP_43_2, csr_vmul.cpp:43:22, 214-353, Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0</column>
-                    <column name="m_axi_gmem">matrix_values, csr_vmul.cpp:45:14, read, Widen Fail, , VITIS_LOOP_43_2, csr_vmul.cpp:43:22, 214-353, Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0</column>
-                    <column name="m_axi_gmem">matrix_col_indices, csr_vmul.cpp:45:49, read, Fail, , VITIS_LOOP_39_1, csr_vmul.cpp:39:19, 214-232, Access call is in the conditional branch</column>
-                    <column name="m_axi_gmem">matrix_values, csr_vmul.cpp:45:14, read, Fail, , VITIS_LOOP_39_1, csr_vmul.cpp:39:19, 214-232, Access call is in the conditional branch</column>
-                    <column name="m_axi_gmem">vector_values, csr_vmul.cpp:45:34, read, Fail, , VITIS_LOOP_43_2, csr_vmul.cpp:43:22, 214-229, Could not analyze pattern</column>
-                    <column name="m_axi_gmem">matrix_col_indices, csr_vmul.cpp:45:49, read, Inferred, variable, VITIS_LOOP_43_2, csr_vmul.cpp:43:22, , </column>
-                    <column name="m_axi_gmem">matrix_values, csr_vmul.cpp:45:14, read, Inferred, variable, VITIS_LOOP_43_2, csr_vmul.cpp:43:22, , </column>
-                    <column name="m_axi_gmem">out_values, csr_vmul.cpp:48:22, write, Widen Fail, , VITIS_LOOP_39_1, csr_vmul.cpp:39:19, 214-353, Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0</column>
-                    <column name="m_axi_gmem">out_values, csr_vmul.cpp:48:22, write, Inferred, variable, VITIS_LOOP_39_1, csr_vmul.cpp:39:19, , </column>
+                    <column name="m_axi_gmem">, csr_vmul.cpp:47:22, read, Fail, , , , 214-224, Could not burst due to multiple potential reads to the same bundle in the same region.</column>
+                    <column name="m_axi_gmem">matrix_row_pointers, csr_vmul.cpp:47:35, read, Widen Fail, , , , 214-353, Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0</column>
+                    <column name="m_axi_gmem">matrix_row_pointers, csr_vmul.cpp:47:35, read, Fail, , VITIS_LOOP_41_1, csr_vmul.cpp:41:20, 214-230, Stride is incompatible</column>
+                    <column name="m_axi_gmem">matrix_row_pointers, csr_vmul.cpp:47:35, islist read read, Inferred, 2, VITIS_LOOP_41_1, csr_vmul.cpp:41:20, , </column>
+                    <column name="m_axi_gmem">matrix_col_indices, csr_vmul.cpp:51:44, read, Widen Fail, , VITIS_LOOP_47_2, csr_vmul.cpp:47:22, 214-353, Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0</column>
+                    <column name="m_axi_gmem">matrix_values, csr_vmul.cpp:51:9, read, Widen Fail, , VITIS_LOOP_47_2, csr_vmul.cpp:47:22, 214-353, Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0</column>
+                    <column name="m_axi_gmem">matrix_col_indices, csr_vmul.cpp:51:44, read, Fail, , VITIS_LOOP_41_1, csr_vmul.cpp:41:20, 214-232, Access call is in the conditional branch</column>
+                    <column name="m_axi_gmem">matrix_values, csr_vmul.cpp:51:9, read, Fail, , VITIS_LOOP_41_1, csr_vmul.cpp:41:20, 214-232, Access call is in the conditional branch</column>
+                    <column name="m_axi_gmem">vector_values, csr_vmul.cpp:51:29, read, Fail, , VITIS_LOOP_47_2, csr_vmul.cpp:47:22, 214-229, Could not analyze pattern</column>
+                    <column name="m_axi_gmem">matrix_col_indices, csr_vmul.cpp:51:44, read, Inferred, variable, VITIS_LOOP_47_2, csr_vmul.cpp:47:22, , </column>
+                    <column name="m_axi_gmem">matrix_values, csr_vmul.cpp:51:9, read, Inferred, variable, VITIS_LOOP_47_2, csr_vmul.cpp:47:22, , </column>
+                    <column name="m_axi_gmem">out_values, csr_vmul.cpp:54:22, write, Widen Fail, , VITIS_LOOP_41_1, csr_vmul.cpp:41:20, 214-353, Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0</column>
+                    <column name="m_axi_gmem">out_values, csr_vmul.cpp:54:22, write, Inferred, variable, VITIS_LOOP_41_1, csr_vmul.cpp:41:20, , </column>
                 </table>
             </item>
         </section>
@@ -1631,6 +1639,9 @@
         <Pragma type="interface" location="csr_vmul.cpp:31" status="valid" parentFunction="csr_vmul" variable="" isDirective="0" options="m_axi port = out-&gt;values offset = slave bundle = gmem"/>
         <Pragma type="interface" location="csr_vmul.cpp:32" status="valid" parentFunction="csr_vmul" variable="" isDirective="0" options="s_axilite port = out-&gt;count bundle = control"/>
         <Pragma type="interface" location="csr_vmul.cpp:36" status="valid" parentFunction="csr_vmul" variable="" isDirective="0" options="s_axilite port = return bundle = control"/>
+        <Pragma type="loop_tripcount" location="csr_vmul.cpp:42" status="valid" parentFunction="csr_vmul" variable="" isDirective="0" options="max = MAX_ELEMENTS"/>
+        <Pragma type="pipeline" location="csr_vmul.cpp:43" status="valid" parentFunction="csr_vmul" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="loop_tripcount" location="csr_vmul.cpp:48" status="valid" parentFunction="csr_vmul" variable="" isDirective="0" options="max = MAX_ELEMENTS"/>
     </PragmaReport>
 </profile>
 

@@ -156,7 +156,7 @@ extern "C" {
 # 1 "./csr_vmul.h" 1
 
 
-constexpr int MAX_ELEMENTS = 128;
+constexpr int MAX_ELEMENTS = 1024;
 
 struct CSR_Matrix {
   int row_count;
@@ -168,6 +168,12 @@ struct CSR_Matrix {
   int row_pointers[MAX_ELEMENTS];
   int col_indices[MAX_ELEMENTS];
   float values[MAX_ELEMENTS];
+};
+
+struct Dense_Matrix {
+  int row_count;
+  int col_count;
+  float values[MAX_ELEMENTS * MAX_ELEMENTS];
 };
 
 struct Vector {
@@ -207,14 +213,20 @@ __attribute__((sdx_kernel("csr_vmul", 0))) void csr_vmul(const CSR_Matrix *matri
 
 #pragma HLS INTERFACE s_axilite port = return bundle = control
 
-
- VITIS_LOOP_39_1: for (int row = 0; row < matrix->row_count; row++) {
-    float sum = 0;
+ out->count = matrix->row_count;
 
 
-    VITIS_LOOP_43_2: for (int i = matrix->row_pointers[row]; i < matrix->row_pointers[row + 1]; i++) {
+  VITIS_LOOP_41_1: for (int row = 0; row < matrix->row_count; row++) {
+#pragma HLS loop_tripcount max = MAX_ELEMENTS
+#pragma HLS PIPELINE II = 1
+ float sum = 0;
 
-      sum += matrix->values[i] * vector->values[matrix->col_indices[i]];
+
+    VITIS_LOOP_47_2: for (int i = matrix->row_pointers[row]; i < matrix->row_pointers[row + 1]; i++) {
+#pragma HLS loop_tripcount max = MAX_ELEMENTS
+
+
+ sum += matrix->values[i] * vector->values[matrix->col_indices[i]];
     }
 
     out->values[row] = sum;

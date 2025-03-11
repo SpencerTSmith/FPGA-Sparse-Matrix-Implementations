@@ -1,6 +1,6 @@
 #pragma once
 
-constexpr int MAX_ELEMENTS = 128;
+constexpr int MAX_ELEMENTS = 1024;
 
 struct CSR_Matrix {
   int row_count;
@@ -12,6 +12,12 @@ struct CSR_Matrix {
   int row_pointers[MAX_ELEMENTS];
   int col_indices[MAX_ELEMENTS];
   float values[MAX_ELEMENTS];
+};
+
+struct Dense_Matrix {
+  int row_count;
+  int col_count;
+  float values[MAX_ELEMENTS * MAX_ELEMENTS];
 };
 
 struct Vector {

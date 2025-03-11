@@ -45,6 +45,7 @@ using namespace std;
 
 
 // tvout file define:
+#define AUTOTB_TVOUT_PC_out_count "../tv/rtldatafile/rtl.csr_vmul.autotvout_out_count.dat"
 #define AUTOTB_TVOUT_PC_gmem "../tv/rtldatafile/rtl.csr_vmul.autotvout_gmem.dat"
 
 
@@ -1352,8 +1353,9 @@ void apatb_csr_vmul_hw(void* __xlx_apatb_param_matrix_row_count, void* __xlx_apa
     .name = "out_count",
     .width = 32,
 #ifdef POST_CHECK
+    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_out_count),
 #else
-    .owriter = nullptr,
+    .owriter = new hls::sim::Writer(AUTOTB_TVOUT_out_count),
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_out_count),
 #endif
   };
@@ -1390,7 +1392,7 @@ void apatb_csr_vmul_hw(void* __xlx_apatb_param_matrix_row_count, void* __xlx_apa
   };
   port10.param = { __xlx_apatb_param_matrix_row_pointers, __xlx_apatb_param_matrix_col_indices, __xlx_apatb_param_matrix_values, __xlx_apatb_param_vector_values, __xlx_apatb_param_out_values };
   port10.mname = { "matrix_row_pointers", "matrix_col_indices", "matrix_values", "vector_values", "out_values" };
-  port10.nbytes = { 512, 512, 512, 512, 512 };
+  port10.nbytes = { 4096, 4096, 4096, 4096, 4096 };
   for (size_t off = 0, i = 0; i < port10.nbytes.size(); ++i) {
     port10.offset.push_back(off);
     off += hls::sim::divide_ceil(port10.nbytes[i], port10.asize);
@@ -1404,6 +1406,7 @@ void apatb_csr_vmul_hw(void* __xlx_apatb_param_matrix_row_count, void* __xlx_apa
   try {
 #ifdef POST_CHECK
     CodeState = ENTER_WRAPC_PC;
+    check(port9);
     check(port10);
 #else
     static hls::sim::RefTCL tcl("../tv/cdatafile/ref.tcl");
@@ -1434,6 +1437,7 @@ void apatb_csr_vmul_hw(void* __xlx_apatb_param_matrix_row_count, void* __xlx_apa
     CodeState = CALL_C_DUT;
     csr_vmul_hw_stub_wrapper(__xlx_apatb_param_matrix_row_count, __xlx_apatb_param_matrix_col_count, __xlx_apatb_param_matrix_non_zero_count, __xlx_apatb_param_matrix_row_pointers, __xlx_apatb_param_matrix_col_indices, __xlx_apatb_param_matrix_values, __xlx_apatb_param_vector_values, __xlx_apatb_param_vector_count, __xlx_apatb_param_out_values, __xlx_apatb_param_out_count);
     CodeState = DUMP_OUTPUTS;
+    dump(port9, port9.owriter, tcl.AESL_transaction);
     dump(port10, port10.owriter, tcl.AESL_transaction);
     tcl.AESL_transaction++;
 #endif

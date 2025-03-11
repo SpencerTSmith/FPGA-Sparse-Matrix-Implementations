@@ -17,7 +17,8 @@ INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
 INFO: [HLS 200-1465] Applying ini 'csim.code_analyzer=1' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(10)
 INFO: [HLS 200-1465] Applying ini 'package.output.format=ip_catalog' from /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/hls_config.cfg(5)
 INFO: [SIM 211-200] Executing Code Analyzer instead of classic HLS C simulation
-INFO: [HLS 211-200] Compiling source code /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul_tb.cpp as test bench code with instrumentation
+INFO: [HLS 211-200] Compiling source code csr_vmul.cpp as hardware code with instrumentation
+INFO: [HLS 211-200] Compiling source code csr_vmul.cpp as test bench code with instrumentation
 INFO: [HLS 211-200] Linking hardware code
 INFO: [HLS 211-200] Transforming hardware bitcode
 INFO: [HLS 211-200] Linking executable
@@ -27,8 +28,9 @@ INFO: [SIM 211-200] Running executable
 Test success :)
 INFO: [SIM 211-200] Analyzing trace data
 INFO: [SIM 211-208] Running Code Analyzer
-WARNING: [SIM 211-200] /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp:39:3: the dynamic loop had a trip count of min=3 max=3 during C simulation. (#pragma HLS loop_tripcount min=3 max=3)
-WARNING: [SIM 211-200] /home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp:43:5: the dynamic loop had a trip count of min=1 max=2 during C simulation. (#pragma HLS loop_tripcount min=1 max=2)
+WARNING: [HLS 211-200] Invalid pragma detected: Code Analyzer will not display the impact of 'pipeline' (/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp:43:1) as loop pipeline pragma is only valid if:
+- All the subloops of the loop to be pipelined can be fully unrolled
+- All the subloops are perfectly nested in the loop to be pipelined.
 INFO: [SIM 211-210] Code Analyzer finished
-INFO: [HLS 200-112] Total CPU user time: 2.96 seconds. Total CPU system time: 0.39 seconds. Total elapsed time: 3.35 seconds; peak allocated memory: 659.613 MB.
+INFO: [HLS 200-112] Total CPU user time: 2.98 seconds. Total CPU system time: 0.35 seconds. Total elapsed time: 3.33 seconds; peak allocated memory: 659.613 MB.
 INFO: [vitis-run 60-791] Total elapsed time: 0h 0m 6s

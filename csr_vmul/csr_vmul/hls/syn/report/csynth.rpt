@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'csr_vmul'
 ================================================================
 + General Information: 
-    * Date:           Tue Mar  4 00:51:55 2025
+    * Date:           Mon Mar 10 23:41:45 2025
     * Version:        2024.2 (Build 5238294 on Nov  8 2024)
     * Project:        csr_vmul
     * Solution:       hls (Vivado IP Flow Target)
@@ -15,15 +15,14 @@
 + Performance & Resource Estimates: 
     
     PS: '+' for module; 'o' for loop; '*' for dataflow
-    +---------------------------------------+------+------+---------+--------+----------+---------+------+----------+--------+--------+-----------+-----------+-----+
-    |                Modules                | Issue|      | Latency | Latency| Iteration|         | Trip |          |        |        |           |           |     |
-    |                & Loops                | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined|  BRAM  |   DSP  |     FF    |    LUT    | URAM|
-    +---------------------------------------+------+------+---------+--------+----------+---------+------+----------+--------+--------+-----------+-----------+-----+
-    |+ csr_vmul                             |     -|  0.00|        -|       -|         -|        -|     -|        no|  4 (1%)|  5 (2%)|  3355 (3%)|  3705 (6%)|    -|
-    | o VITIS_LOOP_39_1                     |     -|  7.30|        -|       -|         -|        -|     -|        no|       -|       -|          -|          -|    -|
-    |  + csr_vmul_Pipeline_VITIS_LOOP_43_2  |     -|  0.00|        -|       -|         -|        -|     -|        no|       -|  5 (2%)|  1237 (1%)|  1359 (2%)|    -|
-    |   o VITIS_LOOP_43_2                   |    II|  7.30|        -|       -|        31|        6|     -|       yes|       -|       -|          -|          -|    -|
-    +---------------------------------------+------+------+---------+--------+----------+---------+------+----------+--------+--------+-----------+-----------+-----+
+    +---------------------+------+------+----------+-----------+----------+----------+------+----------+--------+--------+-----------+-----------+-----+
+    |       Modules       | Issue|      | Latency  |  Latency  | Iteration|          | Trip |          |        |        |           |           |     |
+    |       & Loops       | Type | Slack| (cycles) |    (ns)   |  Latency | Interval | Count| Pipelined|  BRAM  |   DSP  |     FF    |    LUT    | URAM|
+    +---------------------+------+------+----------+-----------+----------+----------+------+----------+--------+--------+-----------+-----------+-----+
+    |+ csr_vmul           |     -|  0.00|  31470599|  3.147e+08|         -|  31470600|     -|        no|  4 (1%)|  5 (2%)|  3168 (2%)|  3597 (6%)|    -|
+    | o VITIS_LOOP_41_1   |     -|  7.30|  31470592|  3.147e+08|     30733|         -|  1024|        no|       -|       -|          -|          -|    -|
+    |  o VITIS_LOOP_47_2  |     -|  7.30|     30720|  3.072e+05|        30|         -|  1024|        no|       -|       -|          -|          -|    -|
+    +---------------------+------+------+----------+-----------+----------+----------+------+----------+--------+--------+-----------+-----------+-----+
 
 
 ================================================================
@@ -57,7 +56,8 @@
 | s_axi_control   | matrix_col_count      | 0x18   | 32    | W      | Data signal of matrix_col_count      |                                                                      |
 | s_axi_control   | matrix_non_zero_count | 0x20   | 32    | W      | Data signal of matrix_non_zero_count |                                                                      |
 | s_axi_control   | vector_count          | 0x28   | 32    | W      | Data signal of vector_count          |                                                                      |
-| s_axi_control   | out_count             | 0x30   | 32    | W      | Data signal of out_count             |                                                                      |
+| s_axi_control   | out_count             | 0x30   | 32    | R      | Data signal of out_count             |                                                                      |
+| s_axi_control   | out_count_ctrl        | 0x34   | 32    | R      | Control signal of out_count          | 0=out_count_ap_vld                                                   |
 | s_axi_control_r | matrix_row_pointers_1 | 0x10   | 32    | W      | Data signal of matrix_row_pointers   |                                                                      |
 | s_axi_control_r | matrix_row_pointers_2 | 0x14   | 32    | W      | Data signal of matrix_row_pointers   |                                                                      |
 | s_axi_control_r | matrix_col_indices_1  | 0x1c   | 32    | W      | Data signal of matrix_col_indices    |                                                                      |
@@ -124,7 +124,7 @@
 +--------------+-----------+----------+-------+-----------------+--------------------+
 | HW Interface | Direction | Length   | Width | Loop            | Loop Location      |
 +--------------+-----------+----------+-------+-----------------+--------------------+
-| m_axi_gmem   | write     | variable | 32    | VITIS_LOOP_39_1 | csr_vmul.cpp:39:19 |
+| m_axi_gmem   | write     | variable | 32    | VITIS_LOOP_41_1 | csr_vmul.cpp:41:20 |
 | m_axi_gmem   | read      | 2        | 32    |                 |                    |
 +--------------+-----------+----------+-------+-----------------+--------------------+
 
@@ -132,19 +132,19 @@
 +--------------+---------------------+--------------------+------------------+--------------+----------+-----------------+--------------------+------------+---------------------------------------------------------------------------------------------------------+
 | HW Interface | Variable            | Access Location    | Direction        | Burst Status | Length   | Loop            | Loop Location      | Resolution | Problem                                                                                                 |
 +--------------+---------------------+--------------------+------------------+--------------+----------+-----------------+--------------------+------------+---------------------------------------------------------------------------------------------------------+
-| m_axi_gmem   |                     | csr_vmul.cpp:43:22 | read             | Fail         |          |                 |                    | 214-224    | Could not burst due to multiple potential reads to the same bundle in the same region.                  |
-| m_axi_gmem   | matrix_row_pointers | csr_vmul.cpp:43:35 | read             | Widen Fail   |          |                 |                    | 214-353    | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0   |
-| m_axi_gmem   | matrix_row_pointers | csr_vmul.cpp:43:35 | read             | Fail         |          | VITIS_LOOP_39_1 | csr_vmul.cpp:39:19 | 214-230    | Stride is incompatible                                                                                  |
-| m_axi_gmem   | matrix_row_pointers | csr_vmul.cpp:43:35 | islist read read | Inferred     | 2        | VITIS_LOOP_39_1 | csr_vmul.cpp:39:19 |            |                                                                                                         |
-| m_axi_gmem   | matrix_col_indices  | csr_vmul.cpp:45:49 | read             | Widen Fail   |          | VITIS_LOOP_43_2 | csr_vmul.cpp:43:22 | 214-353    | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0   |
-| m_axi_gmem   | matrix_values       | csr_vmul.cpp:45:14 | read             | Widen Fail   |          | VITIS_LOOP_43_2 | csr_vmul.cpp:43:22 | 214-353    | Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0 |
-| m_axi_gmem   | matrix_col_indices  | csr_vmul.cpp:45:49 | read             | Fail         |          | VITIS_LOOP_39_1 | csr_vmul.cpp:39:19 | 214-232    | Access call is in the conditional branch                                                                |
-| m_axi_gmem   | matrix_values       | csr_vmul.cpp:45:14 | read             | Fail         |          | VITIS_LOOP_39_1 | csr_vmul.cpp:39:19 | 214-232    | Access call is in the conditional branch                                                                |
-| m_axi_gmem   | vector_values       | csr_vmul.cpp:45:34 | read             | Fail         |          | VITIS_LOOP_43_2 | csr_vmul.cpp:43:22 | 214-229    | Could not analyze pattern                                                                               |
-| m_axi_gmem   | matrix_col_indices  | csr_vmul.cpp:45:49 | read             | Inferred     | variable | VITIS_LOOP_43_2 | csr_vmul.cpp:43:22 |            |                                                                                                         |
-| m_axi_gmem   | matrix_values       | csr_vmul.cpp:45:14 | read             | Inferred     | variable | VITIS_LOOP_43_2 | csr_vmul.cpp:43:22 |            |                                                                                                         |
-| m_axi_gmem   | out_values          | csr_vmul.cpp:48:22 | write            | Widen Fail   |          | VITIS_LOOP_39_1 | csr_vmul.cpp:39:19 | 214-353    | Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0 |
-| m_axi_gmem   | out_values          | csr_vmul.cpp:48:22 | write            | Inferred     | variable | VITIS_LOOP_39_1 | csr_vmul.cpp:39:19 |            |                                                                                                         |
+| m_axi_gmem   |                     | csr_vmul.cpp:47:22 | read             | Fail         |          |                 |                    | 214-224    | Could not burst due to multiple potential reads to the same bundle in the same region.                  |
+| m_axi_gmem   | matrix_row_pointers | csr_vmul.cpp:47:35 | read             | Widen Fail   |          |                 |                    | 214-353    | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0   |
+| m_axi_gmem   | matrix_row_pointers | csr_vmul.cpp:47:35 | read             | Fail         |          | VITIS_LOOP_41_1 | csr_vmul.cpp:41:20 | 214-230    | Stride is incompatible                                                                                  |
+| m_axi_gmem   | matrix_row_pointers | csr_vmul.cpp:47:35 | islist read read | Inferred     | 2        | VITIS_LOOP_41_1 | csr_vmul.cpp:41:20 |            |                                                                                                         |
+| m_axi_gmem   | matrix_col_indices  | csr_vmul.cpp:51:44 | read             | Widen Fail   |          | VITIS_LOOP_47_2 | csr_vmul.cpp:47:22 | 214-353    | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0   |
+| m_axi_gmem   | matrix_values       | csr_vmul.cpp:51:9  | read             | Widen Fail   |          | VITIS_LOOP_47_2 | csr_vmul.cpp:47:22 | 214-353    | Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | matrix_col_indices  | csr_vmul.cpp:51:44 | read             | Fail         |          | VITIS_LOOP_41_1 | csr_vmul.cpp:41:20 | 214-232    | Access call is in the conditional branch                                                                |
+| m_axi_gmem   | matrix_values       | csr_vmul.cpp:51:9  | read             | Fail         |          | VITIS_LOOP_41_1 | csr_vmul.cpp:41:20 | 214-232    | Access call is in the conditional branch                                                                |
+| m_axi_gmem   | vector_values       | csr_vmul.cpp:51:29 | read             | Fail         |          | VITIS_LOOP_47_2 | csr_vmul.cpp:47:22 | 214-229    | Could not analyze pattern                                                                               |
+| m_axi_gmem   | matrix_col_indices  | csr_vmul.cpp:51:44 | read             | Inferred     | variable | VITIS_LOOP_47_2 | csr_vmul.cpp:47:22 |            |                                                                                                         |
+| m_axi_gmem   | matrix_values       | csr_vmul.cpp:51:9  | read             | Inferred     | variable | VITIS_LOOP_47_2 | csr_vmul.cpp:47:22 |            |                                                                                                         |
+| m_axi_gmem   | out_values          | csr_vmul.cpp:54:22 | write            | Widen Fail   |          | VITIS_LOOP_41_1 | csr_vmul.cpp:41:20 | 214-353    | Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | out_values          | csr_vmul.cpp:54:22 | write            | Inferred     | variable | VITIS_LOOP_41_1 | csr_vmul.cpp:41:20 |            |                                                                                                         |
 +--------------+---------------------+--------------------+------------------+--------------+----------+-----------------+--------------------+------------+---------------------------------------------------------------------------------------------------------+
 
     * Resolution URL: docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.2%20English&url=ug1448-hls-guidance&resourceid=XXX-YYY.html (replace XXX-YYY with column value)
@@ -152,27 +152,26 @@
 ================================================================
 == Bind Op Report
 ================================================================
-+--------------------------------------+-----+--------+------------------+--------+----------+---------+
-| Name                                 | DSP | Pragma | Variable         | Op     | Impl     | Latency |
-+--------------------------------------+-----+--------+------------------+--------+----------+---------+
-| + csr_vmul                           | 5   |        |                  |        |          |         |
-|   icmp_ln39_fu_199_p2                |     |        | icmp_ln39        | setgt  | auto     | 0       |
-|   empty_fu_229_p3                    |     |        | empty            | select | auto_sel | 0       |
-|   icmp_ln39_1_fu_253_p2              |     |        | icmp_ln39_1      | setlt  | auto     | 0       |
-|   indvars_iv_next7_fu_258_p2         |     |        | indvars_iv_next7 | add    | fabric   | 0       |
-|   add_ln43_fu_276_p2                 |     |        | add_ln43         | add    | fabric   | 0       |
-|   add_ln43_1_fu_317_p2               |     |        | add_ln43_1       | add    | fabric   | 0       |
-|   add_ln43_2_fu_332_p2               |     |        | add_ln43_2       | add    | fabric   | 0       |
-|  + csr_vmul_Pipeline_VITIS_LOOP_43_2 | 5   |        |                  |        |          |         |
-|    icmp_ln43_fu_198_p2               |     |        | icmp_ln43        | setlt  | auto     | 0       |
-|    add_ln43_fu_203_p2                |     |        | add_ln43         | add    | fabric   | 0       |
-|    add_ln45_fu_209_p2                |     |        | add_ln45         | add    | fabric   | 0       |
-|    add_ln45_1_fu_220_p2              |     |        | add_ln45_1       | add    | fabric   | 0       |
-|    add_ln45_2_fu_257_p2              |     |        | add_ln45_2       | add    | fabric   | 0       |
-|    fmul_32ns_32ns_32_4_max_dsp_1_U2  | 3   |        | mul              | fmul   | maxdsp   | 3       |
-|    fadd_32ns_32ns_32_5_full_dsp_1_U1 | 2   |        | sum_1            | fadd   | fulldsp  | 4       |
-|    add_ln43_1_fu_236_p2              |     |        | add_ln43_1       | add    | fabric   | 0       |
-+--------------------------------------+-----+--------+------------------+--------+----------+---------+
++-------------------------------------+-----+--------+------------------+--------+----------+---------+
+| Name                                | DSP | Pragma | Variable         | Op     | Impl     | Latency |
++-------------------------------------+-----+--------+------------------+--------+----------+---------+
+| + csr_vmul                          | 5   |        |                  |        |          |         |
+|   icmp_ln41_fu_286_p2               |     |        | icmp_ln41        | setgt  | auto     | 0       |
+|   empty_fu_316_p3                   |     |        | empty            | select | auto_sel | 0       |
+|   icmp_ln41_1_fu_340_p2             |     |        | icmp_ln41_1      | setlt  | auto     | 0       |
+|   indvars_iv_next7_fu_345_p2        |     |        | indvars_iv_next7 | add    | fabric   | 0       |
+|   add_ln47_fu_363_p2                |     |        | add_ln47         | add    | fabric   | 0       |
+|   add_ln47_1_fu_406_p2              |     |        | add_ln47_1       | add    | fabric   | 0       |
+|   add_ln47_2_fu_425_p2              |     |        | add_ln47_2       | add    | fabric   | 0       |
+|   icmp_ln47_fu_444_p2               |     |        | icmp_ln47        | setlt  | auto     | 0       |
+|   add_ln47_4_fu_449_p2              |     |        | add_ln47_4       | add    | fabric   | 0       |
+|   add_ln51_fu_455_p2                |     |        | add_ln51         | add    | fabric   | 0       |
+|   add_ln51_1_fu_466_p2              |     |        | add_ln51_1       | add    | fabric   | 0       |
+|   add_ln51_2_fu_498_p2              |     |        | add_ln51_2       | add    | fabric   | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U2  | 3   |        | mul              | fmul   | maxdsp   | 3       |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U1 | 2   |        | sum_1            | fadd   | fulldsp  | 4       |
+|   add_ln47_3_fu_477_p2              |     |        | add_ln47_3       | add    | fabric   | 0       |
++-------------------------------------+-----+--------+------------------+--------+----------+---------+
 
 
 ================================================================
@@ -193,23 +192,26 @@
 == Pragma Report
 ================================================================
 * Valid Pragma Syntax
-+--------------+----------------------------------------------------------------+-----------------------------+
-| Type         | Options                                                        | Location                    |
-+--------------+----------------------------------------------------------------+-----------------------------+
-| disaggregate | variable = matrix                                              | csr_vmul.cpp:17 in csr_vmul |
-| interface    | s_axilite port = matrix->row_count bundle = control            | csr_vmul.cpp:18 in csr_vmul |
-| interface    | s_axilite port = matrix->col_count bundle = control            | csr_vmul.cpp:19 in csr_vmul |
-| interface    | s_axilite port = matrix->non_zero_count bundle = control       | csr_vmul.cpp:20 in csr_vmul |
-| interface    | m_axi port = matrix->row_pointers offset = slave bundle = gmem | csr_vmul.cpp:21 in csr_vmul |
-| interface    | m_axi port = matrix->col_indices offset = slave bundle = gmem  | csr_vmul.cpp:22 in csr_vmul |
-| interface    | m_axi port = matrix->values offset = slave bundle = gmem       | csr_vmul.cpp:23 in csr_vmul |
-| disaggregate | variable = vector                                              | csr_vmul.cpp:26 in csr_vmul |
-| interface    | m_axi port = vector->values offset = slave bundle = gmem       | csr_vmul.cpp:27 in csr_vmul |
-| interface    | s_axilite port = vector->count bundle = control                | csr_vmul.cpp:28 in csr_vmul |
-| disaggregate | variable = out                                                 | csr_vmul.cpp:30 in csr_vmul |
-| interface    | m_axi port = out->values offset = slave bundle = gmem          | csr_vmul.cpp:31 in csr_vmul |
-| interface    | s_axilite port = out->count bundle = control                   | csr_vmul.cpp:32 in csr_vmul |
-| interface    | s_axilite port = return bundle = control                       | csr_vmul.cpp:36 in csr_vmul |
-+--------------+----------------------------------------------------------------+-----------------------------+
++----------------+----------------------------------------------------------------+-----------------------------+
+| Type           | Options                                                        | Location                    |
++----------------+----------------------------------------------------------------+-----------------------------+
+| disaggregate   | variable = matrix                                              | csr_vmul.cpp:17 in csr_vmul |
+| interface      | s_axilite port = matrix->row_count bundle = control            | csr_vmul.cpp:18 in csr_vmul |
+| interface      | s_axilite port = matrix->col_count bundle = control            | csr_vmul.cpp:19 in csr_vmul |
+| interface      | s_axilite port = matrix->non_zero_count bundle = control       | csr_vmul.cpp:20 in csr_vmul |
+| interface      | m_axi port = matrix->row_pointers offset = slave bundle = gmem | csr_vmul.cpp:21 in csr_vmul |
+| interface      | m_axi port = matrix->col_indices offset = slave bundle = gmem  | csr_vmul.cpp:22 in csr_vmul |
+| interface      | m_axi port = matrix->values offset = slave bundle = gmem       | csr_vmul.cpp:23 in csr_vmul |
+| disaggregate   | variable = vector                                              | csr_vmul.cpp:26 in csr_vmul |
+| interface      | m_axi port = vector->values offset = slave bundle = gmem       | csr_vmul.cpp:27 in csr_vmul |
+| interface      | s_axilite port = vector->count bundle = control                | csr_vmul.cpp:28 in csr_vmul |
+| disaggregate   | variable = out                                                 | csr_vmul.cpp:30 in csr_vmul |
+| interface      | m_axi port = out->values offset = slave bundle = gmem          | csr_vmul.cpp:31 in csr_vmul |
+| interface      | s_axilite port = out->count bundle = control                   | csr_vmul.cpp:32 in csr_vmul |
+| interface      | s_axilite port = return bundle = control                       | csr_vmul.cpp:36 in csr_vmul |
+| loop_tripcount | max = MAX_ELEMENTS                                             | csr_vmul.cpp:42 in csr_vmul |
+| pipeline       | II = 1                                                         | csr_vmul.cpp:43 in csr_vmul |
+| loop_tripcount | max = MAX_ELEMENTS                                             | csr_vmul.cpp:48 in csr_vmul |
++----------------+----------------------------------------------------------------+-----------------------------+
 
 

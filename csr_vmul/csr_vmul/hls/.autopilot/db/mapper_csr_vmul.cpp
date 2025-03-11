@@ -248,36 +248,36 @@ extern "C" void apatb_csr_vmul_hw(volatile void * __xlx_apatb_param_matrix_row_c
 using hls::sim::createStream;
   // Collect __xlx_matrix_row_pointers_matrix_col_indices_matrix_values_vector_values_out_values__tmp_vec
 std::vector<Byte<4>> __xlx_matrix_row_pointers_matrix_col_indices_matrix_values_vector_values_out_values__tmp_vec;
-for (size_t i = 0; i < 128; ++i){
+for (size_t i = 0; i < 1024; ++i){
 __xlx_matrix_row_pointers_matrix_col_indices_matrix_values_vector_values_out_values__tmp_vec.push_back(((Byte<4>*)__xlx_apatb_param_matrix_row_pointers)[i]);
 }
-  int __xlx_size_param_matrix_row_pointers = 128;
+  int __xlx_size_param_matrix_row_pointers = 1024;
   int __xlx_offset_param_matrix_row_pointers = 0;
   int __xlx_offset_byte_param_matrix_row_pointers = 0*4;
-for (size_t i = 0; i < 128; ++i){
+for (size_t i = 0; i < 1024; ++i){
 __xlx_matrix_row_pointers_matrix_col_indices_matrix_values_vector_values_out_values__tmp_vec.push_back(((Byte<4>*)__xlx_apatb_param_matrix_col_indices)[i]);
 }
-  int __xlx_size_param_matrix_col_indices = 128;
-  int __xlx_offset_param_matrix_col_indices = 128;
-  int __xlx_offset_byte_param_matrix_col_indices = 128*4;
-for (size_t i = 0; i < 128; ++i){
+  int __xlx_size_param_matrix_col_indices = 1024;
+  int __xlx_offset_param_matrix_col_indices = 1024;
+  int __xlx_offset_byte_param_matrix_col_indices = 1024*4;
+for (size_t i = 0; i < 1024; ++i){
 __xlx_matrix_row_pointers_matrix_col_indices_matrix_values_vector_values_out_values__tmp_vec.push_back(((Byte<4>*)__xlx_apatb_param_matrix_values)[i]);
 }
-  int __xlx_size_param_matrix_values = 128;
-  int __xlx_offset_param_matrix_values = 256;
-  int __xlx_offset_byte_param_matrix_values = 256*4;
-for (size_t i = 0; i < 128; ++i){
+  int __xlx_size_param_matrix_values = 1024;
+  int __xlx_offset_param_matrix_values = 2048;
+  int __xlx_offset_byte_param_matrix_values = 2048*4;
+for (size_t i = 0; i < 1024; ++i){
 __xlx_matrix_row_pointers_matrix_col_indices_matrix_values_vector_values_out_values__tmp_vec.push_back(((Byte<4>*)__xlx_apatb_param_vector_values)[i]);
 }
-  int __xlx_size_param_vector_values = 128;
-  int __xlx_offset_param_vector_values = 384;
-  int __xlx_offset_byte_param_vector_values = 384*4;
-for (size_t i = 0; i < 128; ++i){
+  int __xlx_size_param_vector_values = 1024;
+  int __xlx_offset_param_vector_values = 3072;
+  int __xlx_offset_byte_param_vector_values = 3072*4;
+for (size_t i = 0; i < 1024; ++i){
 __xlx_matrix_row_pointers_matrix_col_indices_matrix_values_vector_values_out_values__tmp_vec.push_back(((Byte<4>*)__xlx_apatb_param_out_values)[i]);
 }
-  int __xlx_size_param_out_values = 128;
-  int __xlx_offset_param_out_values = 512;
-  int __xlx_offset_byte_param_out_values = 512*4;
+  int __xlx_size_param_out_values = 1024;
+  int __xlx_offset_param_out_values = 4096;
+  int __xlx_offset_byte_param_out_values = 4096*4;
   // DUT call
   csr_vmul(__xlx_matrix_row_pointers_matrix_col_indices_matrix_values_vector_values_out_values__tmp_vec.data(), __xlx_apatb_param_matrix_row_count, __xlx_apatb_param_matrix_col_count, __xlx_apatb_param_matrix_non_zero_count, __xlx_offset_byte_param_matrix_row_pointers, __xlx_offset_byte_param_matrix_col_indices, __xlx_offset_byte_param_matrix_values, __xlx_offset_byte_param_vector_values, __xlx_apatb_param_vector_count, __xlx_offset_byte_param_out_values, __xlx_apatb_param_out_count);
 // print __xlx_apatb_param_matrix_row_pointers

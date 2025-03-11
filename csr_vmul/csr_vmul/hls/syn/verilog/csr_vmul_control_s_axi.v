@@ -36,7 +36,8 @@ module csr_vmul_control_s_axi
     output wire [31:0]                   matrix_col_count,
     output wire [31:0]                   matrix_non_zero_count,
     output wire [31:0]                   vector_count,
-    output wire [31:0]                   out_count,
+    input  wire [31:0]                   out_count,
+    input  wire                          out_count_ap_vld,
     output wire                          ap_start,
     input  wire                          ap_done,
     input  wire                          ap_ready,
@@ -77,8 +78,10 @@ module csr_vmul_control_s_axi
 //        bit 31~0 - vector_count[31:0] (Read/Write)
 // 0x2c : reserved
 // 0x30 : Data signal of out_count
-//        bit 31~0 - out_count[31:0] (Read/Write)
-// 0x34 : reserved
+//        bit 31~0 - out_count[31:0] (Read)
+// 0x34 : Control signal of out_count
+//        bit 0  - out_count_ap_vld (Read/COR)
+//        others - reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
@@ -137,6 +140,7 @@ localparam
     reg  [31:0]                   int_matrix_col_count = 'b0;
     reg  [31:0]                   int_matrix_non_zero_count = 'b0;
     reg  [31:0]                   int_vector_count = 'b0;
+    reg                           int_out_count_ap_vld;
     reg  [31:0]                   int_out_count = 'b0;
 
 //------------------------Instantiation------------------
@@ -262,6 +266,9 @@ always @(posedge ACLK) begin
                 ADDR_OUT_COUNT_DATA_0: begin
                     rdata <= int_out_count[31:0];
                 end
+                ADDR_OUT_COUNT_CTRL: begin
+                    rdata[0] <= int_out_count_ap_vld;
+                end
             endcase
         end
     end
@@ -278,7 +285,6 @@ assign matrix_row_count      = int_matrix_row_count;
 assign matrix_col_count      = int_matrix_col_count;
 assign matrix_non_zero_count = int_matrix_non_zero_count;
 assign vector_count          = int_vector_count;
-assign out_count             = int_out_count;
 // int_interrupt
 always @(posedge ACLK) begin
     if (ARESET)
@@ -451,13 +457,25 @@ always @(posedge ACLK) begin
     end
 end
 
-// int_out_count[31:0]
+// int_out_count
 always @(posedge ACLK) begin
     if (ARESET)
-        int_out_count[31:0] <= 0;
+        int_out_count <= 0;
     else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_OUT_COUNT_DATA_0)
-            int_out_count[31:0] <= (WDATA[31:0] & wmask) | (int_out_count[31:0] & ~wmask);
+        if (out_count_ap_vld)
+            int_out_count <= out_count;
+    end
+end
+
+// int_out_count_ap_vld
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_out_count_ap_vld <= 1'b0;
+    else if (ACLK_EN) begin
+        if (out_count_ap_vld)
+            int_out_count_ap_vld <= 1'b1;
+        else if (ar_hs && raddr == ADDR_OUT_COUNT_CTRL)
+            int_out_count_ap_vld <= 1'b0; // clear on read
     end
 end
 

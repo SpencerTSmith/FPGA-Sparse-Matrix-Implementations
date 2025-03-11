@@ -35,10 +35,10 @@ vector_count {
 	offset_end 47
 }
 out_count { 
-	dir I
+	dir O
 	width 32
 	depth 1
-	mode ap_none
+	mode ap_vld
 	offset 48
 	offset_end 55
 }

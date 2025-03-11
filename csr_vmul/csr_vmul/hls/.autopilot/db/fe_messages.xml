@@ -44,20 +44,26 @@
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="csr_vmul.cpp:36:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="csr_vmul" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = return bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="csr_vmul.cpp:3:0" msg_body="Disaggregating variable 'matrix'">
-        <args Name="matrix"/>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="csr_vmul.cpp:42:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="csr_vmul" ARG_PragmaIsValid="1" ARG_PragmaOptions="max = MAX_ELEMENTS" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="csr_vmul.cpp:3:0" msg_body="Disaggregating variable 'vector'">
-        <args Name="vector"/>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="csr_vmul.cpp:43:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="csr_vmul" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="csr_vmul.cpp:3:0" msg_body="Disaggregating variable 'out'">
-        <args Name="out"/>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="csr_vmul.cpp:48:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="csr_vmul" ARG_PragmaIsValid="1" ARG_PragmaOptions="max = MAX_ELEMENTS" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-437" msg_severity="INFO" msg_loc="csr_vmul.cpp:39:19" msg_body="Automatically disabling loop flattening for loop 'VITIS_LOOP_39_1'.">
-        <args LoopName="VITIS_LOOP_39_1"/>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="csr_vmul.cpp:47:22" msg_body="Loop 'VITIS_LOOP_47_2' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_47_2"/>
     </msg>
-    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="csr_vmul.cpp:39:19" msg_body="loop_flatten 0 1 csr_vmul csr_vmul.cpp:39:19VITIS_LOOP_39_1 csr_vmul.cpp:39:19">
-        <args LoopLoc="csr_vmul.cpp:39:19" LoopLoc-DebugLoc="File csr_vmul.cpp Line 39 Column 19" LoopName="VITIS_LOOP_39_1" PragmaFunction="csr_vmul" PragmaIsAuto="1" PragmaOptions="0" PragmaSrcLoc="csr_vmul.cpp:39:19" PragmaSrcLoc-DebugLoc="File csr_vmul.cpp Line 39 Column 19" PragmaType="loop_flatten"/>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-437" msg_severity="INFO" msg_loc="csr_vmul.cpp:41:20" msg_body="Automatically disabling loop flattening for loop 'VITIS_LOOP_41_1'.">
+        <args LoopName="VITIS_LOOP_41_1"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="csr_vmul.cpp:41:20" msg_body="loop_flatten 0 1 csr_vmul csr_vmul.cpp:41:20VITIS_LOOP_41_1 csr_vmul.cpp:41:20">
+        <args LoopLoc="csr_vmul.cpp:41:20" LoopLoc-DebugLoc="File csr_vmul.cpp Line 41 Column 20" LoopName="VITIS_LOOP_41_1" PragmaFunction="csr_vmul" PragmaIsAuto="1" PragmaOptions="0" PragmaSrcLoc="csr_vmul.cpp:41:20" PragmaSrcLoc-DebugLoc="File csr_vmul.cpp Line 41 Column 20" PragmaType="loop_flatten"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-187" msg_severity="WARNING" msg_loc="csr_vmul.cpp:47:22" msg_body="Cannot unroll loop 'VITIS_LOOP_47_2' (csr_vmul.cpp:47:22) in function 'csr_vmul' as it has a variable trip count">
+        <args LoopLoc="csr_vmul.cpp:47:22" LoopName="VITIS_LOOP_47_2"/>
     </msg>
 </xilinx:hls_fe_msgs>
 

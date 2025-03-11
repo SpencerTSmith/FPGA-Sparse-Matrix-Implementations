@@ -1,4 +1,7 @@
 <pragmas>
+<pragma file="csr_vmul.cpp" line="43" pragmaType="pipeline" parentfunction="csr_vmul" off="0" ii="1" rewind="0" style=""/>
+<pragma file="csr_vmul.cpp" line="42" pragmaType="loop_tripcount" parentfunction="csr_vmul" min="0" max="1024" avg="512"/>
+<pragma file="csr_vmul.cpp" line="48" pragmaType="loop_tripcount" parentfunction="csr_vmul" min="0" max="1024" avg="512"/>
 <pragma file="csr_vmul.cpp" line="17" pragmaType="disaggregate" parentfunction="csr_vmul" variable="matrix"/>
 <pragma file="csr_vmul.cpp" line="18" pragmaType="interface" parentfunction="csr_vmul" mode="s_axilite" port="" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
 <pragma file="csr_vmul.cpp" line="19" pragmaType="interface" parentfunction="csr_vmul" mode="s_axilite" port="" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>

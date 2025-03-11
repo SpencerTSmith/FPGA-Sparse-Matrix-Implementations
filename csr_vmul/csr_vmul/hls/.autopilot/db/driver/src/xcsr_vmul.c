@@ -145,13 +145,6 @@ u32 XCsr_vmul_Get_vector_count(XCsr_vmul *InstancePtr) {
     return Data;
 }
 
-void XCsr_vmul_Set_out_count(XCsr_vmul *InstancePtr, u32 Data) {
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    XCsr_vmul_WriteReg(InstancePtr->Control_BaseAddress, XCSR_VMUL_CONTROL_ADDR_OUT_COUNT_DATA, Data);
-}
-
 u32 XCsr_vmul_Get_out_count(XCsr_vmul *InstancePtr) {
     u32 Data;
 
@@ -160,6 +153,16 @@ u32 XCsr_vmul_Get_out_count(XCsr_vmul *InstancePtr) {
 
     Data = XCsr_vmul_ReadReg(InstancePtr->Control_BaseAddress, XCSR_VMUL_CONTROL_ADDR_OUT_COUNT_DATA);
     return Data;
+}
+
+u32 XCsr_vmul_Get_out_count_vld(XCsr_vmul *InstancePtr) {
+    u32 Data;
+
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    Data = XCsr_vmul_ReadReg(InstancePtr->Control_BaseAddress, XCSR_VMUL_CONTROL_ADDR_OUT_COUNT_CTRL);
+    return Data & 0x1;
 }
 
 void XCsr_vmul_Set_matrix_row_pointers(XCsr_vmul *InstancePtr, u64 Data) {

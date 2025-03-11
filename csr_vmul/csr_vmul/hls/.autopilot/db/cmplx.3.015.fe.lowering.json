@@ -4,11 +4,14 @@
     "calls": "",
     "file": "csr_vmul.cpp",
     "fileloc": 3,
-    "instructions": 91,
+    "instructions": 92,
     "loads": {
       "T": 1
     },
     "name": "csr_vmul",
-    "total_instructions": 91
+    "stores": {
+      "T": 1
+    },
+    "total_instructions": 92
   }
 }

@@ -1,8 +1,7 @@
 --- !Passed
 Pass:            reflow-disaggr
 Name:            DisaggrSucc
-DebugLoc:        { File: csr_vmul.cpp, Line: 3, Column: 0 }
-Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
+Function:        apatb_csr_vmul_ir
 Args:            
   - String:          'Disaggregating variable '''
   - Name:            matrix
@@ -11,8 +10,7 @@ Args:
 --- !Passed
 Pass:            reflow-disaggr
 Name:            DisaggrSucc
-DebugLoc:        { File: csr_vmul.cpp, Line: 3, Column: 0 }
-Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
+Function:        apatb_csr_vmul_ir
 Args:            
   - String:          'Disaggregating variable '''
   - Name:            vector
@@ -21,12 +19,21 @@ Args:
 --- !Passed
 Pass:            reflow-disaggr
 Name:            DisaggrSucc
-DebugLoc:        { File: csr_vmul.cpp, Line: 3, Column: 0 }
-Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
+Function:        apatb_csr_vmul_ir
 Args:            
   - String:          'Disaggregating variable '''
   - Name:            out
   - String:          ''''
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
+Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_47_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Missed
 Pass:            inline
@@ -42,7 +49,7 @@ Args:
 --- !Passed
 Pass:            reflow-burst-inference
 Name:            BurstInferred
-DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 22 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - String:          'Sequential '
@@ -57,23 +64,23 @@ Args:
   - String:          ' '
   - BundleName:      gmem
   - String:          ' '
-  - LoopName:        VITIS_LOOP_43_2
+  - LoopName:        VITIS_LOOP_47_2
   - String:          ' '
-  - LoopLoc:         'csr_vmul.cpp:43:22'
+  - LoopLoc:         'csr_vmul.cpp:47:22'
   - String:          ' '
   - Function:        'csr_vmul(CSR_Matrix const*, Vector const*, Vector*)'
     DebugLoc:        { File: csr_vmul.cpp, Line: 3, Column: 0 }
   - String:          ' '
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      load
-    DebugLoc:        { File: csr_vmul.cpp, Line: 45, Column: 14 }
+    DebugLoc:        { File: csr_vmul.cpp, Line: 51, Column: 9 }
   - OrigDirection:   read
   - OrigID:          for.inc.load.9
 ...
 --- !Passed
 Pass:            reflow-burst-inference
 Name:            BurstInferred
-DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 22 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - String:          'Sequential '
@@ -88,23 +95,23 @@ Args:
   - String:          ' '
   - BundleName:      gmem
   - String:          ' '
-  - LoopName:        VITIS_LOOP_43_2
+  - LoopName:        VITIS_LOOP_47_2
   - String:          ' '
-  - LoopLoc:         'csr_vmul.cpp:43:22'
+  - LoopLoc:         'csr_vmul.cpp:47:22'
   - String:          ' '
   - Function:        'csr_vmul(CSR_Matrix const*, Vector const*, Vector*)'
     DebugLoc:        { File: csr_vmul.cpp, Line: 3, Column: 0 }
   - String:          ' '
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      load
-    DebugLoc:        { File: csr_vmul.cpp, Line: 45, Column: 49 }
+    DebugLoc:        { File: csr_vmul.cpp, Line: 51, Column: 44 }
   - OrigDirection:   read
   - OrigID:          for.inc.load.14
 ...
 --- !Passed
 Pass:            reflow-burst-inference
 Name:            BurstInferred
-DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 35 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 35 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - String:          'Sequential '
@@ -118,26 +125,26 @@ Args:
   - String:          ' '
   - BundleName:      gmem
   - String:          ' '
-  - LoopName:        VITIS_LOOP_39_1
+  - LoopName:        VITIS_LOOP_41_1
   - String:          ' '
-  - LoopLoc:         'csr_vmul.cpp:39:19'
+  - LoopLoc:         'csr_vmul.cpp:41:20'
   - String:          ' '
   - Function:        'csr_vmul(CSR_Matrix const*, Vector const*, Vector*)'
     DebugLoc:        { File: csr_vmul.cpp, Line: 3, Column: 0 }
   - String:          ' '
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      load
-    DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 35 }
+    DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 35 }
   - OrigDirection:   read
-  - OrigID:          VITIS_LOOP_43_2.load.8
+  - OrigID:          VITIS_LOOP_47_2.load.8
   - OrigAccess:      load
   - OrigDirection:   read
-  - OrigID:          VITIS_LOOP_43_2.load.12
+  - OrigID:          VITIS_LOOP_47_2.load.12
 ...
 --- !Passed
 Pass:            reflow-burst-inference
 Name:            BurstInferred
-DebugLoc:        { File: csr_vmul.cpp, Line: 39, Column: 19 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 41, Column: 20 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - String:          'Sequential '
@@ -152,38 +159,38 @@ Args:
   - String:          ' '
   - BundleName:      gmem
   - String:          ' '
-  - LoopName:        VITIS_LOOP_39_1
+  - LoopName:        VITIS_LOOP_41_1
   - String:          ' '
-  - LoopLoc:         'csr_vmul.cpp:39:19'
+  - LoopLoc:         'csr_vmul.cpp:41:20'
   - String:          ' '
   - Function:        'csr_vmul(CSR_Matrix const*, Vector const*, Vector*)'
     DebugLoc:        { File: csr_vmul.cpp, Line: 3, Column: 0 }
   - String:          ' '
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      store
-    DebugLoc:        { File: csr_vmul.cpp, Line: 48, Column: 22 }
+    DebugLoc:        { File: csr_vmul.cpp, Line: 54, Column: 22 }
   - OrigDirection:   write
-  - OrigID:          for.inc19.store.3
+  - OrigID:          for.inc20.store.3
 ...
 --- !Missed
 Pass:            reflow-burst-inference
 Name:            CouldNotAnalyzePattern
-DebugLoc:        { File: csr_vmul.cpp, Line: 45, Column: 34 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 51, Column: 29 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - String:          Could not analyze pattern
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      load
-    DebugLoc:        { File: csr_vmul.cpp, Line: 45, Column: 34 }
+    DebugLoc:        { File: csr_vmul.cpp, Line: 51, Column: 29 }
   - OrigDirection:   read
   - OrigID:          for.inc.load.17
   - ArrayName:       vector_values
   - String:          ' '
   - BundleName:      gmem
   - String:          ' '
-  - LoopName:        VITIS_LOOP_43_2
+  - LoopName:        VITIS_LOOP_47_2
   - String:          ' '
-  - LoopLoc:         'csr_vmul.cpp:43:22'
+  - LoopLoc:         'csr_vmul.cpp:47:22'
   - String:          ' '
   - Function:        'csr_vmul(CSR_Matrix const*, Vector const*, Vector*)'
     DebugLoc:        { File: csr_vmul.cpp, Line: 3, Column: 0 }
@@ -192,22 +199,22 @@ Args:
 --- !Missed
 Pass:            reflow-burst-inference
 Name:            IncompatibleStride
-DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 35 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 35 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - String:          Stride is incompatible
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      call
-    DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 35 }
+    DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 35 }
   - OrigDirection:   read
   - OrigID:          scevgep11seq
   - ArrayName:       matrix_row_pointers
   - String:          ' '
   - BundleName:      gmem
   - String:          ' '
-  - LoopName:        VITIS_LOOP_39_1
+  - LoopName:        VITIS_LOOP_41_1
   - String:          ' '
-  - LoopLoc:         'csr_vmul.cpp:39:19'
+  - LoopLoc:         'csr_vmul.cpp:41:20'
   - String:          ' '
   - Function:        'csr_vmul(CSR_Matrix const*, Vector const*, Vector*)'
     DebugLoc:        { File: csr_vmul.cpp, Line: 3, Column: 0 }
@@ -216,25 +223,25 @@ Args:
 --- !Missed
 Pass:            reflow-burst-inference
 Name:            AccessInCondBranch
-DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 22 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - String:          'Access '
   - Access:          call
-    DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 22 }
+    DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
   - String:          ' is in the conditional branch'
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      call
-    DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 22 }
+    DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
   - OrigDirection:   read
   - OrigID:          scevgepseq
   - ArrayName:       matrix_values
   - String:          ' '
   - BundleName:      gmem
   - String:          ' '
-  - LoopName:        VITIS_LOOP_39_1
+  - LoopName:        VITIS_LOOP_41_1
   - String:          ' '
-  - LoopLoc:         'csr_vmul.cpp:39:19'
+  - LoopLoc:         'csr_vmul.cpp:41:20'
   - String:          ' '
   - Function:        'csr_vmul(CSR_Matrix const*, Vector const*, Vector*)'
     DebugLoc:        { File: csr_vmul.cpp, Line: 3, Column: 0 }
@@ -243,25 +250,25 @@ Args:
 --- !Missed
 Pass:            reflow-burst-inference
 Name:            AccessInCondBranch
-DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 22 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - String:          'Access '
   - Access:          call
-    DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 22 }
+    DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
   - String:          ' is in the conditional branch'
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      call
-    DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 22 }
+    DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
   - OrigDirection:   read
   - OrigID:          scevgep10seq
   - ArrayName:       matrix_col_indices
   - String:          ' '
   - BundleName:      gmem
   - String:          ' '
-  - LoopName:        VITIS_LOOP_39_1
+  - LoopName:        VITIS_LOOP_41_1
   - String:          ' '
-  - LoopLoc:         'csr_vmul.cpp:39:19'
+  - LoopLoc:         'csr_vmul.cpp:41:20'
   - String:          ' '
   - Function:        'csr_vmul(CSR_Matrix const*, Vector const*, Vector*)'
     DebugLoc:        { File: csr_vmul.cpp, Line: 3, Column: 0 }
@@ -270,7 +277,7 @@ Args:
 --- !Missed
 Pass:            reflow-burst-widen
 Name:            GreaterOrEqualThreshold
-DebugLoc:        { File: csr_vmul.cpp, Line: 39, Column: 19 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 41, Column: 20 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - String:          'Could not widen since type '
@@ -279,16 +286,16 @@ Args:
   - Threshold:       '0'
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      call
-    DebugLoc:        { File: csr_vmul.cpp, Line: 39, Column: 19 }
+    DebugLoc:        { File: csr_vmul.cpp, Line: 41, Column: 20 }
   - OrigDirection:   write
   - OrigID:          out_values12seq
   - ArrayName:       out_values
   - String:          ' '
   - BundleName:      gmem
   - String:          ' '
-  - LoopName:        VITIS_LOOP_39_1
+  - LoopName:        VITIS_LOOP_41_1
   - String:          ' '
-  - LoopLoc:         'csr_vmul.cpp:39:19'
+  - LoopLoc:         'csr_vmul.cpp:41:20'
   - String:          ' '
   - Function:        'csr_vmul(CSR_Matrix const*, Vector const*, Vector*)'
     DebugLoc:        { File: csr_vmul.cpp, Line: 3, Column: 0 }
@@ -297,7 +304,7 @@ Args:
 --- !Missed
 Pass:            reflow-burst-widen
 Name:            GreaterOrEqualThreshold
-DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 22 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - String:          'Could not widen since type '
@@ -306,16 +313,16 @@ Args:
   - Threshold:       '0'
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      call
-    DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 22 }
+    DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
   - OrigDirection:   read
   - OrigID:          scevgepseq
   - ArrayName:       matrix_values
   - String:          ' '
   - BundleName:      gmem
   - String:          ' '
-  - LoopName:        VITIS_LOOP_43_2
+  - LoopName:        VITIS_LOOP_47_2
   - String:          ' '
-  - LoopLoc:         'csr_vmul.cpp:43:22'
+  - LoopLoc:         'csr_vmul.cpp:47:22'
   - String:          ' '
   - Function:        'csr_vmul(CSR_Matrix const*, Vector const*, Vector*)'
     DebugLoc:        { File: csr_vmul.cpp, Line: 3, Column: 0 }
@@ -324,7 +331,7 @@ Args:
 --- !Missed
 Pass:            reflow-burst-widen
 Name:            GreaterOrEqualThreshold
-DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 22 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - String:          'Could not widen since type '
@@ -333,16 +340,16 @@ Args:
   - Threshold:       '0'
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      call
-    DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 22 }
+    DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
   - OrigDirection:   read
   - OrigID:          scevgep10seq
   - ArrayName:       matrix_col_indices
   - String:          ' '
   - BundleName:      gmem
   - String:          ' '
-  - LoopName:        VITIS_LOOP_43_2
+  - LoopName:        VITIS_LOOP_47_2
   - String:          ' '
-  - LoopLoc:         'csr_vmul.cpp:43:22'
+  - LoopLoc:         'csr_vmul.cpp:47:22'
   - String:          ' '
   - Function:        'csr_vmul(CSR_Matrix const*, Vector const*, Vector*)'
     DebugLoc:        { File: csr_vmul.cpp, Line: 3, Column: 0 }
@@ -351,7 +358,7 @@ Args:
 --- !Missed
 Pass:            reflow-burst-widen
 Name:            GreaterOrEqualThreshold
-DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 35 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 35 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - String:          'Could not widen since type '
@@ -360,7 +367,7 @@ Args:
   - Threshold:       '0'
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      call
-    DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 35 }
+    DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 35 }
   - OrigDirection:   read
   - OrigID:          scevgep11seq
   - ArrayName:       matrix_row_pointers
@@ -371,30 +378,40 @@ Args:
     DebugLoc:        { File: csr_vmul.cpp, Line: 3, Column: 0 }
   - String:          ' '
 ...
---- !HLSReportInfo
-Pass:            auto-loop-pipeline
-Name:            AutoLoopPipeline
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
+Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
-  - String:          'automatically set the pipeline for Loop< '
-  - LoopName:        VITIS_LOOP_43_2
-  - String:          '> at '
-  - LoopLoc:         'csr_vmul.cpp:43:22'
-  - String:          ' '
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_47_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
+Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_47_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-loop-flatten-cost-model
 Name:            FlattenOffInference
-DebugLoc:        { File: csr_vmul.cpp, Line: 39, Column: 19 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 41, Column: 20 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - String:          'Automatically disabling loop flattening for loop '''
-  - LoopName:        VITIS_LOOP_39_1
+  - LoopName:        VITIS_LOOP_41_1
   - String:          '''.'
 ...
 --- !Passed
 Pass:            reflow-loop-flatten-cost-model
 Name:            AutoParallelPerformanceDrivenVerbosePassed
-DebugLoc:        { File: csr_vmul.cpp, Line: 39, Column: 19 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 41, Column: 20 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - PragmaType:      loop_flatten
@@ -405,18 +422,18 @@ Args:
   - String:          ' '
   - PragmaFunction:  csr_vmul
   - String:          ' '
-  - PragmaSrcLoc:    'csr_vmul.cpp:39:19'
-    DebugLoc:        { File: csr_vmul.cpp, Line: 39, Column: 19 }
-  - LoopName:        VITIS_LOOP_39_1
+  - PragmaSrcLoc:    'csr_vmul.cpp:41:20'
+    DebugLoc:        { File: csr_vmul.cpp, Line: 41, Column: 20 }
+  - LoopName:        VITIS_LOOP_41_1
   - String:          ' '
-  - LoopLoc:         'csr_vmul.cpp:39:19'
-    DebugLoc:        { File: csr_vmul.cpp, Line: 39, Column: 19 }
+  - LoopLoc:         'csr_vmul.cpp:41:20'
+    DebugLoc:        { File: csr_vmul.cpp, Line: 41, Column: 20 }
   - String:          ' '
 ...
 --- !Missed
 Pass:            reflow-burst-inference
 Name:            BurstConflict
-DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 22 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - String:          'Could not burst due to multiple potential '
@@ -424,7 +441,7 @@ Args:
   - String:          ' to the same bundle in the same region.'
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      call
-    DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 22 }
+    DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
   - OrigDirection:   read
   - OrigID:          seq2
   - ArrayName:       ''
@@ -438,7 +455,7 @@ Args:
 --- !Missed
 Pass:            reflow-burst-inference
 Name:            BurstConflict
-DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 22 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - String:          'Could not burst due to multiple potential '
@@ -446,7 +463,7 @@ Args:
   - String:          ' to the same bundle in the same region.'
   - String:          ' _XLX_SEP_ '
   - OrigAccess:      call
-    DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 22 }
+    DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
   - OrigDirection:   read
   - OrigID:          seq3
   - ArrayName:       ''
@@ -460,7 +477,7 @@ Args:
 --- !Passed
 Pass:            reflow-burst-summary
 Name:            BurstInferredVerboseSummary
-DebugLoc:        { File: csr_vmul.cpp, Line: 39, Column: 19 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 41, Column: 20 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - String:          'Multiple burst '
@@ -477,9 +494,9 @@ Args:
   - String:          ' '
   - BundleName:      gmem
   - String:          ' '
-  - LoopName:        VITIS_LOOP_39_1
+  - LoopName:        VITIS_LOOP_41_1
   - String:          ' '
-  - LoopLoc:         'csr_vmul.cpp:39:19'
+  - LoopLoc:         'csr_vmul.cpp:41:20'
   - String:          ' '
   - Function:        'csr_vmul(CSR_Matrix const*, Vector const*, Vector*)'
     DebugLoc:        { File: csr_vmul.cpp, Line: 3, Column: 0 }
@@ -488,7 +505,7 @@ Args:
 --- !Passed
 Pass:            reflow-burst-summary
 Name:            BurstInferredSummary
-DebugLoc:        { File: csr_vmul.cpp, Line: 39, Column: 19 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 41, Column: 20 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - String:          'Multiple burst '
@@ -498,9 +515,9 @@ Args:
   - String:          ' length and bit width '
   - Width:           '32'
   - String:          ' in loop '''
-  - LoopName:        VITIS_LOOP_39_1
+  - LoopName:        VITIS_LOOP_41_1
   - String:          '''('
-  - LoopLoc:         'csr_vmul.cpp:39:19'
+  - LoopLoc:         'csr_vmul.cpp:41:20'
   - String:          ')'
   - String:          ' has been inferred on bundle '''
   - BundleName:      gmem
@@ -510,7 +527,7 @@ Args:
 --- !Passed
 Pass:            reflow-burst-summary
 Name:            BurstInferredVerboseSummary
-DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 35 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 35 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - String:          'Multiple burst '
@@ -534,7 +551,7 @@ Args:
 --- !Passed
 Pass:            reflow-burst-summary
 Name:            BurstInferredSummary
-DebugLoc:        { File: csr_vmul.cpp, Line: 43, Column: 35 }
+DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 35 }
 Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 Args:            
   - String:          'Multiple burst '
@@ -547,4 +564,29 @@ Args:
   - BundleName:      gmem
   - String:          '''.'
   - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
+Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_47_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFailFullyUnroll
+DebugLoc:        { File: csr_vmul.cpp, Line: 47, Column: 22 }
+Function:        _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
+Args:            
+  - String:          'Cannot unroll loop '''
+  - LoopName:        VITIS_LOOP_47_2
+  - String:          ''' ('
+  - LoopLoc:         'csr_vmul.cpp:47:22'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          csr_vmul
+  - String:          ''' as it has a variable trip count'
 ...
