@@ -40,12 +40,24 @@ using namespace std;
 #define AUTOTB_TVOUT_out_values "../tv/cdatafile/c.csr_vmul.autotvout_out_values.dat"
 #define AUTOTB_TVIN_out_count "../tv/cdatafile/c.csr_vmul.autotvin_out_count.dat"
 #define AUTOTB_TVOUT_out_count "../tv/cdatafile/c.csr_vmul.autotvout_out_count.dat"
+#define AUTOTB_TVIN_BUNDLE_A "../tv/cdatafile/c.csr_vmul.autotvin_BUNDLE_A.dat"
+#define AUTOTB_TVOUT_BUNDLE_A "../tv/cdatafile/c.csr_vmul.autotvout_BUNDLE_A.dat"
+#define AUTOTB_TVIN_BUNDLE_B "../tv/cdatafile/c.csr_vmul.autotvin_BUNDLE_B.dat"
+#define AUTOTB_TVOUT_BUNDLE_B "../tv/cdatafile/c.csr_vmul.autotvout_BUNDLE_B.dat"
+#define AUTOTB_TVIN_BUNDLE_C "../tv/cdatafile/c.csr_vmul.autotvin_BUNDLE_C.dat"
+#define AUTOTB_TVOUT_BUNDLE_C "../tv/cdatafile/c.csr_vmul.autotvout_BUNDLE_C.dat"
+#define AUTOTB_TVIN_BUNDLE_D "../tv/cdatafile/c.csr_vmul.autotvin_BUNDLE_D.dat"
+#define AUTOTB_TVOUT_BUNDLE_D "../tv/cdatafile/c.csr_vmul.autotvout_BUNDLE_D.dat"
 #define AUTOTB_TVIN_gmem "../tv/cdatafile/c.csr_vmul.autotvin_gmem.dat"
 #define AUTOTB_TVOUT_gmem "../tv/cdatafile/c.csr_vmul.autotvout_gmem.dat"
 
 
 // tvout file define:
 #define AUTOTB_TVOUT_PC_out_count "../tv/rtldatafile/rtl.csr_vmul.autotvout_out_count.dat"
+#define AUTOTB_TVOUT_PC_BUNDLE_A "../tv/rtldatafile/rtl.csr_vmul.autotvout_BUNDLE_A.dat"
+#define AUTOTB_TVOUT_PC_BUNDLE_B "../tv/rtldatafile/rtl.csr_vmul.autotvout_BUNDLE_B.dat"
+#define AUTOTB_TVOUT_PC_BUNDLE_C "../tv/rtldatafile/rtl.csr_vmul.autotvout_BUNDLE_C.dat"
+#define AUTOTB_TVOUT_PC_BUNDLE_D "../tv/rtldatafile/rtl.csr_vmul.autotvout_BUNDLE_D.dat"
 #define AUTOTB_TVOUT_PC_gmem "../tv/rtldatafile/rtl.csr_vmul.autotvout_gmem.dat"
 
 
@@ -1369,6 +1381,102 @@ void apatb_csr_vmul_hw(void* __xlx_apatb_param_matrix_row_count, void* __xlx_apa
     .width = 32,
     .asize = 4,
     .hbm = false,
+    .name = { "BUNDLE_A" },
+#ifdef POST_CHECK
+#else
+    .owriter = nullptr,
+#ifdef USE_BINARY_TV_FILE
+    .iwriter = new hls::sim::Output(AUTOTB_TVIN_BUNDLE_A),
+#else
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_BUNDLE_A),
+#endif
+#endif
+    .hasWrite = { false },
+  };
+  port10.param = { __xlx_apatb_param_matrix_row_pointers };
+  port10.mname = { "matrix_row_pointers" };
+  port10.nbytes = { 4194304 };
+
+#ifdef USE_BINARY_TV_FILE
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port11 {
+#else
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port11 {
+#endif
+    .width = 32,
+    .asize = 4,
+    .hbm = false,
+    .name = { "BUNDLE_B" },
+#ifdef POST_CHECK
+#else
+    .owriter = nullptr,
+#ifdef USE_BINARY_TV_FILE
+    .iwriter = new hls::sim::Output(AUTOTB_TVIN_BUNDLE_B),
+#else
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_BUNDLE_B),
+#endif
+#endif
+    .hasWrite = { false },
+  };
+  port11.param = { __xlx_apatb_param_matrix_col_indices };
+  port11.mname = { "matrix_col_indices" };
+  port11.nbytes = { 4194304 };
+
+#ifdef USE_BINARY_TV_FILE
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port12 {
+#else
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port12 {
+#endif
+    .width = 32,
+    .asize = 4,
+    .hbm = false,
+    .name = { "BUNDLE_C" },
+#ifdef POST_CHECK
+#else
+    .owriter = nullptr,
+#ifdef USE_BINARY_TV_FILE
+    .iwriter = new hls::sim::Output(AUTOTB_TVIN_BUNDLE_C),
+#else
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_BUNDLE_C),
+#endif
+#endif
+    .hasWrite = { false },
+  };
+  port12.param = { __xlx_apatb_param_matrix_values };
+  port12.mname = { "matrix_values" };
+  port12.nbytes = { 4194304 };
+
+#ifdef USE_BINARY_TV_FILE
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port13 {
+#else
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port13 {
+#endif
+    .width = 32,
+    .asize = 4,
+    .hbm = false,
+    .name = { "BUNDLE_D" },
+#ifdef POST_CHECK
+#else
+    .owriter = nullptr,
+#ifdef USE_BINARY_TV_FILE
+    .iwriter = new hls::sim::Output(AUTOTB_TVIN_BUNDLE_D),
+#else
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_BUNDLE_D),
+#endif
+#endif
+    .hasWrite = { false },
+  };
+  port13.param = { __xlx_apatb_param_vector_values };
+  port13.mname = { "vector_values" };
+  port13.nbytes = { 4194304 };
+
+#ifdef USE_BINARY_TV_FILE
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port14 {
+#else
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port14 {
+#endif
+    .width = 32,
+    .asize = 4,
+    .hbm = false,
     .name = { "gmem" },
 #ifdef POST_CHECK
 #ifdef USE_BINARY_TV_FILE
@@ -1388,26 +1496,17 @@ void apatb_csr_vmul_hw(void* __xlx_apatb_param_matrix_row_count, void* __xlx_apa
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_gmem),
 #endif
 #endif
-    .hasWrite = { true, true, true, true, true },
+    .hasWrite = { true },
   };
-  port10.param = { __xlx_apatb_param_matrix_row_pointers, __xlx_apatb_param_matrix_col_indices, __xlx_apatb_param_matrix_values, __xlx_apatb_param_vector_values, __xlx_apatb_param_out_values };
-  port10.mname = { "matrix_row_pointers", "matrix_col_indices", "matrix_values", "vector_values", "out_values" };
-  port10.nbytes = { 4096, 4096, 4096, 4096, 4096 };
-  for (size_t off = 0, i = 0; i < port10.nbytes.size(); ++i) {
-    port10.offset.push_back(off);
-    off += hls::sim::divide_ceil(port10.nbytes[i], port10.asize);
-  }
-  __xlx_offset_byte_param_matrix_row_pointers = port10.offset[0]*4;
-  __xlx_offset_byte_param_matrix_col_indices = port10.offset[1]*4;
-  __xlx_offset_byte_param_matrix_values = port10.offset[2]*4;
-  __xlx_offset_byte_param_vector_values = port10.offset[3]*4;
-  __xlx_offset_byte_param_out_values = port10.offset[4]*4;
+  port14.param = { __xlx_apatb_param_out_values };
+  port14.mname = { "out_values" };
+  port14.nbytes = { 4096 };
 
   try {
 #ifdef POST_CHECK
     CodeState = ENTER_WRAPC_PC;
     check(port9);
-    check(port10);
+    check(port14);
 #else
     static hls::sim::RefTCL tcl("../tv/cdatafile/ref.tcl");
     tcl.containsVLA = 0;
@@ -1423,6 +1522,10 @@ void apatb_csr_vmul_hw(void* __xlx_apatb_param_matrix_row_count, void* __xlx_apa
     dump(port8, port8.iwriter, tcl.AESL_transaction);
     dump(port9, port9.iwriter, tcl.AESL_transaction);
     dump(port10, port10.iwriter, tcl.AESL_transaction);
+    dump(port11, port11.iwriter, tcl.AESL_transaction);
+    dump(port12, port12.iwriter, tcl.AESL_transaction);
+    dump(port13, port13.iwriter, tcl.AESL_transaction);
+    dump(port14, port14.iwriter, tcl.AESL_transaction);
     port0.doTCL(tcl);
     port1.doTCL(tcl);
     port2.doTCL(tcl);
@@ -1434,11 +1537,15 @@ void apatb_csr_vmul_hw(void* __xlx_apatb_param_matrix_row_count, void* __xlx_apa
     port8.doTCL(tcl);
     port9.doTCL(tcl);
     port10.doTCL(tcl);
+    port11.doTCL(tcl);
+    port12.doTCL(tcl);
+    port13.doTCL(tcl);
+    port14.doTCL(tcl);
     CodeState = CALL_C_DUT;
     csr_vmul_hw_stub_wrapper(__xlx_apatb_param_matrix_row_count, __xlx_apatb_param_matrix_col_count, __xlx_apatb_param_matrix_non_zero_count, __xlx_apatb_param_matrix_row_pointers, __xlx_apatb_param_matrix_col_indices, __xlx_apatb_param_matrix_values, __xlx_apatb_param_vector_values, __xlx_apatb_param_vector_count, __xlx_apatb_param_out_values, __xlx_apatb_param_out_count);
     CodeState = DUMP_OUTPUTS;
     dump(port9, port9.owriter, tcl.AESL_transaction);
-    dump(port10, port10.owriter, tcl.AESL_transaction);
+    dump(port14, port14.owriter, tcl.AESL_transaction);
     tcl.AESL_transaction++;
 #endif
   } catch (const hls::sim::SimException &e) {

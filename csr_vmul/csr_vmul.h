@@ -1,6 +1,9 @@
 #pragma once
 
 constexpr int MAX_ELEMENTS = 1024;
+constexpr int MAX_UNROLL = 16; // Just gonna assume all are divisible by 16 and power 2
+
+constexpr int WIDEN_BITWIDTH = 512;
 
 struct CSR_Matrix {
   int row_count;

@@ -1,3 +1,3 @@
-parallelismSelector::WARNG: WARNING: [HLS 211-200] Invalid pragma detected: Code Analyzer will not display the impact of 'pipeline' (/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp:43:1) as loop pipeline pragma is only valid if:
+parallelismSelector::WARNG: WARNING: [HLS 211-200] Invalid pragma detected: Code Analyzer will not display the impact of 'pipeline' (/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul.cpp:81:5) as loop pipeline pragma is only valid if:
                             - All the subloops of the loop to be pipelined can be fully unrolled
                             - All the subloops are perfectly nested in the loop to be pipelined.

@@ -1,6 +1,14 @@
 {
     "top_level_hw_fn_id": 211,
     "functions": {
+        "18": {
+            "fn_id": 18,
+            "mangled_name": "llvm.memset.p0i8.i64",
+            "fully_qualified_name": "llvm.memset.p0i8.i64",
+            "is_sys": true,
+            "is_declaration": true,
+            "supports_dataflow": false
+        },
         "211": {
             "fn_id": 211,
             "mangled_name": "_Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_",
@@ -18,11 +26,43 @@
     "loops": {
         "9": {
             "fn_id": 211,
-            "lp_id": 9
+            "lp_id": 9,
+            "label": "every_row"
         },
         "10": {
             "fn_id": 211,
-            "lp_id": 10
+            "lp_id": 10,
+            "label": "unroll_partial"
+        },
+        "11": {
+            "fn_id": 211,
+            "lp_id": 11,
+            "label": "partials"
+        },
+        "12": {
+            "fn_id": 211,
+            "lp_id": 12,
+            "label": "add_all"
+        },
+        "13": {
+            "fn_id": 211,
+            "lp_id": 13,
+            "label": "load_matrix_values"
+        },
+        "14": {
+            "fn_id": 211,
+            "lp_id": 14,
+            "label": "load_row_pointers"
+        },
+        "15": {
+            "fn_id": 211,
+            "lp_id": 15,
+            "label": "load_col_indices"
+        },
+        "16": {
+            "fn_id": 211,
+            "lp_id": 16,
+            "label": "load_vector"
         }
     }
 }

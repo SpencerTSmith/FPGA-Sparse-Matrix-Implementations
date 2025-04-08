@@ -1,17 +1,19 @@
 {
   "0": {
-    "basicblocks": 7,
+    "basicblocks": 35,
     "calls": "",
     "file": "csr_vmul.cpp",
     "fileloc": 3,
-    "instructions": 53,
+    "instructions": 341,
     "loads": {
-      "T": 6
+      "L": 50,
+      "T": 7
     },
     "name": "csr_vmul",
     "stores": {
+      "L": 4,
       "T": 2
     },
-    "total_instructions": 53
+    "total_instructions": 341
   }
 }

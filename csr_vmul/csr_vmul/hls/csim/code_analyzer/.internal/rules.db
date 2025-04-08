@@ -19,7 +19,7 @@
                 "-o",
                 "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/build/csr_vmul.cpp.0.o"
             ],
-            "exectime": 0.030299663543701172,
+            "exectime": 0.02264690399169922,
             "cwd": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul"
         },
         "['/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/build/csr_vmul.cpp.0.bc', '/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/build/csr_vmul.cpp.0.bc.d']": {
@@ -42,7 +42,7 @@
                 "-o",
                 "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/build/csr_vmul.cpp.0.bc"
             ],
-            "exectime": 0.03586125373840332,
+            "exectime": 0.029312610626220703,
             "cwd": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul"
         },
         "['/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/build/csr_vmul_tb.cpp.0.o', '/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/build/csr_vmul_tb.cpp.0.o.d']": {
@@ -64,7 +64,7 @@
                 "-o",
                 "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/build/csr_vmul_tb.cpp.0.o"
             ],
-            "exectime": 0.0658407211303711,
+            "exectime": 0.056664466857910156,
             "cwd": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul"
         },
         "['/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/build/syn_srcs.bc']": {
@@ -74,7 +74,7 @@
                 "-o",
                 "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/build/syn_srcs.bc"
             ],
-            "exectime": 0.01342320442199707,
+            "exectime": 0.011174917221069336,
             "cwd": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul"
         },
         "['/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/build/syn_srcs.opt.bc']": {
@@ -86,7 +86,7 @@
                 "-o",
                 "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/build/syn_srcs.opt.bc"
             ],
-            "exectime": 0.018769025802612305,
+            "exectime": 0.028308868408203125,
             "cwd": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul"
         },
         "['/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/build/app.exe']": {
@@ -129,7 +129,7 @@
                 "-Wl,-mllvm,-profilerOutputDirectory=/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/profiler/0",
                 "-fslxpthreads"
             ],
-            "exectime": 0.1041114330291748,
+            "exectime": 0.10469961166381836,
             "cwd": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul"
         },
         "['/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/instrument/app_0/hls_ir_info.json']": {
@@ -142,7 +142,7 @@
                 "--hw-function",
                 "csr_vmul"
             ],
-            "exectime": 0.01741337776184082,
+            "exectime": 0.01625847816467285,
             "cwd": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul"
         },
         "['/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/instrument/app_0/binary_dependencies.json']": {
@@ -153,7 +153,7 @@
                 "--reuse-filemanager=false",
                 "--output=/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/instrument/app_0/binary_dependencies.json"
             ],
-            "exectime": 0.02930164337158203,
+            "exectime": 0.030034303665161133,
             "cwd": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul"
         },
         "['/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/bin/.tracing_stdout.txt', '/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/bin/.tracing_stderr.txt']": {
@@ -161,7 +161,7 @@
                 "/home/spence/Documents/misery/Vivado/Vitis/2024.2/vcxx/libexec/rwd",
                 "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/build/app.exe"
             ],
-            "exectime": 0.05209684371948242,
+            "exectime": 0.05257749557495117,
             "cwd": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/tracing/csim/build"
         },
         "['/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/instrument/app_0/annotated.bc']": {
@@ -176,11 +176,11 @@
                 "-staticFile",
                 "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/instrument/app_0/static.xml",
                 "-traceFile",
-                "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/profiler/0/app_0_20/thread0000-trace.txt",
+                "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/profiler/0/app_0_43/thread0000-trace.txt",
                 "-o",
                 "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/instrument/app_0/annotated.bc"
             ],
-            "exectime": 0.04932832717895508,
+            "exectime": 0.04322171211242676,
             "cwd": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul"
         },
         "['/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/dataflow/0/taskgraph.json']": {
@@ -321,7 +321,7 @@
                 "--df-target",
                 "%F211"
             ],
-            "exectime": 0.24482250213623047,
+            "exectime": 0.2681238651275635,
             "cwd": "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul"
         }
     }

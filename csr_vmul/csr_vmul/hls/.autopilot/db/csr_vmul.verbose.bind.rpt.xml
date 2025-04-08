@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'csr_vmul'" level="0">
-<item name = "Date">Mon Mar 10 23:41:45 2025
+<item name = "Date">Tue Apr  8 00:00:41 2025
 </item>
 <item name = "Version">2024.2 (Build 5238294 on Nov  8 2024)</item>
 <item name = "Project">csr_vmul</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 7.300 ns, 2.70 ns</column>
+<column name="ap_clk">10.00 ns, 8.209 ns, 2.70 ns</column>
 </table>
 </item>
 </section>
@@ -24,19 +24,23 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">7, 31470599, 70.000 ns, 0.315 sec, 8, 31470600, no</column>
+<column name="">18, 97612819, 0.180 us, 0.976 sec, 19, 97612820, no</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_csr_vmul_Pipeline_load_vector_fu_1572">csr_vmul_Pipeline_load_vector, 2, 1027, 20.000 ns, 10.270 us, 1, 1025, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_csr_vmul_Pipeline_load_col_indices_fu_1581">csr_vmul_Pipeline_load_col_indices, 2, 1027, 20.000 ns, 10.270 us, 1, 1025, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_csr_vmul_Pipeline_load_row_pointers_fu_1590">csr_vmul_Pipeline_load_row_pointers, 2, 1027, 20.000 ns, 10.270 us, 1, 1025, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_csr_vmul_Pipeline_load_matrix_values_fu_1599">csr_vmul_Pipeline_load_matrix_values, 2, 1027, 20.000 ns, 10.270 us, 1, 1025, loop auto-rewind stp (delay=0 clock cycles(s))</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- VITIS_LOOP_41_1">0, 31470592, 13 ~ 30733, -, -, 0 ~ 1024, no</column>
-<column name=" + VITIS_LOOP_47_2">0, 30720, 30, -, -, 0 ~ 1024, no</column>
+<column name="- every_row">0, 97611776, 92 ~ 95324, -, -, 0 ~ 1024, no</column>
+<column name=" + unroll_partial">0, 95232, 3 ~ 93, -, -, 0 ~ 1024, no</column>
 </table>
 </item>
 </section>

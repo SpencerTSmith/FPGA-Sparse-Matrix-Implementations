@@ -23,6 +23,7 @@ instrumenter::VERBO: [Instrumenter - IRBuilder] Instruction has no debug informa
 instrumenter::VERBO: [Instrumenter - IRBuilder] Instruction has no debug information, defaulting to function/basic block info
 instrumenter::VERBO: [Instrumenter - IRBuilder] Instruction has no debug information, defaulting to function/basic block info
 instrumenter::VERBO: [Instrumenter - IRBuilder] Instruction has no debug information, defaulting to function/basic block info
+instrumenter::VERBO: [Instrumenter - IRBuilder] Instruction has no debug information, defaulting to function/basic block info
 instrumenter::INFOR: [Instrumenter - Initialization] Finished adding static information
 instrumenter::VERBO: [Instrumenter - Finalize] Dumping static data to .... "/home/spence/Documents/misery/college/RES/csr_vmul/csr_vmul/csr_vmul/hls/csim/code_analyzer/.internal/instrument/app_0/static.xml"
 instrumenter::VERBO: [Instrumenter - GV] Global Variables Instrumentation
@@ -55,5 +56,6 @@ instrumenter::VERBO: [Instrumenter - BB] Instrumenting the function: _Z11random_
 instrumenter::VERBO: [Instrumenter - BB] Instrumenting the function: main
 instrumenter::VERBO: [Instrumenter - BB] Instrumenting the function: _Z8csr_vmulPK10CSR_MatrixPK6VectorPS2_
 instrumenter::VERBO: [Instrumenter - BB] Instrumenting the function: llvm.sideeffect
+instrumenter::VERBO: [Instrumenter - BB] Skipping Function llvm.dbg.label
 instrumenter::VERBO: [Instrumenter - BB] Skipping Function llvm.dbg.value
 instrumenter::VERBO: [Instrumenter - Finalize] Adding extra setup and memory access calls

@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'csr_vmul'
 ================================================================
 + General Information: 
-    * Date:           Mon Mar 10 23:41:45 2025
+    * Date:           Tue Apr  8 00:00:42 2025
     * Version:        2024.2 (Build 5238294 on Nov  8 2024)
     * Project:        csr_vmul
     * Solution:       hls (Vivado IP Flow Target)
@@ -15,26 +15,38 @@
 + Performance & Resource Estimates: 
     
     PS: '+' for module; 'o' for loop; '*' for dataflow
-    +---------------------+------+------+----------+-----------+----------+----------+------+----------+--------+--------+-----------+-----------+-----+
-    |       Modules       | Issue|      | Latency  |  Latency  | Iteration|          | Trip |          |        |        |           |           |     |
-    |       & Loops       | Type | Slack| (cycles) |    (ns)   |  Latency | Interval | Count| Pipelined|  BRAM  |   DSP  |     FF    |    LUT    | URAM|
-    +---------------------+------+------+----------+-----------+----------+----------+------+----------+--------+--------+-----------+-----------+-----+
-    |+ csr_vmul           |     -|  0.00|  31470599|  3.147e+08|         -|  31470600|     -|        no|  4 (1%)|  5 (2%)|  3168 (2%)|  3597 (6%)|    -|
-    | o VITIS_LOOP_41_1   |     -|  7.30|  31470592|  3.147e+08|     30733|         -|  1024|        no|       -|       -|          -|          -|    -|
-    |  o VITIS_LOOP_47_2  |     -|  7.30|     30720|  3.072e+05|        30|         -|  1024|        no|       -|       -|          -|          -|    -|
-    +---------------------+------+------+----------+-----------+----------+----------+------+----------+--------+--------+-----------+-----------+-----+
+    +-----------------------------------------+--------+-------+----------+-----------+----------+----------+------+----------+---------+--------+-----------+-------------+-----+
+    |                 Modules                 |  Issue |       | Latency  |  Latency  | Iteration|          | Trip |          |         |        |           |             |     |
+    |                 & Loops                 |  Type  | Slack | (cycles) |    (ns)   |  Latency | Interval | Count| Pipelined|  BRAM   |   DSP  |     FF    |     LUT     | URAM|
+    +-----------------------------------------+--------+-------+----------+-----------+----------+----------+------+----------+---------+--------+-----------+-------------+-----+
+    |+ csr_vmul                               |  Timing|  -0.91|  97612819|  9.761e+08|         -|  97612820|     -|        no|  17 (6%)|  5 (2%)|  8105 (7%)|  10456 (19%)|    -|
+    | + csr_vmul_Pipeline_load_vector         |       -|   0.00|      1027|  1.027e+04|         -|      1027|     -|        no|        -|       -|   71 (~0%)|    100 (~0%)|    -|
+    |  o load_vector                          |       -|   7.30|      1025|  1.025e+04|         3|         1|  1024|       yes|        -|       -|          -|            -|    -|
+    | + csr_vmul_Pipeline_load_col_indices    |       -|   0.00|      1027|  1.027e+04|         -|      1027|     -|        no|        -|       -|   49 (~0%)|    100 (~0%)|    -|
+    |  o load_col_indices                     |       -|   7.30|      1025|  1.025e+04|         3|         1|  1024|       yes|        -|       -|          -|            -|    -|
+    | + csr_vmul_Pipeline_load_row_pointers   |       -|   0.00|      1027|  1.027e+04|         -|      1027|     -|        no|        -|       -|   71 (~0%)|    100 (~0%)|    -|
+    |  o load_row_pointers                    |       -|   7.30|      1025|  1.025e+04|         3|         1|  1024|       yes|        -|       -|          -|            -|    -|
+    | + csr_vmul_Pipeline_load_matrix_values  |       -|   0.00|      1027|  1.027e+04|         -|      1027|     -|        no|        -|       -|   71 (~0%)|    100 (~0%)|    -|
+    |  o load_matrix_values                   |       -|   7.30|      1025|  1.025e+04|         3|         1|  1024|       yes|        -|       -|          -|            -|    -|
+    | o every_row                             |       -|   7.30|  97611776|  9.761e+08|     95324|         -|  1024|        no|        -|       -|          -|            -|    -|
+    |  o unroll_partial                       |       -|   7.30|     95232|  9.523e+05|        93|         -|  1024|        no|        -|       -|          -|            -|    -|
+    +-----------------------------------------+--------+-------+----------+-----------+----------+----------+------+----------+---------+--------+-----------+-------------+-----+
 
 
 ================================================================
 == HW Interfaces
 ================================================================
 * M_AXI
-+------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
-| Interface  | Read/Write | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
-|            |            | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
-+------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
-| m_axi_gmem | READ_WRITE | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          | BRAM=4            |
-+------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
++----------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| Interface      | Read/Write | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
+|                |            | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
++----------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| m_axi_BUNDLE_A | READ_ONLY  | 32 -> 32   | 64            | 0       | slave  | 0        | 512       | 16           | 16           | 16          | 16          | BRAM=2            |
+| m_axi_BUNDLE_B | READ_ONLY  | 32 -> 32   | 64            | 0       | slave  | 0        | 512       | 16           | 16           | 16          | 16          | BRAM=2            |
+| m_axi_BUNDLE_C | READ_ONLY  | 32 -> 32   | 64            | 0       | slave  | 0        | 512       | 16           | 16           | 16          | 16          | BRAM=2            |
+| m_axi_BUNDLE_D | READ_ONLY  | 32 -> 32   | 64            | 0       | slave  | 0        | 512       | 16           | 16           | 16          | 16          | BRAM=2            |
+| m_axi_gmem     | WRITE_ONLY | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          | BRAM=2            |
++----------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
 
 * S_AXILITE Interfaces
 +-----------------+------------+---------------+--------+----------+
@@ -88,31 +100,31 @@
 +----------+-----------+--------------------+
 | Argument | Direction | Datatype           |
 +----------+-----------+--------------------+
-| matrix   | inout     | CSR_Matrix const * |
-| vector   | inout     | Vector const *     |
-| out      | inout     | Vector*            |
+| matrix   | in        | CSR_Matrix const * |
+| vector   | in        | Vector const *     |
+| out      | out       | Vector*            |
 +----------+-----------+--------------------+
 
 * SW-to-HW Mapping
-+----------+-----------------+-----------+----------+-------------------------------+
-| Argument | HW Interface    | HW Type   | HW Usage | HW Info                       |
-+----------+-----------------+-----------+----------+-------------------------------+
-| matrix   | s_axi_control   | interface |          |                               |
-| matrix   | s_axi_control   | interface |          |                               |
-| matrix   | s_axi_control   | interface |          |                               |
-| matrix   | m_axi_gmem      | interface |          | channel=0 channel=0 channel=0 |
-| matrix   | s_axi_control_r | interface | offset   |                               |
-| matrix   | m_axi_gmem      | interface |          | channel=0 channel=0 channel=0 |
-| matrix   | s_axi_control_r | interface | offset   |                               |
-| matrix   | m_axi_gmem      | interface |          | channel=0 channel=0 channel=0 |
-| matrix   | s_axi_control_r | interface | offset   |                               |
-| vector   | s_axi_control   | interface |          |                               |
-| vector   | m_axi_gmem      | interface |          | channel=0                     |
-| vector   | s_axi_control_r | interface | offset   |                               |
-| out      | s_axi_control   | interface |          |                               |
-| out      | m_axi_gmem      | interface |          | channel=0                     |
-| out      | s_axi_control_r | interface | offset   |                               |
-+----------+-----------------+-----------+----------+-------------------------------+
++----------+-----------------+-----------+----------+-----------+
+| Argument | HW Interface    | HW Type   | HW Usage | HW Info   |
++----------+-----------------+-----------+----------+-----------+
+| matrix   | s_axi_control   | interface |          |           |
+| matrix   | s_axi_control   | interface |          |           |
+| matrix   | s_axi_control   | interface |          |           |
+| matrix   | m_axi_BUNDLE_A  | interface |          | channel=0 |
+| matrix   | s_axi_control_r | interface | offset   |           |
+| matrix   | m_axi_BUNDLE_B  | interface |          | channel=0 |
+| matrix   | s_axi_control_r | interface | offset   |           |
+| matrix   | m_axi_BUNDLE_C  | interface |          | channel=0 |
+| matrix   | s_axi_control_r | interface | offset   |           |
+| vector   | s_axi_control   | interface |          |           |
+| vector   | m_axi_BUNDLE_D  | interface |          | channel=0 |
+| vector   | s_axi_control_r | interface | offset   |           |
+| out      | s_axi_control   | interface |          |           |
+| out      | m_axi_gmem      | interface |          | channel=0 |
+| out      | s_axi_control_r | interface | offset   |           |
++----------+-----------------+-----------+----------+-----------+
 
 
 ================================================================
@@ -121,97 +133,197 @@
  Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
 
 * Inferred Burst Summary
-+--------------+-----------+----------+-------+-----------------+--------------------+
-| HW Interface | Direction | Length   | Width | Loop            | Loop Location      |
-+--------------+-----------+----------+-------+-----------------+--------------------+
-| m_axi_gmem   | write     | variable | 32    | VITIS_LOOP_41_1 | csr_vmul.cpp:41:20 |
-| m_axi_gmem   | read      | 2        | 32    |                 |                    |
-+--------------+-----------+----------+-------+-----------------+--------------------+
++----------------+-----------+----------+-------+--------------------+-------------------+
+| HW Interface   | Direction | Length   | Width | Loop               | Loop Location     |
++----------------+-----------+----------+-------+--------------------+-------------------+
+| m_axi_BUNDLE_A | read      | variable | 32    | load_row_pointers  | csr_vmul.cpp:64:3 |
+| m_axi_BUNDLE_B | read      | variable | 32    | load_col_indices   | csr_vmul.cpp:56:3 |
+| m_axi_BUNDLE_C | read      | variable | 32    | load_matrix_values | csr_vmul.cpp:72:3 |
+| m_axi_BUNDLE_D | read      | variable | 32    | load_vector        | csr_vmul.cpp:48:3 |
+| m_axi_gmem     | write     | variable | 32    | every_row          | csr_vmul.cpp:79:3 |
++----------------+-----------+----------+-------+--------------------+-------------------+
 
 * All M_AXI Variable Accesses
-+--------------+---------------------+--------------------+------------------+--------------+----------+-----------------+--------------------+------------+---------------------------------------------------------------------------------------------------------+
-| HW Interface | Variable            | Access Location    | Direction        | Burst Status | Length   | Loop            | Loop Location      | Resolution | Problem                                                                                                 |
-+--------------+---------------------+--------------------+------------------+--------------+----------+-----------------+--------------------+------------+---------------------------------------------------------------------------------------------------------+
-| m_axi_gmem   |                     | csr_vmul.cpp:47:22 | read             | Fail         |          |                 |                    | 214-224    | Could not burst due to multiple potential reads to the same bundle in the same region.                  |
-| m_axi_gmem   | matrix_row_pointers | csr_vmul.cpp:47:35 | read             | Widen Fail   |          |                 |                    | 214-353    | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0   |
-| m_axi_gmem   | matrix_row_pointers | csr_vmul.cpp:47:35 | read             | Fail         |          | VITIS_LOOP_41_1 | csr_vmul.cpp:41:20 | 214-230    | Stride is incompatible                                                                                  |
-| m_axi_gmem   | matrix_row_pointers | csr_vmul.cpp:47:35 | islist read read | Inferred     | 2        | VITIS_LOOP_41_1 | csr_vmul.cpp:41:20 |            |                                                                                                         |
-| m_axi_gmem   | matrix_col_indices  | csr_vmul.cpp:51:44 | read             | Widen Fail   |          | VITIS_LOOP_47_2 | csr_vmul.cpp:47:22 | 214-353    | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0   |
-| m_axi_gmem   | matrix_values       | csr_vmul.cpp:51:9  | read             | Widen Fail   |          | VITIS_LOOP_47_2 | csr_vmul.cpp:47:22 | 214-353    | Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0 |
-| m_axi_gmem   | matrix_col_indices  | csr_vmul.cpp:51:44 | read             | Fail         |          | VITIS_LOOP_41_1 | csr_vmul.cpp:41:20 | 214-232    | Access call is in the conditional branch                                                                |
-| m_axi_gmem   | matrix_values       | csr_vmul.cpp:51:9  | read             | Fail         |          | VITIS_LOOP_41_1 | csr_vmul.cpp:41:20 | 214-232    | Access call is in the conditional branch                                                                |
-| m_axi_gmem   | vector_values       | csr_vmul.cpp:51:29 | read             | Fail         |          | VITIS_LOOP_47_2 | csr_vmul.cpp:47:22 | 214-229    | Could not analyze pattern                                                                               |
-| m_axi_gmem   | matrix_col_indices  | csr_vmul.cpp:51:44 | read             | Inferred     | variable | VITIS_LOOP_47_2 | csr_vmul.cpp:47:22 |            |                                                                                                         |
-| m_axi_gmem   | matrix_values       | csr_vmul.cpp:51:9  | read             | Inferred     | variable | VITIS_LOOP_47_2 | csr_vmul.cpp:47:22 |            |                                                                                                         |
-| m_axi_gmem   | out_values          | csr_vmul.cpp:54:22 | write            | Widen Fail   |          | VITIS_LOOP_41_1 | csr_vmul.cpp:41:20 | 214-353    | Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0 |
-| m_axi_gmem   | out_values          | csr_vmul.cpp:54:22 | write            | Inferred     | variable | VITIS_LOOP_41_1 | csr_vmul.cpp:41:20 |            |                                                                                                         |
-+--------------+---------------------+--------------------+------------------+--------------+----------+-----------------+--------------------+------------+---------------------------------------------------------------------------------------------------------+
++----------------+---------------------+---------------------+-----------+--------------+----------+--------------------+-------------------+------------+---------------------------------------------------------------------------------------------------------+
+| HW Interface   | Variable            | Access Location     | Direction | Burst Status | Length   | Loop               | Loop Location     | Resolution | Problem                                                                                                 |
++----------------+---------------------+---------------------+-----------+--------------+----------+--------------------+-------------------+------------+---------------------------------------------------------------------------------------------------------+
+| m_axi_BUNDLE_A | matrix_row_pointers | csr_vmul.cpp:67:26  | read      | Widen Fail   |          | load_row_pointers  | csr_vmul.cpp:64:3 | 214-307    | Could not widen since type i32 size is greater than or equal to alignment 1(bytes)                      |
+| m_axi_BUNDLE_A | matrix_row_pointers | csr_vmul.cpp:67:26  | read      | Inferred     | variable | load_row_pointers  | csr_vmul.cpp:64:3 |            |                                                                                                         |
+| m_axi_BUNDLE_B | matrix_col_indices  | csr_vmul.cpp:59:25  | read      | Widen Fail   |          | load_col_indices   | csr_vmul.cpp:56:3 | 214-307    | Could not widen since type i32 size is greater than or equal to alignment 1(bytes)                      |
+| m_axi_BUNDLE_B | matrix_col_indices  | csr_vmul.cpp:59:25  | read      | Inferred     | variable | load_col_indices   | csr_vmul.cpp:56:3 |            |                                                                                                         |
+| m_axi_BUNDLE_C | matrix_values       | csr_vmul.cpp:75:27  | read      | Widen Fail   |          | load_matrix_values | csr_vmul.cpp:72:3 | 214-307    | Could not widen since type float size is greater than or equal to alignment 1(bytes)                    |
+| m_axi_BUNDLE_C | matrix_values       | csr_vmul.cpp:75:27  | read      | Inferred     | variable | load_matrix_values | csr_vmul.cpp:72:3 |            |                                                                                                         |
+| m_axi_BUNDLE_D | vector_values       | csr_vmul.cpp:51:20  | read      | Widen Fail   |          | load_vector        | csr_vmul.cpp:48:3 | 214-307    | Could not widen since type float size is greater than or equal to alignment 1(bytes)                    |
+| m_axi_BUNDLE_D | vector_values       | csr_vmul.cpp:51:20  | read      | Inferred     | variable | load_vector        | csr_vmul.cpp:48:3 |            |                                                                                                         |
+| m_axi_gmem     | out_values          | csr_vmul.cpp:107:22 | write     | Widen Fail   |          | every_row          | csr_vmul.cpp:79:3 | 214-353    | Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem     | out_values          | csr_vmul.cpp:107:22 | write     | Inferred     | variable | every_row          | csr_vmul.cpp:79:3 |            |                                                                                                         |
++----------------+---------------------+---------------------+-----------+--------------+----------+--------------------+-------------------+------------+---------------------------------------------------------------------------------------------------------+
 
     * Resolution URL: docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.2%20English&url=ug1448-hls-guidance&resourceid=XXX-YYY.html (replace XXX-YYY with column value)
 
 ================================================================
 == Bind Op Report
 ================================================================
-+-------------------------------------+-----+--------+------------------+--------+----------+---------+
-| Name                                | DSP | Pragma | Variable         | Op     | Impl     | Latency |
-+-------------------------------------+-----+--------+------------------+--------+----------+---------+
-| + csr_vmul                          | 5   |        |                  |        |          |         |
-|   icmp_ln41_fu_286_p2               |     |        | icmp_ln41        | setgt  | auto     | 0       |
-|   empty_fu_316_p3                   |     |        | empty            | select | auto_sel | 0       |
-|   icmp_ln41_1_fu_340_p2             |     |        | icmp_ln41_1      | setlt  | auto     | 0       |
-|   indvars_iv_next7_fu_345_p2        |     |        | indvars_iv_next7 | add    | fabric   | 0       |
-|   add_ln47_fu_363_p2                |     |        | add_ln47         | add    | fabric   | 0       |
-|   add_ln47_1_fu_406_p2              |     |        | add_ln47_1       | add    | fabric   | 0       |
-|   add_ln47_2_fu_425_p2              |     |        | add_ln47_2       | add    | fabric   | 0       |
-|   icmp_ln47_fu_444_p2               |     |        | icmp_ln47        | setlt  | auto     | 0       |
-|   add_ln47_4_fu_449_p2              |     |        | add_ln47_4       | add    | fabric   | 0       |
-|   add_ln51_fu_455_p2                |     |        | add_ln51         | add    | fabric   | 0       |
-|   add_ln51_1_fu_466_p2              |     |        | add_ln51_1       | add    | fabric   | 0       |
-|   add_ln51_2_fu_498_p2              |     |        | add_ln51_2       | add    | fabric   | 0       |
-|   fmul_32ns_32ns_32_4_max_dsp_1_U2  | 3   |        | mul              | fmul   | maxdsp   | 3       |
-|   fadd_32ns_32ns_32_5_full_dsp_1_U1 | 2   |        | sum_1            | fadd   | fulldsp  | 4       |
-|   add_ln47_3_fu_477_p2              |     |        | add_ln47_3       | add    | fabric   | 0       |
-+-------------------------------------+-----+--------+------------------+--------+----------+---------+
++-----------------------------------------+-----+--------+-------------------+--------+----------+---------+
+| Name                                    | DSP | Pragma | Variable          | Op     | Impl     | Latency |
++-----------------------------------------+-----+--------+-------------------+--------+----------+---------+
+| + csr_vmul                              | 5   |        |                   |        |          |         |
+|   icmp_ln48_fu_1647_p2                  |     |        | icmp_ln48         | setgt  | auto     | 0       |
+|   empty_fu_1667_p3                      |     |        | empty             | select | auto_sel | 0       |
+|   icmp_ln56_fu_1675_p2                  |     |        | icmp_ln56         | setgt  | auto     | 0       |
+|   empty_36_fu_1695_p3                   |     |        | empty_36          | select | auto_sel | 0       |
+|   add_fu_1703_p2                        |     |        | add               | add    | fabric   | 0       |
+|   icmp_ln64_fu_1709_p2                  |     |        | icmp_ln64         | setgt  | auto     | 0       |
+|   empty_38_fu_1729_p3                   |     |        | empty_38          | select | auto_sel | 0       |
+|   icmp_ln79_fu_1747_p2                  |     |        | icmp_ln79         | setgt  | auto     | 0       |
+|   empty_41_fu_1777_p3                   |     |        | empty_41          | select | auto_sel | 0       |
+|   icmp_ln79_1_fu_1854_p2                |     |        | icmp_ln79_1       | setlt  | auto     | 0       |
+|   indvars_iv_next20_fu_1859_p2          |     |        | indvars_iv_next20 | add    | fabric   | 0       |
+|   icmp_ln87_fu_1878_p2                  |     |        | icmp_ln87         | setlt  | auto     | 0       |
+|   add_ln87_fu_1901_p2                   |     |        | add_ln87          | add    | fabric   | 0       |
+|   icmp_ln87_1_fu_1911_p2                |     |        | icmp_ln87_1       | setgt  | auto     | 0       |
+|   select_ln87_fu_1917_p3                |     |        | select_ln87       | select | auto_sel | 0       |
+|   icmp_ln87_2_fu_1925_p2                |     |        | icmp_ln87_2       | setlt  | auto     | 0       |
+|   add_ln91_fu_1930_p2                   |     |        | add_ln91          | add    | fabric   | 0       |
+|   icmp_ln91_fu_1979_p2                  |     |        | icmp_ln91         | setlt  | auto     | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U18     | 3   |        | partial_sums      | fmul   | maxdsp   | 3       |
+|   add_ln91_1_fu_1988_p2                 |     |        | add_ln91_1        | add    | fabric   | 0       |
+|   icmp_ln91_1_fu_1994_p2                |     |        | icmp_ln91_1       | setlt  | auto     | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U18     | 3   |        | partial_sums_1    | fmul   | maxdsp   | 3       |
+|   add_ln91_2_fu_2003_p2                 |     |        | add_ln91_2        | add    | fabric   | 0       |
+|   icmp_ln91_2_fu_2009_p2                |     |        | icmp_ln91_2       | setlt  | auto     | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U18     | 3   |        | partial_sums_2    | fmul   | maxdsp   | 3       |
+|   add_ln91_3_fu_2018_p2                 |     |        | add_ln91_3        | add    | fabric   | 0       |
+|   icmp_ln91_3_fu_2024_p2                |     |        | icmp_ln91_3       | setlt  | auto     | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U18     | 3   |        | partial_sums_3    | fmul   | maxdsp   | 3       |
+|   add_ln91_4_fu_2033_p2                 |     |        | add_ln91_4        | add    | fabric   | 0       |
+|   icmp_ln91_4_fu_2039_p2                |     |        | icmp_ln91_4       | setlt  | auto     | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U18     | 3   |        | partial_sums_4    | fmul   | maxdsp   | 3       |
+|   add_ln91_5_fu_2048_p2                 |     |        | add_ln91_5        | add    | fabric   | 0       |
+|   icmp_ln91_5_fu_2054_p2                |     |        | icmp_ln91_5       | setlt  | auto     | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U18     | 3   |        | partial_sums_5    | fmul   | maxdsp   | 3       |
+|   add_ln91_6_fu_2063_p2                 |     |        | add_ln91_6        | add    | fabric   | 0       |
+|   icmp_ln91_6_fu_2069_p2                |     |        | icmp_ln91_6       | setlt  | auto     | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U18     | 3   |        | partial_sums_6    | fmul   | maxdsp   | 3       |
+|   add_ln91_7_fu_2078_p2                 |     |        | add_ln91_7        | add    | fabric   | 0       |
+|   icmp_ln91_7_fu_2084_p2                |     |        | icmp_ln91_7       | setlt  | auto     | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U18     | 3   |        | partial_sums_7    | fmul   | maxdsp   | 3       |
+|   add_ln91_8_fu_2093_p2                 |     |        | add_ln91_8        | add    | fabric   | 0       |
+|   icmp_ln91_8_fu_2099_p2                |     |        | icmp_ln91_8       | setlt  | auto     | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U18     | 3   |        | partial_sums_8    | fmul   | maxdsp   | 3       |
+|   add_ln91_9_fu_2108_p2                 |     |        | add_ln91_9        | add    | fabric   | 0       |
+|   icmp_ln91_9_fu_2114_p2                |     |        | icmp_ln91_9       | setlt  | auto     | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U18     | 3   |        | partial_sums_9    | fmul   | maxdsp   | 3       |
+|   add_ln91_10_fu_2123_p2                |     |        | add_ln91_10       | add    | fabric   | 0       |
+|   icmp_ln91_10_fu_2129_p2               |     |        | icmp_ln91_10      | setlt  | auto     | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U18     | 3   |        | partial_sums_10   | fmul   | maxdsp   | 3       |
+|   add_ln91_11_fu_2138_p2                |     |        | add_ln91_11       | add    | fabric   | 0       |
+|   icmp_ln91_11_fu_2144_p2               |     |        | icmp_ln91_11      | setlt  | auto     | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U18     | 3   |        | partial_sums_11   | fmul   | maxdsp   | 3       |
+|   add_ln91_12_fu_2153_p2                |     |        | add_ln91_12       | add    | fabric   | 0       |
+|   icmp_ln91_12_fu_2159_p2               |     |        | icmp_ln91_12      | setlt  | auto     | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U18     | 3   |        | partial_sums_12   | fmul   | maxdsp   | 3       |
+|   add_ln91_13_fu_2168_p2                |     |        | add_ln91_13       | add    | fabric   | 0       |
+|   icmp_ln91_13_fu_2174_p2               |     |        | icmp_ln91_13      | setlt  | auto     | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U18     | 3   |        | partial_sums_13   | fmul   | maxdsp   | 3       |
+|   add_ln91_14_fu_2183_p2                |     |        | add_ln91_14       | add    | fabric   | 0       |
+|   icmp_ln91_14_fu_2189_p2               |     |        | icmp_ln91_14      | setlt  | auto     | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U18     | 3   |        | partial_sums_14   | fmul   | maxdsp   | 3       |
+|   add_ln87_3_fu_2199_p2                 |     |        | add_ln87_3        | add    | fabric   | 0       |
+|   xor_ln87_fu_1936_p2                   |     |        | xor_ln87          | xor    | auto     | 0       |
+|   add_ln87_1_fu_1941_p2                 |     |        | add_ln87_1        | add    | fabric   | 0       |
+|   add_ln87_2_fu_1964_p2                 |     |        | add_ln87_2        | add    | fabric   | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U18     | 3   |        | mul_le            | fmul   | maxdsp   | 3       |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U17    | 2   |        | phitmp            | fadd   | fulldsp  | 4       |
+|   true_sum_fu_2210_p3                   |     |        | true_sum          | select | auto_sel | 0       |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U17    | 2   |        | true_sum_1        | fadd   | fulldsp  | 4       |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U17    | 2   |        | true_sum_2        | fadd   | fulldsp  | 4       |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U17    | 2   |        | true_sum_3        | fadd   | fulldsp  | 4       |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U17    | 2   |        | true_sum_4        | fadd   | fulldsp  | 4       |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U17    | 2   |        | true_sum_5        | fadd   | fulldsp  | 4       |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U17    | 2   |        | true_sum_6        | fadd   | fulldsp  | 4       |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U17    | 2   |        | true_sum_7        | fadd   | fulldsp  | 4       |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U17    | 2   |        | true_sum_8        | fadd   | fulldsp  | 4       |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U17    | 2   |        | true_sum_9        | fadd   | fulldsp  | 4       |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U17    | 2   |        | true_sum_10       | fadd   | fulldsp  | 4       |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U17    | 2   |        | true_sum_11       | fadd   | fulldsp  | 4       |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U17    | 2   |        | true_sum_12       | fadd   | fulldsp  | 4       |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U17    | 2   |        | true_sum_13       | fadd   | fulldsp  | 4       |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U17    | 2   |        | true_sum_14       | fadd   | fulldsp  | 4       |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U17    | 2   |        | true_sum_15       | fadd   | fulldsp  | 4       |
+|  + csr_vmul_Pipeline_load_vector        | 0   |        |                   |        |          |         |
+|    icmp_ln48_fu_104_p2                  |     |        | icmp_ln48         | setlt  | auto     | 0       |
+|    add_ln48_fu_110_p2                   |     |        | add_ln48          | add    | fabric   | 0       |
+|  + csr_vmul_Pipeline_load_col_indices   | 0   |        |                   |        |          |         |
+|    icmp_ln56_fu_104_p2                  |     |        | icmp_ln56         | setlt  | auto     | 0       |
+|    add_ln56_fu_110_p2                   |     |        | add_ln56          | add    | fabric   | 0       |
+|  + csr_vmul_Pipeline_load_row_pointers  | 0   |        |                   |        |          |         |
+|    icmp_ln64_fu_104_p2                  |     |        | icmp_ln64         | setlt  | auto     | 0       |
+|    add_ln64_fu_110_p2                   |     |        | add_ln64          | add    | fabric   | 0       |
+|  + csr_vmul_Pipeline_load_matrix_values | 0   |        |                   |        |          |         |
+|    icmp_ln72_fu_104_p2                  |     |        | icmp_ln72         | setlt  | auto     | 0       |
+|    add_ln72_fu_110_p2                   |     |        | add_ln72          | add    | fabric   | 0       |
++-----------------------------------------+-----+--------+-------------------+--------+----------+---------+
 
 
 ================================================================
 == Storage Report
 ================================================================
-+---------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
-| Name                | Usage     | Type      | BRAM | URAM | Pragma | Variable | Impl | Latency | Bitwidth, Depth, |
-|                     |           |           |      |      |        |          |      |         | Banks            |
-+---------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
-| + csr_vmul          |           |           | 4    | 0    |        |          |      |         |                  |
-|   control_s_axi_U   | interface | s_axilite |      |      |        |          |      |         |                  |
-|   control_r_s_axi_U | interface | s_axilite |      |      |        |          |      |         |                  |
-|   gmem_m_axi_U      | interface | m_axi     | 4    |      |        |          |      |         |                  |
-+---------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
++-------------------------+--------------+-----------+------+------+--------+---------------------+------+---------+------------------+
+| Name                    | Usage        | Type      | BRAM | URAM | Pragma | Variable            | Impl | Latency | Bitwidth, Depth, |
+|                         |              |           |      |      |        |                     |      |         | Banks            |
++-------------------------+--------------+-----------+------+------+--------+---------------------+------+---------+------------------+
+| + csr_vmul              |              |           | 17   | 0    |        |                     |      |         |                  |
+|   control_s_axi_U       | interface    | s_axilite |      |      |        |                     |      |         |                  |
+|   control_r_s_axi_U     | interface    | s_axilite |      |      |        |                     |      |         |                  |
+|   BUNDLE_A_m_axi_U      | interface    | m_axi     | 2    |      |        |                     |      |         |                  |
+|   BUNDLE_B_m_axi_U      | interface    | m_axi     | 2    |      |        |                     |      |         |                  |
+|   BUNDLE_C_m_axi_U      | interface    | m_axi     | 2    |      |        |                     |      |         |                  |
+|   BUNDLE_D_m_axi_U      | interface    | m_axi     | 2    |      |        |                     |      |         |                  |
+|   gmem_m_axi_U          | interface    | m_axi     | 2    |      |        |                     |      |         |                  |
+|   local_vector_U        | rom_np array |           | 2    |      |        | local_vector        | auto | 1       | 32, 1024, 1      |
+|   local_col_indices_U   | rom_np array |           | 1    |      |        | local_col_indices   | auto | 1       | 10, 1024, 1      |
+|   local_row_pointers_U  | ram_1p array |           | 2    |      |        | local_row_pointers  | auto | 1       | 32, 1024, 1      |
+|   local_matrix_values_U | rom_np array |           | 2    |      |        | local_matrix_values | auto | 1       | 32, 1024, 1      |
++-------------------------+--------------+-----------+------+------+--------+---------------------+------+---------+------------------+
 
 
 ================================================================
 == Pragma Report
 ================================================================
 * Valid Pragma Syntax
-+----------------+----------------------------------------------------------------+-----------------------------+
-| Type           | Options                                                        | Location                    |
-+----------------+----------------------------------------------------------------+-----------------------------+
-| disaggregate   | variable = matrix                                              | csr_vmul.cpp:17 in csr_vmul |
-| interface      | s_axilite port = matrix->row_count bundle = control            | csr_vmul.cpp:18 in csr_vmul |
-| interface      | s_axilite port = matrix->col_count bundle = control            | csr_vmul.cpp:19 in csr_vmul |
-| interface      | s_axilite port = matrix->non_zero_count bundle = control       | csr_vmul.cpp:20 in csr_vmul |
-| interface      | m_axi port = matrix->row_pointers offset = slave bundle = gmem | csr_vmul.cpp:21 in csr_vmul |
-| interface      | m_axi port = matrix->col_indices offset = slave bundle = gmem  | csr_vmul.cpp:22 in csr_vmul |
-| interface      | m_axi port = matrix->values offset = slave bundle = gmem       | csr_vmul.cpp:23 in csr_vmul |
-| disaggregate   | variable = vector                                              | csr_vmul.cpp:26 in csr_vmul |
-| interface      | m_axi port = vector->values offset = slave bundle = gmem       | csr_vmul.cpp:27 in csr_vmul |
-| interface      | s_axilite port = vector->count bundle = control                | csr_vmul.cpp:28 in csr_vmul |
-| disaggregate   | variable = out                                                 | csr_vmul.cpp:30 in csr_vmul |
-| interface      | m_axi port = out->values offset = slave bundle = gmem          | csr_vmul.cpp:31 in csr_vmul |
-| interface      | s_axilite port = out->count bundle = control                   | csr_vmul.cpp:32 in csr_vmul |
-| interface      | s_axilite port = return bundle = control                       | csr_vmul.cpp:36 in csr_vmul |
-| loop_tripcount | max = MAX_ELEMENTS                                             | csr_vmul.cpp:42 in csr_vmul |
-| pipeline       | II = 1                                                         | csr_vmul.cpp:43 in csr_vmul |
-| loop_tripcount | max = MAX_ELEMENTS                                             | csr_vmul.cpp:48 in csr_vmul |
-+----------------+----------------------------------------------------------------+-----------------------------+
++-----------------+-----------------------------------------------------------------------------------------------------------------------------+-------------------------------------------+
+| Type            | Options                                                                                                                     | Location                                  |
++-----------------+-----------------------------------------------------------------------------------------------------------------------------+-------------------------------------------+
+| disaggregate    | variable = matrix                                                                                                           | csr_vmul.cpp:17 in csr_vmul               |
+| interface       | s_axilite port = matrix->row_count bundle = control                                                                         | csr_vmul.cpp:18 in csr_vmul               |
+| interface       | s_axilite port = matrix->col_count bundle = control                                                                         | csr_vmul.cpp:19 in csr_vmul               |
+| interface       | s_axilite port = matrix->non_zero_count bundle = control                                                                    | csr_vmul.cpp:20 in csr_vmul               |
+| interface       | m_axi port = matrix->row_pointers offset = slave bundle = BUNDLE_A depth = MAX_ELEMENTS max_widen_bitwidth = WIDEN_BITWIDTH | csr_vmul.cpp:22 in csr_vmul               |
+| interface       | m_axi port = matrix->col_indices offset = slave bundle = BUNDLE_B depth = MAX_ELEMENTS max_widen_bitwidth = WIDEN_BITWIDTH  | csr_vmul.cpp:24 in csr_vmul               |
+| interface       | m_axi port = matrix->values offset = slave bundle = BUNDLE_C depth = MAX_ELEMENTS max_widen_bitwidth = WIDEN_BITWIDTH       | csr_vmul.cpp:26 in csr_vmul               |
+| disaggregate    | variable = vector                                                                                                           | csr_vmul.cpp:30 in csr_vmul               |
+| interface       | m_axi port = vector->values offset = slave bundle = BUNDLE_D depth = MAX_ELEMENTS max_widen_bitwidth = WIDEN_BITWIDTH       | csr_vmul.cpp:31 in csr_vmul               |
+| interface       | s_axilite port = vector->count bundle = control                                                                             | csr_vmul.cpp:34 in csr_vmul               |
+| disaggregate    | variable = out                                                                                                              | csr_vmul.cpp:36 in csr_vmul               |
+| interface       | m_axi port = out->values offset = slave bundle = gmem                                                                       | csr_vmul.cpp:37 in csr_vmul               |
+| interface       | s_axilite port = out->count bundle = control                                                                                | csr_vmul.cpp:38 in csr_vmul               |
+| interface       | s_axilite port = return bundle = control                                                                                    | csr_vmul.cpp:42 in csr_vmul               |
+| loop_tripcount  | max = MAX_ELEMENTS                                                                                                          | csr_vmul.cpp:49 in csr_vmul               |
+| pipeline        |                                                                                                                             | csr_vmul.cpp:50 in csr_vmul               |
+| loop_tripcount  | max = MAX_ELEMENTS                                                                                                          | csr_vmul.cpp:57 in csr_vmul               |
+| pipeline        |                                                                                                                             | csr_vmul.cpp:58 in csr_vmul               |
+| loop_tripcount  | max = MAX_ELEMENTS                                                                                                          | csr_vmul.cpp:65 in csr_vmul               |
+| pipeline        |                                                                                                                             | csr_vmul.cpp:66 in csr_vmul               |
+| loop_tripcount  | max = MAX_ELEMENTS                                                                                                          | csr_vmul.cpp:73 in csr_vmul               |
+| pipeline        |                                                                                                                             | csr_vmul.cpp:74 in csr_vmul               |
+| loop_tripcount  | max = MAX_ELEMENTS                                                                                                          | csr_vmul.cpp:80 in csr_vmul               |
+| pipeline        |                                                                                                                             | csr_vmul.cpp:81 in csr_vmul               |
+| array_partition | variable=partial_sums complete                                                                                              | csr_vmul.cpp:84 in csr_vmul, partial_sums |
+| loop_tripcount  | max = MAX_ELEMENTS                                                                                                          | csr_vmul.cpp:88 in csr_vmul               |
+| loop_tripcount  | max = MAX_ELEMENTS                                                                                                          | csr_vmul.cpp:92 in csr_vmul               |
+| unroll          | factor = MAX_UNROLL                                                                                                         | csr_vmul.cpp:93 in csr_vmul               |
+| unroll          |                                                                                                                             | csr_vmul.cpp:103 in csr_vmul              |
++-----------------+-----------------------------------------------------------------------------------------------------------------------------+-------------------------------------------+
 
 
